@@ -1,0 +1,4 @@
+baseURL = 'http://alirsabet.com/'
+languageCode = 'en-us'
+title = 'Ali Sabet'
+theme = 'PaperMod'
