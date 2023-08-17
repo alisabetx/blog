@@ -11,7 +11,6 @@ My blog is built using the Hugo static website generator and the PaperMod templa
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [Articles](#articles)
 - [Contact](#contact)
 
 ## Installation
@@ -54,7 +53,7 @@ I appreciate your contributions!
 
 ## Contact
 
-I'd love to hear your feedback and thoughts about my blog. You can reach me via email at hialisabet[@]gmail.com or connect with me on [Twitter](https://twitter.com/hialisabet).
+I'd love to hear your feedback and thoughts about my blog. You can reach me via email at <hialisabet[@]gmail.com>.
 
 Thank you for visiting my blog repository!
 
