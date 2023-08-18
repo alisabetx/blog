@@ -1,7 +1,24 @@
 ---
 title: "گیت (Git)"
 date: 2023-08-01T14:00:00+03:30
+tags: ["گیت", "git"]
+author: "علی ثابت"
+showToc: true
+TocOpen: false
 draft: false
+hidemeta: false
+comments: false
+description: "خلاصه‌ی سریع از مهم‌ترین دستورات گیت"
+disableHLJS: true
+disableShare: false
+disableHLJS: false
+hideSummary: false
+searchHidden: true
+ShowReadingTime: true
+ShowBreadCrumbs: true
+ShowPostNavLinks: true
+ShowRssButtonInSectionTermList: true
+UseHugoToc: true
 ---
 
 این پست با هدف یادآوری نکات مهم گیت (Git) نوشته شده. اگر به دنبال یافتن سریع کامندهای موردنظرتون هستید، [Git Explorer](https://gitexplorer.com/) رو ببینید. از طرفی، همه‌ی IDEهای معروف مثل Visual Studio و محصولات Jetbrains مثل PyCharm، امکانات git رو به شکل گرافیکی و بدون نیاز به نوشتن دستورات، در اختیارتون قرار میدن. بنابراین ممکنه نیازی به نوشتن دستورات نداشته باشید، اما همچنان دانستن مفهوم هر دستور، لازمه. فرض بر اینه که اهمیتِ استفاده از git رو می‌دونیم، می‌ریم سراغ استفاده‌اش. اطلاعات کامل، دقیق و به‌روز رو می‌تونید در [مستندات git](https://git-scm.com/docs) یا [کتاب git](https://git-scm.com/book) که نسخه فارسی هم داره ببینید.
