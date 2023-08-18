@@ -10,7 +10,6 @@ My blog is built using the Hugo static website generator and the PaperMod templa
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
 - [Contact](#contact)
 
 ## Installation
@@ -23,7 +22,9 @@ To run this blog locally, follow these steps:
 
 3. **Navigate to the project folder**: Open a terminal and navigate to the directory where you cloned the repository.
 
-4. **Serve the website**: Run `hugo server -D` to start a local development server.
+4. **Update theme**: `git submodule update --init --recursive`.
+
+5. **Serve the website**: Run `hugo server -D` to start a local development server.
 
 ## Usage
 
@@ -34,22 +35,6 @@ This blog serves as a platform for me to share my thoughts and experiences. I wr
 - And much more...
 
 Feel free to explore the articles, leave comments, and share your thoughts.
-
-## Contributing
-
-I welcome contributions to my blog! If you'd like to contribute an article or suggest improvements, follow these steps:
-
-1. Fork this repository.
-
-2. Create a new branch for your article: `git checkout -b feature/your-article-title`.
-
-3. Write your article using Markdown in the `content` directory.
-
-4. Add any necessary images to the `static/images` directory.
-
-5. Submit a pull request describing your changes.
-
-I appreciate your contributions!
 
 ## Contact
 
