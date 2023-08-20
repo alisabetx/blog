@@ -16,13 +16,15 @@ My blog is built using the Hugo static website generator and the PaperMod templa
 
 To run this blog locally, follow these steps:
 
-1. **Clone the repository**: Start by cloning this repository to your local machine using `git clone https://github.com/hialisabet/blog.git`.
+1. **Clone the repository**: Start by cloning this repository to your local machine using
+`git clone https://github.com/hialisabet/blog.git`
 
 2. **Install Hugo**: Make sure you have Hugo installed. If not, you can download it from [Hugo's official website](https://gohugo.io/getting-started/installing/).
 
 3. **Navigate to the project folder**: Open a terminal and navigate to the directory where you cloned the repository.
 
-4. **Update theme**: `git submodule update --init --recursive`.
+4. **Update theme**:
+`git submodule update --init --recursive`
 
 5. **Serve the website**: Run `hugo server -D` to start a local development server.
 
