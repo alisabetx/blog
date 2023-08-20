@@ -1,4 +1,167 @@
 baseURL = 'http://alirsabet.com/'
-languageCode = 'en-us'
-title = 'Ali Sabet'
+languageCode = 'fa'
+defaultContentLanguage = 'fa'
+title = 'علی ثابت'
+paginate = 5
 theme = 'PaperMod'
+
+enableInlineShortcodes = true
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+enableEmoji = true
+pygmentsUseClasses = true
+
+googleAnalytics = 'XXXXXXXXXX'
+
+[minify]
+disableXML = true
+
+[outputs]
+home = ['HTML', 'RSS', 'JSON']
+
+pygmentsUseClasses = true
+
+[params]
+env = 'production'
+title = 'علی ثابت'
+description = 'یادداشت‌ها'
+keywords = ['علی ثابت', 'ali sabet']
+author = 'علی'
+images = ['XXXXXXXX/YYYYYYYY.png']
+DateFormat = '2006-01-02'
+defaultTheme = 'auto'
+disableThemeToggle = false
+ShowReadingTime = true
+ShowShareButtons = true
+ShowPostNavLinks = true
+ShowBreadCrumbs = true
+ShowCodeCopyButtons = true
+ShowWordCount = false
+ShowRssButtonInSectionTermList = true
+UseHugoToc = false
+disableSpecial1stPost = false
+disableScrollToTop = false
+comments = false
+hidemeta = false
+hideSummary = false
+showtoc = true
+tocopen = true
+
+  [params.assets]
+  disableFingerprinting = true
+  favicon = ''
+  favicon16x16 = ''
+  favicon32x32 = ''
+  apple_touch_icon = ''
+  safari_pinned_tab = ''
+
+  [params.label]
+  text = 'خانه'
+  iconHeight = 35
+
+  [params.profileMode]
+  enabled = false
+  title = 'ExampleSite'
+  subtitle = 'This is subtitle'
+  imageUrl = '<img location>'
+  imageWidth = 120
+  imageHeight = 120
+  imageTitle = 'my image'
+
+    [[params.profileMode.buttons]]
+    name = 'Posts'
+    url = 'posts'
+
+    [[params.profileMode.buttons]]
+    name = 'Tags'
+    url = 'tags'
+
+  [params.homeInfoParams]
+  Title = 'تست عنوان'
+  Content = '''
+تست متنی که احتمالا چند خط باشه
+'''
+
+  [[params.socialIcons]]
+  name = 'linkedin'
+  url = 'https://linkedin.com/in/hialisabet/'
+
+  [[params.socialIcons]]
+  name = 'github'
+  url = 'https://github.com/hialisabet/'
+
+  [[params.socialIcons]]
+  name = 'letterboxd'
+  url = 'https://letterboxd.com/hialisabet/'
+
+  [[params.socialIcons]]
+  name = 'goodreads'
+  url = 'https://goodreads.com/hialisabet/'
+
+  [[params.socialIcons]]
+  name = 'Rss'
+  url = 'index.xml'
+
+[params.analytics.google]
+SiteVerificationTag = 'XXXXXXXXXX'
+
+[params.analytics.bing]
+SiteVerificationTag = 'XXXXXXXXXX'
+
+[params.analytics.yandex]
+SiteVerificationTag = 'XXXXXXXXXX'
+
+  [params.cover]
+  hidden = true
+  hiddenInList = true
+  hiddenInSingle = true
+
+  [params.fuseOpts]
+  isCaseSensitive = false
+  shouldSort = true
+  location = 0
+  distance = 1_000
+  threshold = 0.4
+  minMatchCharLength = 0
+  keys = ['title', 'permalink', 'summary', 'content']
+
+[markup.highlight]
+noClasses = false
+
+[permalinks]
+posts = '/:filename/'
+
+[[menu.main]]
+identifier = 'about'
+name = 'درباره من'
+url = '/about'
+
+[[menu.main]]
+identifier = 'FATags'
+name = 'تگ‌ها'
+url = '/fatags/'
+weight = 20
+
+[[menu.main]]
+identifier = 'archives'
+name = 'آرشیو'
+url = '/archives/'
+weight = 30
+
+[[menu.main]]
+identifier = 'search'
+name = 'جستجو'
+url = '/search/'
+weight = 40
+
+[languages.fa]
+languageName = 'farsi'
+weight = 1
+languagedirection = 'rtl'
+
+  [languages.fa.taxonomies]
+  category = 'categories'
+  tag = 'fatags'
+  series = 'series'
