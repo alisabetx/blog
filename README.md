@@ -16,33 +16,23 @@ My blog is built using the Hugo static website generator and the PaperMod templa
 
 To run this blog locally, follow these steps:
 
-1. **Clone the repository**: Start by cloning this repository to your local machine using
-`git clone https://github.com/hialisabet/blog.git`
+1. **Install Hugo**: Make sure you have Hugo installed. If not, you can download it from [Hugo's official website](https://gohugo.io/getting-started/installing/).
 
-2. **Install Hugo**: Make sure you have Hugo installed. If not, you can download it from [Hugo's official website](https://gohugo.io/getting-started/installing/).
+2. **Clone the repository**: Start by cloning this repository to your local machine using `git clone https://github.com/hialisabet/blog.git`
 
-3. **Navigate to the project folder**: Open a terminal and navigate to the directory where you cloned the repository.
+4. **Navigate to the project folder**: Open a terminal and navigate to the directory where you cloned the repository.
 
-4. **Update theme**:
-`git submodule update --init --recursive`
+5. **Update theme**: `git submodule update --init --recursive`
 
-5. **Serve the website**: Run `hugo server -D` to start a local development server.
+6. **Serve the website**: Run `hugo server -D` to start a local development server.
 
 ## Usage
 
-This blog serves as a platform for me to share my thoughts and experiences. I write articles on various topics, including:
-
-- Technical tutorials and guides
-- Book reviews and recommendations
-- And much more...
-
-Feel free to explore the articles, leave comments, and share your thoughts.
+This blog serves as a platform for me to share my thoughts and experiences. Feel free to explore the articles, leave comments, and share your thoughts.
 
 ## Contact
 
-I'd love to hear your feedback and thoughts about my blog. You can reach me via email at <hialisabet[@]gmail.com>.
-
-Thank you for visiting my blog repository!
+I'd love to hear your feedback and thoughts about my blog. You can reach me via email at <hialisabet[@]gmail.com>. Thank you for visiting my blog repository!
 
 ---
 
