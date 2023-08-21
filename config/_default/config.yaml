@@ -1,0 +1,30 @@
+baseURL: https://alirsabet.com/
+title: Ali Sabet
+
+defaultContentLanguageInSubdir: true
+defaultContentLanguage: fa
+languageCode: fa
+languageName: فارسی
+
+theme: PaperMod
+
+paginate: 10
+
+googleAnalytics: G-XXXXXXXXX
+
+enableRobotsTXT: true
+
+disqusShortname: alirsabet
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+outputs:
+  home:
+    - HTML
+    - RSS
+
+permalinks:
+  posts: /posts/:year/:month/:slug/
+  pages: /:slug/

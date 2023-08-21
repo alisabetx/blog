@@ -1,0 +1,17 @@
+main:
+  - weight: 1
+    identifier: posts
+    name: نوشته‌ها
+    url: /
+  - weight: 3
+    identifier: about
+    name: درباره‌ی من
+    url: /about/
+  - weight: 4
+    identifier: tags
+    name: تگ‌ها
+    url: /tags/
+  - weight: 5
+    identifier: archives
+    name: آرشیو
+    url: /archives/

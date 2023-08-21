@@ -1,0 +1,10 @@
+fa:
+  weight: 1
+  languageName: فارسی
+  languagedirection: rtl
+  title: علی ثابت
+en:
+  weight: 2
+  languageName: English
+  languagedirection: ltr
+  title: Ali Sabet
