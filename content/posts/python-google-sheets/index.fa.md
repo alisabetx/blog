@@ -50,9 +50,9 @@ import gspread
 
 credentials = {
   "type": "service_account",
-  "project_id": "glass-amplifier-392314",
-  "private_key_id": "d5eec55c1dc44ec56a8d2627d5bc8397bf030db5",
-  "private_key": "-----BEGIN PRIVATE KEY-----\XXXX\n-----END PRIVATE KEY-----\n",
+  "project_id": "XXXXXXXXXX",
+  "private_key_id": "XXXXXXXXXX",
+  "private_key": "-----BEGIN PRIVATE KEY-----\XXXXXXXXXX\n-----END PRIVATE KEY-----\n",
   "client_email": "aaa-965@glass-amplifier-392314.iam.gserviceaccount.com",
   "client_id": "100929656955613337657",
   "auth_uri": "https://accounts.google.com/o/oauth2/auth",
