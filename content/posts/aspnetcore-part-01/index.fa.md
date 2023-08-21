@@ -1,5 +1,6 @@
 ---
 title: "aspnet core (قسمت یک)"
+slug: "aspnet-core-part-01"
 date: 2023-08-20T14:00:00+03:30
 lastmod: 2023-08-20T14:00:00+03:30
 tags: ["asp.net core"]
@@ -45,13 +46,19 @@ middlewareها، اجزایی هستند که در مسیر (pipeline) برنا�
 
 middlewareها رو به دو روش میشه ساخت، نوشتن به صورت request delegate (استفاده از lambda expressionها (برای کارهای ساده)) یا نوشتن class (برای کارهای پیچیده). برای تعریف middlewareهای نوعِ non-terminating از متد Use و برای تعریف middleware نوعِ terminating از متد Run استفاده می‌کنیم. پارامتر context که در هر دو متد وجود داره، اطلاعات request رو در خودش داره. پارامتر next در واقع delegate بعدی در مسیر رو معرفی می‌کنه (اگر next رو در بدنه‌ی middleware صدا نزنیم، عملا اون رو به middleware نوعِ terminating تبدیل کرده‌ایم).
 
-![middleware use](https://alirsabet.com/wp-content/uploads/2023/08/middleware-use-300x119.png)
+```csharp
+app.Use(async (HttpContext context, RequestDelegate next) {
+  //before logic 
+  await next(context);
+  //after logic
+});
+```
 
-{{< figure src="./images/YYYYYYYYYYYYYYYYYYY.png" alt="XXXXXXXXXXXXXXXXXXX" >}}
-
-![middleware run](https://alirsabet.com/wp-content/uploads/2023/08/middleware-run-300x93.png)
-
-{{< figure src="./images/YYYYYYYYYYYYYYYYYYY.png" alt="XXXXXXXXXXXXXXXXXXX" >}}
+```csharp
+app.Run(async (Httpcontext context) => {
+  //code
+});
+```
 
 middlewareها به شکل زنجیره‌ای و یکی پس از دیگری و به صورت رفت و برگشتی کار می‌کنند. به همین دلیل در تصویر بالا before logic و after logic داریم. در مسیرِ رفت (از client به server)، before logic اجرا میشه و در مسیرِ برگشت (از server به client)، after logic اجرا میشه. این موضوع در کد زیر و خروجی اون قابل مشاهده‌ست.
 

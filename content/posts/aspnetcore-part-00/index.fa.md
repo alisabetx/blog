@@ -1,5 +1,6 @@
 ---
 title: "aspnet core (قسمت صفر)"
+slug: "aspnet-core-part-00"
 date: 2023-08-10T14:00:00+03:30
 lastmod: 2023-08-10T14:00:00+03:30
 tags: ["asp.net core"]

@@ -1,5 +1,6 @@
 ---
 title: "کار با google sheets در پایتون"
+slug: "python-google-sheets"
 date: 2023-06-08T14:00:00+03:30
 lastmod: 2023-06-08T14:00:00+03:30
 tags: ["پایتون", "گوگل شیت", "python", "google sheets"]
