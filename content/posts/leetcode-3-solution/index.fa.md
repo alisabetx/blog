@@ -3,13 +3,13 @@ title: "حل سوال 3 لیت‌کد"
 slug: "leetcode-3-solution"
 date: 2023-07-19T14:00:00+03:30
 lastmod: 2023-07-19T14:00:00+03:30
-tags: ["leetcode", "لیتکد", "حل سوال 3 لیت‌کد"]
+tags: ["leetcode", "لیتکد", "حل سوال 3 لیت‌کد", "longest substring without repeating characters"]
 author: "علی ثابت"
 draft: false
 comments: true
-description: "حل سوال 3 لیت‌کد"
+description: "در این پست سوال 3 لیت‌کد (longest substring without repeating characters) رو حل می‌کنیم"
 ---
-برای دسترسی به سوال 3 لیت‌کد (Longest Substring Without Repeating Characters) میتونید از این [لینک](https://leetcode.com/problems/longest-substring-without-repeating-characters/) استفاده کنید. سطح این سوال Medium است.
+برای دسترسی به سوال 3 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/longest-substring-without-repeating-characters/) استفاده کنید. سطح این سوال Medium است.
 
 ![leetcode 3](https://alirsabet.com/wp-content/uploads/2023/07/leetcode-3-300x300.png)
 

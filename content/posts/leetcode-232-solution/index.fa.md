@@ -3,13 +3,13 @@ title: "حل سوال 232 لیت‌کد"
 slug: "leetcode-232-solution"
 date: 2023-07-09T14:00:00+03:30
 lastmod: 2023-07-09T14:00:00+03:30
-tags: ["leetcode", "لیتکد", "حل سوال 232 لیت‌کد"]
+tags: ["leetcode", "لیتکد", "حل سوال 232 لیت‌کد", "implement queue using stacks"]
 author: "علی ثابت"
 draft: false
 comments: true
-description: "حل سوال 232 لیت‌کد"
+description: "در این پست سوال 232 لیت‌کد (implement queue using stacks) رو حل می‌کنیم"
 ---
-برای دسترسی به سوال 232 لیت‌کد (Implement Queue using Stacks) میتونید از این [لینک](https://leetcode.com/problems/implement-queue-using-stacks/) استفاده کنید. سطح این سوال Easy است.
+برای دسترسی به سوال 232 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/implement-queue-using-stacks/) استفاده کنید. سطح این سوال Easy است.
 
 ![leetcode 232](https://alirsabet.com/wp-content/uploads/2023/07/leetcode-232-300x300.jpg)
 

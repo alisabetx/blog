@@ -3,13 +3,13 @@ title: "حل سوال 844 لیت‌کد"
 slug: "leetcode-844-solution"
 date: 2023-07-03T14:00:00+03:30
 lastmod: 2023-07-03T14:00:00+03:30
-tags: ["leetcode", "لیتکد", "حل سوال 844 لیت‌کد"]
+tags: ["leetcode", "لیتکد", "حل سوال 844 لیت‌کد", "backspace string compare"]
 author: "علی ثابت"
 draft: false
 comments: true
-description: "حل سوال 844 لیت‌کد"
+description: "در این پست سوال 844 لیت‌کد (backspace string compare) رو حل می‌کنیم"
 ---
-برای دسترسی به سوال 844 لیت‌کد (Backspace String Compare) میتونید از این [لینک](https://leetcode.com/problems/backspace-string-compare/) استفاده کنید. سطح این سوال Easy است.
+برای دسترسی به سوال 844 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/backspace-string-compare/) استفاده کنید. سطح این سوال Easy است.
 
 ![leetcode 844](https://alirsabet.com/wp-content/uploads/2023/07/leetcode-844-300x300.jpg)
 

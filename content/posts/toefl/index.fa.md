@@ -7,7 +7,7 @@ tags: ["تافل", "toefl"]
 author: "علی ثابت"
 draft: false
 comments: true
-description: "تجربه‌های تافل"
+description: "تجربه‌ها، منابع و نکات مهمِ تافل"
 ---
 تافل چیه؟
 ---------

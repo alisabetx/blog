@@ -7,7 +7,7 @@ tags: ["asp.net core"]
 author: "علی ثابت"
 draft: false
 comments: true
-description: "آموزش asp.net core"
+description: "مقدمه‌ای از asp.net core و آمادگی برای شروع دوره"
 ---
 سرور
 ----

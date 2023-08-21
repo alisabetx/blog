@@ -3,13 +3,13 @@ title: "حل سوال 1 لیت‌کد"
 slug: "leetcode-1-solution"
 date: 2023-07-21T14:00:00+03:30
 lastmod: 2023-07-21T14:00:00+03:30
-tags: ["leetcode", "لیتکد", "حل سوال 1 لیت‌کد"]
+tags: ["leetcode", "لیتکد", "حل سوال 1 لیت‌کد", "two sum"]
 author: "علی ثابت"
 draft: false
 comments: true
-description: "حل سوال 1 لیت‌کد"
+description: "در این پست سوال 1 لیت‌کد (two sum) رو حل می‌کنیم"
 ---
-برای دسترسی به سوال 1 لیت‌کد (Two Sum) میتونید از این [لینک](https://leetcode.com/problems/two-sum/) استفاده کنید. سطح این سوال Easy است.
+برای دسترسی به سوال 1 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/two-sum/) استفاده کنید. سطح این سوال Easy است.
 
 ![leetcode 1](https://alirsabet.com/wp-content/uploads/2023/07/leetcode-1-300x300.jpg)
 
