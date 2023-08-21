@@ -6,10 +6,9 @@ lastmod: 2023-07-21T14:00:00+03:30
 tags: ["leetcode", "لیتکد", "حل سوال 1 لیت‌کد"]
 author: "علی ثابت"
 draft: false
-comments: false
+comments: true
 description: "حل سوال 1 لیت‌کد"
 ---
-
 برای دسترسی به سوال 1 لیت‌کد (Two Sum) میتونید از این [لینک](https://leetcode.com/problems/two-sum/) استفاده کنید. سطح این سوال Easy است.
 
 ![leetcode 1](https://alirsabet.com/wp-content/uploads/2023/07/leetcode-1-300x300.jpg)

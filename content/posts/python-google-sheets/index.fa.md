@@ -6,12 +6,9 @@ lastmod: 2023-06-08T14:00:00+03:30
 tags: ["پایتون", "گوگل شیت", "python", "google sheets"]
 author: "علی ثابت"
 draft: false
-comments: false
-description: "کار با google sheets در پایتون"
+comments: true
+description: "در این پست، سعی می‌کنیم پایتون رو به Google Sheets وصل کنیم و باهاش یک پروژه ساده بسازیم."
 ---
-
-در این پست، سعی می‌کنیم پایتون رو به Google Sheets وصل کنیم و باهاش یک پروژه ساده بسازیم. ![python google sheets](https://alirsabet.com/wp-content/uploads/2023/07/python-google-sheets-300x300.jpg)
-
 آشنایی با Google Sheets
 -----------------------
 
@@ -36,7 +33,7 @@ description: "کار با google sheets در پایتون"
 
 در فیلد service account name یک نام برای سرویس انتخاب می‌کنیم، فیلد بعدی، ID رو خودکار تولید خواهد کرد، در service account description هم توضیحی برای سرویسمون می‌نویسیم. create and continue رو می‌زنیم تا وارد مرحله‌ی بعد بشیم. در مرحله‌ی بعد، سطح دسترسی این service account به پروژه رو مشخص می‌کنیم. برای پروژه فعلی دسترسی رو روی owner یا editor می‌ذاریم. با زدن continue به مرحله بعد می‌ریم که میشه دسترسی سایر افراد به service account رو مشخص کرد. اگر قرار نیست شخص دیگه‌ای به service account دسترسی داشته باشه، با انتخاب done مراحل رو به اتمام می‌رسونیم. service account ساخته شده، آدرس ایمیلی که در تصویر میبینید رو در مراحل بعد نیاز خواهیم داشت. service accountای که ساختیم رو انتخاب می‌کنیم، در تب keys، گزینه add key و سپس create new key رو انتخاب می‌کنیم. نوع کلید رو روی json میذاریم و سپس create. فایلی با پسوند json  دانلود میشه.
 
-![python google sheet create credential](https://alirsabet.com/wp-content/uploads/2023/07/python-google-sheet-create-credential-1024x430.jpg)
+{{< figure src="./images/python-google-sheet-create-credential.jpg" alt="python google sheet create credential" >}}
 
 ساخت Spreadsheet
 ----------------
@@ -46,9 +43,36 @@ description: "کار با google sheets در پایتون"
 ساخت پروژه‌ی پایتون
 -------------------
 
-پروژه پایتون رو در محیط مدنظرمون (مثلا PyCharm) می‌سازیم. برای کار با گوگل شیت در پایتون، چند پکیج وجود دارن که در این پروژه از [gspread](https://docs.gspread.org/) استفاده خواهیم کرد. کد رو میتونید از [اینجا](https://gist.github.com/hialisabet/8061e4ed077e1c349737f56b507a879b) کپی کنید.
+پروژه پایتون رو در محیط مدنظرمون (مثلا PyCharm) می‌سازیم. برای کار با گوگل شیت در پایتون، چند پکیج وجود دارن که در این پروژه از [gspread](https://docs.gspread.org/) استفاده خواهیم کرد.
 
-![gspread init](https://alirsabet.com/wp-content/uploads/2023/07/gspread-init-300x236.png)
+```js
+import gspread
+
+credentials = {
+  "type": "service_account",
+  "project_id": "glass-amplifier-392314",
+  "private_key_id": "d5eec55c1dc44ec56a8d2627d5bc8397bf030db5",
+  "private_key": "-----BEGIN PRIVATE KEY-----\XXXX\n-----END PRIVATE KEY-----\n",
+  "client_email": "aaa-965@glass-amplifier-392314.iam.gserviceaccount.com",
+  "client_id": "100929656955613337657",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/aaa-965%40glass-amplifier-392314.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
+
+gc = gspread.service_account_from_dict(credentials)
+
+sh = gc.open("PySheet")
+
+worksheet = sh.worksheet("SampleSheet")
+
+worksheet.update('A1', 'XXX')
+
+val = worksheet.acell('A1').value
+print(val)
+```
 
 متغیر credentials محتوای فایل jsonای که دانلود کرده بودیم رو در خودش داره. اون فایل json رو باز کنید (مثلا با notepad) و محتواش رو کپی کنید و در کد بالا قرار بدید. \[🚩 این روشِ استفاده از اطلاعات احراز هویت امن نیست، صرفا برای ساده‌تر بودن ازش استفاده شده، از روش‌هایی در که در داکیومنت gspread گفته شده استفاده کنید\]
 

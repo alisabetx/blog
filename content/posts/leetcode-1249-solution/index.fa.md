@@ -6,10 +6,9 @@ lastmod: 2023-07-01T14:00:00+03:30
 tags: ["leetcode", "لیتکد", "حل سوال 1249 لیت‌کد"]
 author: "علی ثابت"
 draft: false
-comments: false
+comments: true
 description: "حل سوال 1249 لیت‌کد"
 ---
-
 برای دسترسی به سوال 1249 لیت‌کد (minimum remove to make valid parentheses) میتونید از این [لینک](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/) استفاده کنید. سطح این سوال Medium است.
 
 ![leetcode 1249](https://alirsabet.com/wp-content/uploads/2023/07/leetcode-1249-300x300.jpg)

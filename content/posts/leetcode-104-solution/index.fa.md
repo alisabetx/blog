@@ -6,10 +6,9 @@ lastmod: 2023-07-13T14:00:00+03:30
 tags: ["leetcode", "لیتکد", "حل سوال 104 لیت‌کد"]
 author: "علی ثابت"
 draft: false
-comments: false
+comments: true
 description: "حل سوال 104 لیت‌کد"
 ---
-
 برای دسترسی به سوال 104 لیت‌کد (Maximum Depth of Binary Tree) میتونید از این [لینک](https://leetcode.com/problems/maximum-depth-of-binary-tree/) استفاده کنید. سطح این سوال Easy است.
 
 ![leetcode 104](https://alirsabet.com/wp-content/uploads/2023/07/leetcode-104-300x300.jpg)

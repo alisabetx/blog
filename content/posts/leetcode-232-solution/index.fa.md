@@ -6,10 +6,9 @@ lastmod: 2023-07-09T14:00:00+03:30
 tags: ["leetcode", "لیتکد", "حل سوال 232 لیت‌کد"]
 author: "علی ثابت"
 draft: false
-comments: false
+comments: true
 description: "حل سوال 232 لیت‌کد"
 ---
-
 برای دسترسی به سوال 232 لیت‌کد (Implement Queue using Stacks) میتونید از این [لینک](https://leetcode.com/problems/implement-queue-using-stacks/) استفاده کنید. سطح این سوال Easy است.
 
 ![leetcode 232](https://alirsabet.com/wp-content/uploads/2023/07/leetcode-232-300x300.jpg)

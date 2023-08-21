@@ -6,7 +6,7 @@ lastmod: 2023-08-20T14:00:00+03:30
 tags: ["asp.net core"]
 author: "علی ثابت"
 draft: false
-comments: false
+comments: true
 description: "آموزش asp.net core"
 ---
 سرور
@@ -62,13 +62,38 @@ app.Run(async (Httpcontext context) => {
 
 middlewareها به شکل زنجیره‌ای و یکی پس از دیگری و به صورت رفت و برگشتی کار می‌کنند. به همین دلیل در تصویر بالا before logic و after logic داریم. در مسیرِ رفت (از client به server)، before logic اجرا میشه و در مسیرِ برگشت (از server به client)، after logic اجرا میشه. این موضوع در کد زیر و خروجی اون قابل مشاهده‌ست.
 
-![Middleware before after logic](https://alirsabet.com/wp-content/uploads/2023/08/Middleware-befor-after-logic-300x268.png)
+```csharp
+app.Use(async(context, next) =>
+{
+  await context.Response.WriteAsync("Hello first middleware\r\n");
+  await next(context);
+  await context.Response.WriteAsync("Bye first middleware\r\n");
+});
 
-![Middleware test](https://alirsabet.com/wp-content/uploads/2023/08/Middleware-test-300x132.png)
+app.Use(async(context, next) =>
+{
+  await context.Response.WriteAsync("Hello second middleware\r\n");
+  await next(context);
+  await context.Response.WriteAsync("Bye second middleware\r\n");
+});
 
-{{< figure src="./images/YYYYYYYYYYYYYYYYYYY.png" alt="XXXXXXXXXXXXXXXXXXX" >}}
+app.Run(async context =>
+{
+  await context.Response.WriteAsync("Hello third middleware\r\n");
+  await context.Response.WriteAsync("Hello run\r\n");
+  await context.Response.WriteAsync("Bye run\r\n");
+});
+```
 
-{{< figure src="./images/YYYYYYYYYYYYYYYYYYY.png" alt="XXXXXXXXXXXXXXXXXXX" >}}
+```text
+Hello first middleware
+Hello second middleware
+Hello third middleware
+Hello run
+Bye run
+Bye second middleware
+Bye first middleware 
+```
 
 علاوه بر متد Use که برای میدلورهای نوعِ non-terminating و متد Run که برای میدلورهای terminating استفاده می‌شه، متدهای دیگری هم داریم. متدی به نام UseWhen وجود داره که حالت شرطی داره، یعنی شرایطی رو بررسی می‌کنه و اگر اون شرایط برقرار بود، شاخه جدیدی در pipeline ایجاد می‌کنه و البته دوباره به pipeline برمی‌گرده.
 

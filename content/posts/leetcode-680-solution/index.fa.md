@@ -6,10 +6,9 @@ lastmod: 2023-07-07T14:00:00+03:30
 tags: ["leetcode", "لیتکد", "حل سوال 680 لیت‌کد"]
 author: "علی ثابت"
 draft: false
-comments: false
+comments: true
 description: "حل سوال 680 لیت‌کد"
 ---
-
 برای دسترسی به سوال 680 لیت‌کد (valid palindrome ii) میتونید از این [لینک](https://leetcode.com/problems/valid-palindrome-ii/) استفاده کنید. سطح این سوال Easy است.
 
 ![leetcode 680](https://alirsabet.com/wp-content/uploads/2023/07/leetcode-680-300x300.jpg)

@@ -6,10 +6,9 @@ lastmod: 2023-07-15T14:00:00+03:30
 tags: ["leetcode", "لیتکد", "حل سوال 20 لیت‌کد"]
 author: "علی ثابت"
 draft: false
-comments: false
+comments: true
 description: "حل سوال 20 لیت‌کد"
 ---
-
 برای دسترسی به سوال 20 لیت‌کد (valid parentheses) میتونید از این [لینک](https://leetcode.com/problems/valid-parentheses/) استفاده کنید. سطح این سوال Easy است.
 
 ![leetcode 20](https://alirsabet.com/wp-content/uploads/2023/07/leetcode-20-300x300.jpg)
