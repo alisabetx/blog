@@ -6,7 +6,9 @@ author: Ali Sabet
 rssFullContent: true
 
 ShowReadingTime: true
-ShowShareButtons: false
+ShowShareButtons: true
+ShareButtons: ["linkedin", "twitter", "whatsapp", "telegram"]
+ShowToc: true
 comments: false
 defaultTheme: auto
 disableSpecial1stPost: true

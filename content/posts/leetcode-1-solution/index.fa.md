@@ -7,6 +7,7 @@ tags: ["leetcode", "لیتکد", "حل سوال 1 لیت‌کد", "two sum"]
 author: "علی ثابت"
 draft: false
 comments: false
+ShowToc: true
 description: "در این پست سوال 1 لیت‌کد (two sum) رو حل می‌کنیم"
 ---
 برای دسترسی به سوال 1 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/two-sum/) استفاده کنید. سطح این سوال Easy است.

@@ -7,6 +7,7 @@ tags: ["leetcode", "لیتکد", "حل سوال 3 لیت‌کد", "longest subst
 author: "علی ثابت"
 draft: false
 comments: false
+ShowToc: true
 description: "در این پست سوال 3 لیت‌کد (longest substring without repeating characters) رو حل می‌کنیم"
 ---
 برای دسترسی به سوال 3 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/longest-substring-without-repeating-characters/) استفاده کنید. سطح این سوال Medium است.

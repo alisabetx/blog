@@ -7,6 +7,7 @@ tags: ["leetcode", "لیتکد", "حل سوال 232 لیت‌کد", "implement q
 author: "علی ثابت"
 draft: false
 comments: false
+ShowToc: true
 description: "در این پست سوال 232 لیت‌کد (implement queue using stacks) رو حل می‌کنیم"
 ---
 برای دسترسی به سوال 232 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/implement-queue-using-stacks/) استفاده کنید. سطح این سوال Easy است.

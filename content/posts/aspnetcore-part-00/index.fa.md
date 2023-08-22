@@ -7,6 +7,7 @@ tags: ["asp.net core"]
 author: "علی ثابت"
 draft: false
 comments: false
+ShowToc: true
 description: "آموزش asp.net core"
 ---
 این پست با هدف نظم دادن به چیزهایی که در مورد ASP.NET Core یاد گرفته‌ام نوشته شده. اگر مطالب علوم کامپیوتر و زبان csharp رو در حد مقدماتی بلد باشید، می‌تونید ازش به عنوان منبع آموزشی برای ASP.NET Core استفاده کنید.

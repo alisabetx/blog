@@ -7,6 +7,7 @@ tags: ["leetcode", "لیتکد", "حل سوال 844 لیت‌کد", "backspace s
 author: "علی ثابت"
 draft: false
 comments: false
+ShowToc: true
 description: "در این پست سوال 844 لیت‌کد (backspace string compare) رو حل می‌کنیم"
 ---
 برای دسترسی به سوال 844 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/backspace-string-compare/) استفاده کنید. سطح این سوال Easy است.

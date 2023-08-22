@@ -7,6 +7,7 @@ tags: ["leetcode", "لیتکد", "حل سوال 20 لیت‌کد", "valid parent
 author: "علی ثابت"
 draft: false
 comments: false
+ShowToc: true
 description: "در این پست سوال 20 لیت‌کد (valid parentheses) رو حل می‌کنیم"
 ---
 برای دسترسی به سوال 20 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/valid-parentheses/) استفاده کنید. سطح این سوال Easy است.

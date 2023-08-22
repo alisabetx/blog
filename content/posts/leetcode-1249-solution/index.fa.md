@@ -7,6 +7,7 @@ tags: ["leetcode", "لیتکد", "حل سوال 1249 لیت‌کد", "minimum re
 author: "علی ثابت"
 draft: false
 comments: false
+ShowToc: true
 description: "در این پست سوال 1249 لیت‌کد (minimum remove to make valid parentheses) رو حل می‌کنیم"
 ---
 برای دسترسی به سوال 1249 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/) استفاده کنید. سطح این سوال Medium است.
@@ -74,7 +75,37 @@ a)bc(d)
 
 برای پیاده‌سازی، بهتره string ورودی رو به آرایه تبدیل کنیم، روی آرایه کار کنیم و در نهایت آرایه رو به string تبدیل کنیم و جواب رو برگردونیم. چرا؟ چون در جایی که نیاز به حذفِ درجایِ کاراکتر داریم (در حالتی که Stack خالیه و کاراکتر پرانتزِ بسته دیده‌ایم)، کار با آرایه راحت‌تر از stringه.
 
-![leetcode 1249 solution](https://alirsabet.com/wp-content/uploads/2023/07/leetcode-1249-solution-1-300x273.png)
+```csharp
+public string MinRemoveToMakeValid(string str) 
+{
+    char[] res = str.ToCharArray();
+    Stack < int > stack = Stack < int > ();
+
+    for (int i = 0; i < res.Length; i++) {
+      // When I see an open bracket 
+      if (res[i] == '(') {
+        stack.Push(i);
+      }
+
+      // When I see an a close bracket and stack is not empty
+      else if (res[i] == ')' && stack.Count > 0) {
+        stack.Pop();
+      }
+
+      // When I see an a close bracket and stack is empty 
+      else if (res[i] == ')') {
+        res[i] = '\0'; // Replace '). with null character to mark for removal
+      }
+
+      while (stack.Count > 0) {
+        int curldx = stack.Pop();
+        res[curldx] = '\0'; // Replace remaining '(' with null character 
+      }
+
+      // Convert char array to string and remove null characters
+      return new string(res).Replace("\O", ""); 
+    }
+```
 
 پیچیدگی زمانی و حافظه‌ای
 ------------------------

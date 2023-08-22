@@ -7,6 +7,7 @@ tags: ["leetcode", "لیتکد", "حل سوال 680 لیت‌کد", "valid palin
 author: "علی ثابت"
 draft: false
 comments: false
+ShowToc: true
 description: "در این پست سوال 680 لیت‌کد (valid palindrome ii) رو حل می‌کنیم"
 ---
 برای دسترسی به سوال 680 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/valid-palindrome-ii/) استفاده کنید. سطح این سوال Easy است.

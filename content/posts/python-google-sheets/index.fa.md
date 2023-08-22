@@ -7,6 +7,7 @@ tags: ["پایتون", "گوگل شیت", "python", "google sheets"]
 author: "علی ثابت"
 draft: false
 comments: false
+ShowToc: true
 description: "در این پست، سعی می‌کنیم پایتون رو به Google Sheets وصل کنیم و باهاش یک پروژه ساده بسازیم"
 ---
 آشنایی با Google Sheets
@@ -33,7 +34,7 @@ description: "در این پست، سعی می‌کنیم پایتون رو به
 
 در فیلد service account name یک نام برای سرویس انتخاب می‌کنیم، فیلد بعدی، ID رو خودکار تولید خواهد کرد، در service account description هم توضیحی برای سرویسمون می‌نویسیم. create and continue رو می‌زنیم تا وارد مرحله‌ی بعد بشیم. در مرحله‌ی بعد، سطح دسترسی این service account به پروژه رو مشخص می‌کنیم. برای پروژه فعلی دسترسی رو روی owner یا editor می‌ذاریم. با زدن continue به مرحله بعد می‌ریم که میشه دسترسی سایر افراد به service account رو مشخص کرد. اگر قرار نیست شخص دیگه‌ای به service account دسترسی داشته باشه، با انتخاب done مراحل رو به اتمام می‌رسونیم. service account ساخته شده، آدرس ایمیلی که در تصویر میبینید رو در مراحل بعد نیاز خواهیم داشت. service accountای که ساختیم رو انتخاب می‌کنیم، در تب keys، گزینه add key و سپس create new key رو انتخاب می‌کنیم. نوع کلید رو روی json میذاریم و سپس create. فایلی با پسوند json  دانلود میشه.
 
-{{< figure src="./images/python-google-sheet-create-credential.jpg" alt="python google sheet create credential" >}}
+![python google sheet create credential](./images/python-google-sheet-create-credential.jpg#center)
 
 ساخت Spreadsheet
 ----------------
