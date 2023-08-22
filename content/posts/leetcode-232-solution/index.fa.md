@@ -12,8 +12,6 @@ description: "در این پست سوال 232 لیت‌کد (implement queue usi
 ---
 برای دسترسی به سوال 232 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/implement-queue-using-stacks/) استفاده کنید. سطح این سوال Easy است.
 
-![leetcode 232](https://alirsabet.com/wp-content/uploads/2023/07/leetcode-232-300x300.jpg)
-
 شرایط مسئله
 -----------
 
@@ -40,7 +38,10 @@ description: "در این پست سوال 232 لیت‌کد (implement queue usi
 
 در زمان درج، تفاوتی مشاهده نمی‌شود. مقادیر به همان ترتیب 1 و 2 و 3 و 4 و 5 وارد Stack و Queue می‌شوند.
 
-![stack-queue-insert](https://alirsabet.com/wp-content/uploads/2023/07/stack-queue-insert-300x69.png)
+```txt
+Queue = [1, 2, 3, 4, 5]
+Stack = [1, 2, 3, 4, 5]
+```
 
 ### پیاده‌سازی dequeue
 
@@ -48,7 +49,14 @@ description: "در این پست سوال 232 لیت‌کد (implement queue usi
 
 اما اگر Stack را وارونه (reverse) کنیم چه؟ در این حالت شبیه Queue می‌شود و عناصر به ترتیبِ 1، سپس 2، بعد 3 و 4 و 5 خارج می‌شوند. پس راهِ اینکه بتونیم Queue رو به کمک Stack بنویسیم، اینه که Stack وارونه بشه. یعنی بیایم عناصرِ StackOne رو pop کنیم و به ترتیب، وارد StackTwo کنیم. همانطور که در شکل زیر مشخص است. در واقع خروجیِ StackTwo، شبیه Queue خواهد بود.
 
-![stack-queue-poppop](https://alirsabet.com/wp-content/uploads/2023/07/stack-queue-poppop-300x119.png)
+```txt
+Queue = [1, 2, 3, 4, 5]
+When pop Queue = 1, 2, 3, 4, 5
+stackOne = [1, 2, 3, 4, 5]
+When pop stackOne = 5, 4, 3, 2, 1
+stackTwo = [5, 4, 3, 2, 1]
+When pop stackOne = 1, 2, 3, 4, 5
+```
 
 این سناریو رو در نظر بگیرید. اعداد 1 و 2 و 3 و 4 و 5 داخل Queue هستن. خواسته‌ی سوال رو پیاده کرده‌ایم و به کمک دو Stack، خروجی مورد نظر رو (در StackTwo) به دست آورده‌ایم. حالا تصمیم می‌گیریم دو عدد خارج کنیم، دو عدد دیگه وارد کنیم و سپس سه عدد خارج کنیم. در پایان هم دو عدد باقی‌مانده رو خارج کنیم.
 
@@ -58,16 +66,68 @@ description: "در این پست سوال 232 لیت‌کد (implement queue usi
 
 در مرحله‌ی آخر، اعداد 6 و 7 رو از Queue خارج می‌کنیم. StackOne به شکل \[6,7\] و StackTwo خالی است. با StackTwo که نمیشه کار کرد، اگه بخواهیم از StackOne هم pop کنیم، نتیجه برعکسِ Queue خواهد بود. پس همون کاری رو انجام می‌دیم که ابتدا انجام دادیم، عناصر درون StackOne رو pop می‌کنیم و وارد StackTwo می‌کنیم و از StackTwo خارج می‌کنیم. در واقع هر وقت StackTwo خالی شد، عناصرِ درونِ StackOne رو pop می‌کنیم و وارد StackTwo می‌کنیم.
 
-![stack-queue-methods](https://alirsabet.com/wp-content/uploads/2023/07/stack-queue-methods-300x288.png)
+```txt
+Queue = [1, 2, 3, 4, 5]
+(Temp) StackOne = [1, 2, 3, 4, 5]
+stackTwo = [5, 4, 3, 2, 1]
+----------------Step1----------------
+Queue = [_, _, 3, 4, 5] -> 1, 2
+StackOne = []
+stackTwo = [5, 4, 3,_ ,_] -> 1, 2
+----------------Step2----------------
+Queue = [_, _, _, 6, 7] -> 3, 4, 5
+StackOne = [6, 7]
+stackTwo = [_,_,_] -> 3,4,5
+----------------Step3----------------
+Queue = [6,7]
+StackOne = [6,7]
+stackTwo = []
+----------------Step4----------------
+Queue = [6, 7] -> 6, 7
+StackOne = []
+stackTwo = [7, 6] -> 6, 7
+```
 
 تبدیل راه حل به کد
 ------------------
 
-![leetcode-232-solution](https://alirsabet.com/wp-content/uploads/2023/07/leetcode-232-solution-136x300.png)
+```csharp
+using System.Collections.Generic;
+public class QueueWithStacks <T> 
+{
 
-پیچیدگی زمانی و حافظه‌ای
-------------------------
+    private Stack <T> inStack;
+    private Stack <T> outStack;
 
-در این مرحله به بررسی پیچیدگی زمانی و حافظه ای راه حل می‌پردازیم. یعنی تحلیل می‌کنیم که بین زمان اجرای الگوریتم و حافظه مصرفی آن، چه رابطه ای با اندازه ورودی الگوریتم وجود دارد.
+    public QueueWithStacks() {
+      inStack = new Stack <T>();
+      outStack = new Stack <T>();
+    }
 
-\[table id=4 /\]
+    public void Enqueue(T val) {
+      inStack.Push(val);
+    }
+
+    public T Dequeue(T val) {
+      if (outStack.Count == 0) {
+        while (inStack.Count > 0) {
+          outStack.Push(inStack.Pop());
+        }
+      }
+      return outStack.Pop();
+    }
+
+    public T Peek() {
+      if (outStack.Count == 0) {
+        while (inStack.Count > 0) {
+          outStack.Push(inStack.Pop());
+        }
+      }
+      return outStack.Peek();
+    }
+
+    public bool Empty() {
+      return inStack.Count == 0 && outStack.Count == 0;
+    }
+}
+```

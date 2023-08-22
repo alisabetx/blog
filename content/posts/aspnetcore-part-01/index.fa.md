@@ -1,5 +1,5 @@
 ---
-title: "aspnet core (قسمت یک)"
+title: "asp dotnet core (قسمت یک)"
 slug: "aspnet-core-part-01"
 date: 2023-08-20T14:00:00+03:30
 lastmod: 2023-08-20T14:00:00+03:30
@@ -8,7 +8,7 @@ author: "علی ثابت"
 draft: false
 comments: false
 ShowToc: true
-description: "مقدمه‌ای از asp.net core و آمادگی برای شروع دوره"
+description: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 ---
 سرور
 ----

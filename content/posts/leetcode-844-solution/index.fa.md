@@ -60,7 +60,36 @@ output = false
 تبدیل راه حل به کد
 ------------------
 
-![leetcode 844 brute force solution](https://alirsabet.com/wp-content/uploads/2023/07/leetcode-844-brute-force-solution-174x300.png)
+```csharp
+public bool BackspaceCompare(string S, string T) {
+  List < char > finalS = BuildString(S);
+  List < char > finalT = BuildString(T);
+
+  if (finalS.Count != finalT.Count) {
+    return false;
+  }
+  else {
+    for (int p = 0; p < finalS.Count; p++) {
+      if (finalS[p] != finalT[p]) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
+private List < char > BuildString(string input) {
+  List < char > builtString = new List < char > ();
+  foreach(char c in input) {
+    if (c != '#') {
+      builtString.Add(c);
+    } else if (builtString.Count > 0) {
+      builtString.RemoveAt(builtString.Count - 1);
+    }
+  }
+  return builtString;
+}
+```
 
 پیچیدگی زمانی و حافظه‌ای
 ------------------------
@@ -80,7 +109,12 @@ output = false
 
 در مورد پیچیدگی حافظه‌ای، در الگوریتمی که داریم، در بدترین حالت، آرایه‌هایی با طول s و t خواهیم داشت، چون در بدترین حالت، هیچ #ای وجود ندارد و تمام حروف را به آرایه اضافه خواهیم کرد. سوال در نهایت از ما true/false می‌خواد. اون آرایه‌هایی که می‌سازیم صرفا برای راحت‌تر کردن کار خودمونه و خواسته‌ی مستقیمِ سوال نیست. دو رشته‌‌ی زیر رو در نظر بگیرید.
 
-![leetcode 844 example](https://alirsabet.com/wp-content/uploads/2023/07/leetcode-844-example-300x69.png)فرض کنید قراره از تکنیک two pointers استفاده کنیم. P1 رو روی اولین حرف S از چپ و P2 رو روی اولین حرف T از چپ قرار میدیم. از چپ به راست شروع به حرکت میکنیم. مشکل زمانی پیش میاد که حروف در ظاهر یکسان نیست و الگوریتم به اشتباه false برخواهد گردوند. مثلا در مورد حرف سوم، P1 روی 'c' و P2 روی 'z' است، اما میدونیم که این حروف، حذف خواهند شد.
+```txt
+S = "abc#d"
+T = "abzz##d"
+```
+
+فرض کنید قراره از تکنیک two pointers استفاده کنیم. P1 رو روی اولین حرف S از چپ و P2 رو روی اولین حرف T از چپ قرار میدیم. از چپ به راست شروع به حرکت میکنیم. مشکل زمانی پیش میاد که حروف در ظاهر یکسان نیست و الگوریتم به اشتباه false برخواهد گردوند. مثلا در مورد حرف سوم، P1 روی 'c' و P2 روی 'z' است، اما میدونیم که این حروف، حذف خواهند شد.
 
 در این سوال خاص، حرکت از چپ به راست با حرکت از راست به چپ تفاوت داره. چون عملا قوانین زبان و کاراکتر # که نقش Backspace رو بازی می‌کنه، در اون حاکم است. ما تا زمانی که #(ها) رو ندیده‌ایم، نمیتونیم با اطمینان بگیم که اون حرفی که الان پوینتر روش قرار داره، باقی خواهد ماند یا حذف خواهد شد.
 
@@ -96,6 +130,64 @@ output = false
 
 الان روی دومین z (از راست) قرار داره. حرفِ غیرِ # دیده. از قبل باید 1 خانه جلو می‌رفت. همون 1 خانه رو جلو میره تا ببینه حرف بعدی چیه. روی b قرار می‌گیره. در ادامه، یا حرفِ غیرِ # می‌بینه که عادی جلو میره، یا # می‌بینه که روش بالا رو تکرار می‌کنه.
 
-![leetcode 844 optimal solution](https://alirsabet.com/wp-content/uploads/2023/07/leetcode-844-optimal-solution-132x300.png)
+```csharp
+public class Solution {
+    public bool BackspaceCompare(string s, string t) {
+        int p1 = s.Length - 1, p2 = t.Length - 1;
+
+            while (p1 >= 0 || p2 >= 0)
+            {
+                if (p1 >= 0 && s[p1] == '#' || p2 >= 0 && t[p2] == '#')
+                {
+                    if (p1 >= 0 && s[p1] == '#')
+                    {
+                        int backCount = 2;
+
+                        while (backCount > 0)
+                        {
+                            p1--;
+                            backCount--;
+
+                            if (p1 >= 0 && s[p1] == '#')
+                            {
+                                backCount += 2;
+                            }
+                        }
+                    }
+
+                    if (p2 >= 0 && t[p2] == '#')
+                    {
+                        int backCount = 2;
+
+                        while (backCount > 0)
+                        {
+                            p2--;
+                            backCount--;
+
+                            if (p2 >= 0 && t[p2] == '#')
+                            {
+                                backCount += 2;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    if (p1 >= 0 && p2 >= 0 && s[p1] != t[p2])
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        p1--;
+                        p2--;
+                    }
+                }
+            }
+
+            return true;
+    }
+}
+```
 
 پیچیدگی زمانی، مشابه با راه حل قبلی، O(s+t) است، اما پیچیدگی حافظه‌ای به O(1) رسیده است.

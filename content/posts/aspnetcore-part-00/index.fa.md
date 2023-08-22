@@ -1,5 +1,5 @@
 ---
-title: "aspnet core (قسمت صفر)"
+title: "asp dotnet core (قسمت صفر)"
 slug: "aspnet-core-part-00"
 date: 2023-08-10T14:00:00+03:30
 lastmod: 2023-08-10T14:00:00+03:30
@@ -8,7 +8,7 @@ author: "علی ثابت"
 draft: false
 comments: false
 ShowToc: true
-description: "آموزش asp.net core"
+description: "مقدمه‌ای از asp dotnet core"
 ---
 این پست با هدف نظم دادن به چیزهایی که در مورد ASP.NET Core یاد گرفته‌ام نوشته شده. اگر مطالب علوم کامپیوتر و زبان csharp رو در حد مقدماتی بلد باشید، می‌تونید ازش به عنوان منبع آموزشی برای ASP.NET Core استفاده کنید.
 
@@ -26,7 +26,7 @@ ASP.Net Core چیه؟
 *   Asp.Net Mvc در سال 2009 معرفی شد، مشکلات performanceای کمتری داشت، فقط روی ویندوز اجرا می‌شد، اجرایش در cloud ساده نبود، open-source شد و مدل توسعه‌اش بر اساس الگوی model-view-controller بود
 *   Asp.Net Core در سال 2016 معرفی شد، از ابتدا بازنویسی شد و مشکلات نسخه‌های قبلی رو حل کرد، cross-platform شد و دیگه مختص ویندوز نبود، cloud-friendly شد، open-source شد و مدل توسعه‌اش بر اساس الگوی model-view-controller بود
 
-**در داتنت‌کور، 4 ماژول اصلی داریم.**
+**در داتنت‌کور، 4 ماژول اصلی داریم:**
 
 *   Asp.Net Core Mvc برای ساخت برنامه‌های وبِ متوسط تا پیچیده
 *   Asp.Net Core Web API برای ساخت سرویس‌های RESTful که می‌تونن هر نوع clientای داشته باشن

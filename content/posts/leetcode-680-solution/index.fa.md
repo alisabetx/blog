@@ -12,8 +12,6 @@ description: "در این پست سوال 680 لیت‌کد (valid palindrome ii
 ---
 برای دسترسی به سوال 680 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/valid-palindrome-ii/) استفاده کنید. سطح این سوال Easy است.
 
-![leetcode 680](https://alirsabet.com/wp-content/uploads/2023/07/leetcode-680-300x300.jpg)
-
 شبه‌پالیندروم
 -------------
 
@@ -31,7 +29,20 @@ description: "در این پست سوال 680 لیت‌کد (valid palindrome ii
 
 در این مرحله، چند مثال می‌نویسیم که هم شرایط خواسته شده و هم edge case هایی که بالاتر اشاره کردیم رو pass کنه.
 
-![leetcode 680 testcase](https://alirsabet.com/wp-content/uploads/2023/07/leetcode-680-testcase-300x197.png)
+```txt
+input = "race a car"
+output = true
+input = "abccdba"
+output = true
+input = "abcdefdba"
+output = false
+input = "a"
+output = true
+input = ""
+output = true
+input = "ab"
+output = true
+```
 
 راه حل منطقی
 ------------
@@ -46,8 +57,33 @@ description: "در این پست سوال 680 لیت‌کد (valid palindrome ii
 
 مثلا رشته "abccdba" رو داریم. پوینترها یک یکی جلو میرن تا به حروف غیر یکسان برسند. "abccdba" جاییه که حروف غیر یکسان دیده میشه. حالا دو رشته "abccba" و "abcdba" رو تولید می‌کنیم که از حذف کاراکترهای conflict‌دار به وجود اومدن. نکته مهم اینه که نیاز نیست در رشته‌های جدید، بررسی کاراکترها رو از ابتدا انجام بدیم. حروف آبی رنگ قبلا بررسی شدن و یکسان بودنشون تایید شده. بررسی رو ادامه می‌دیم تا به کاراکتر(های) میانی برسیم. عمل حذف کاراکتر conflict‌دار فقط یک بار میتونه رخ بده، اگه در انتها، رشته‌ی باقیمانده، پالیندروم بود، رشته‌ی ابتدایی، شبه‌پالیندروم بوده.
 
-![leetcode 680 solution](https://alirsabet.com/wp-content/uploads/2023/07/leetcode-680-solution-300x280.png)
+```csharp
+public bool ValidPalindrome(string s) {
+  int start = 0;
+  int end = s.Length - 1;
 
+  while (start < end) {
+    if (s[start] != s[end]) {
+      return ValidSubPalindrome(s, start + 1, end) || ValidSubPalindrome(s, start, end - 1);
+    }
+    start++;
+    end--;
+  }
+
+  return true;
+}
+
+public bool ValidSubPalindrome(string s, int start, int end) {
+  while (start < end) {
+    if (s[start] != s[end]) {
+      return false;
+    }
+    start++;
+    end--;
+  }
+  return true;
+}
+```
 پیچیدگی زمانی و حافظه‌ای
 ------------------------
 

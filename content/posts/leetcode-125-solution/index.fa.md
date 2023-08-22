@@ -12,8 +12,6 @@ description: "در این پست سوال 125 لیت‌کد (valid palindrome) �
 ---
 برای دسترسی به سوال 125 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/valid-palindrome/) استفاده کنید. سطح این سوال Easy است.
 
-![<yoastmark class=](https://alirsabet.com/wp-content/uploads/2023/07/leetcode-125-300x300.jpg)
-
 پالیندروم
 ---------
 
@@ -39,13 +37,48 @@ description: "در این پست سوال 125 لیت‌کد (valid palindrome) �
 
 در این مرحله، چند مثال می‌نویسیم که هم شرایط خواسته شده و هم edge case هایی که بالاتر اشاره کردیم رو pass کنه.
 
- 
-
-![leetcode 125 testcase](https://alirsabet.com/wp-content/uploads/2023/07/leetcode-125-testcase-300x197.png)
-
+```txt
+input = "aabaa"
+output = true
+input = "aabbaa"
+output = true
+input = "abc"
+output = false
+input = "a"
+output = true
+input = ""
+output = true
+input = "A man, a plan, a canal : Panama"
+output = true
+```
 راه حل منطقی
 ------------
 
 در این مرحله به دنبال working solution هستیم، یعنی راه حلی منطقی که بتونه مسئله رو حل کنه. به راه حل بهینه فکر نمی‌کنیم. درگیر زبان برنامه نویسی و محدودیت‌های اون هم نخواهیم بود. از همون سه استراتژی که در بخش معرفی پالیندروم بیان شد، استفاده می‌کنیم.
 
-![leetcode 125 solution](https://alirsabet.com/wp-content/uploads/2023/07/leetcode-125-solution-104x300.png)
+```csharp
+public class Solution {
+
+    public bool IsPalindrome(string s) {
+    
+    s = Regex.Replace(s, "[^A-Za-z0-9]", "").ToLower();
+
+    int left = 0;
+    int right = s.Length - 1;
+
+    while (left < right)
+    {
+        if (s[left] != s[right])
+        {
+            return false;
+        }
+
+        left++;
+        right--;
+    }
+
+    return true;
+
+    }
+}
+```

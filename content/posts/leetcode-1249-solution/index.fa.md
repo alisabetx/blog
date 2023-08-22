@@ -104,7 +104,7 @@ public string MinRemoveToMakeValid(string str)
 
       // Convert char array to string and remove null characters
       return new string(res).Replace("\O", ""); 
-    }
+}
 ```
 
 پیچیدگی زمانی و حافظه‌ای
