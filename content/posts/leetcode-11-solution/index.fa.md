@@ -6,7 +6,7 @@ lastmod: 2023-07-17T14:00:00+03:30
 tags: ["leetcode", "لیتکد", "حل سوال 11 لیت‌کد", "container with most water"]
 author: "علی ثابت"
 draft: false
-comments: true
+comments: false
 description: "در این پست سوال 11 لیت‌کد (container with most water) رو حل می‌کنیم"
 ---
 برای دسترسی به سؤال 11 لیت‌کد می‌تونید از این [لینک](https://leetcode.com/problems/container-with-most-water/) استفاده کنید. سطح این سؤال Medium است.

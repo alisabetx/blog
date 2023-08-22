@@ -6,7 +6,7 @@ lastmod: 2023-07-01T14:00:00+03:30
 tags: ["leetcode", "لیتکد", "حل سوال 1249 لیت‌کد", "minimum remove to make valid parentheses"]
 author: "علی ثابت"
 draft: false
-comments: true
+comments: false
 description: "در این پست سوال 1249 لیت‌کد (minimum remove to make valid parentheses) رو حل می‌کنیم"
 ---
 برای دسترسی به سوال 1249 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/) استفاده کنید. سطح این سوال Medium است.

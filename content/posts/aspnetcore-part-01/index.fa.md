@@ -6,7 +6,7 @@ lastmod: 2023-08-20T14:00:00+03:30
 tags: ["asp.net core"]
 author: "علی ثابت"
 draft: false
-comments: true
+comments: false
 description: "مقدمه‌ای از asp.net core و آمادگی برای شروع دوره"
 ---
 سرور
@@ -95,15 +95,18 @@ Bye second middleware
 Bye first middleware 
 ```
 
-علاوه بر متد Use که برای میدلورهای نوعِ non-terminating و متد Run که برای میدلورهای terminating استفاده می‌شه، متدهای دیگری هم داریم. متدی به نام UseWhen وجود داره که حالت شرطی داره، یعنی شرایطی رو بررسی می‌کنه و اگر اون شرایط برقرار بود، شاخه جدیدی در pipeline ایجاد می‌کنه و البته دوباره به pipeline برمی‌گرده.
+علاوه بر متد Use که برای میدلورهای نوعِ non-terminating و متد Run که برای میدلورهای terminating استفاده می‌شه، متدهای دیگری هم داریم. متدی به نام UseWhen وجود داره که حالت شرطی داره، یعنی شرایطی رو بررسی می‌کنه و اگر اون شرایط برقرار بود، شاخه جدیدی در pipeline ایجاد می‌کنه و دوباره به pipeline برمی‌گرده.
 
-![Middleware UseWhen](https://alirsabet.com/wp-content/uploads/2023/08/Middleware-UseWhen-1024x470.png)
+{{< figure src="./images/Middleware-UseWhen.png" alt="Middleware UseWhen" >}}
 
-{{< figure src="./images/YYYYYYYYYYYYYYYYYYY.png" alt="XXXXXXXXXXXXXXXXXXX" >}}
-
-### ![Middleware UseWhen code](https://alirsabet.com/wp-content/uploads/2023/08/Middleware-UseWhen-code-300x132.png)
-
-{{< figure src="./images/YYYYYYYYYYYYYYYYYYY.png" alt="XXXXXXXXXXXXXXXXXXX" >}}
+```csharp
+app.UseWhen(context => {
+    return boolean
+  },
+  app => {
+    //code
+  });
+```
 
 ### ساخت middleware دلخواه
 
@@ -111,13 +114,38 @@ Bye first middleware
 
 در روش convention-based، کلاس جداگانه‌ای به نام MiddlewareClassName برای middleware می‌نویسیم.
 
-![conventional middleware](https://alirsabet.com/wp-content/uploads/2023/08/conventional-middleware-300x244.png)
+```csharp
+class MiddlewareClassName
+{
+  private readonly RequestDelegate _next;
 
-![conventional middleware registration](https://alirsabet.com/wp-content/uploads/2023/08/conventional-middleware-registration-300x69.png)
+  public MiddlewareClassName(RequestDelegate next)
+  {
+    _next = next;
+  }
 
-{{< figure src="./images/YYYYYYYYYYYYYYYYYYY.png" alt="XXXXXXXXXXXXXXXXXXX" >}}
+  public async Task InvokeAsync(HttpContext context)
+  {
+   //before logic
+   await _next(context);
+   //after logic
+  }
+});
 
-{{< figure src="./images/YYYYYYYYYYYYYYYYYYY.png" alt="XXXXXXXXXXXXXXXXXXX" >}}
+static class ClassName
+{
+  public static IApplicationBuilder ExtensionMethodName(this IApplicationBuilder app)
+  {
+   return app.UseMiddleware<MiddlewareClassName>();
+  }
+}
+```
+
+و به این شکل ازش استفاده می‌کنیم:
+
+```csharp
+app.ExtensionMethodName();
+```
 
 در روش factory-based، کلاس جداگانه‌ای به نام MyCustomMiddleware برای middleware می‌نویسیم که اینترفیس IMiddleware رو پیاده‌سازی می‌کنه.
 

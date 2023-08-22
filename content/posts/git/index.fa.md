@@ -6,7 +6,7 @@ lastmod: 2023-08-01T14:00:00+03:30
 tags: ["گیت", "git"]
 author: "علی ثابت"
 draft: false
-comments: true
+comments: false
 description: "خلاصه‌ی سریع از مهم‌ترین دستورات گیت"
 ---
 این پست با هدف یادآوری نکات مهم گیت (Git) نوشته شده. اگر به دنبال یافتن سریع کامندهای موردنظرتون هستید، [Git Explorer](https://gitexplorer.com/) رو ببینید. از طرفی، همه‌ی IDEهای معروف مثل Visual Studio و محصولات Jetbrains مثل PyCharm، امکانات git رو به شکل گرافیکی و بدون نیاز به نوشتن دستورات، در اختیارتون قرار میدن. بنابراین ممکنه نیازی به نوشتن دستورات نداشته باشید، اما همچنان دانستن مفهوم هر دستور، لازمه. فرض بر اینه که اهمیتِ استفاده از git رو می‌دونیم، می‌ریم سراغ استفاده‌اش. اطلاعات کامل، دقیق و به‌روز رو می‌تونید در [مستندات git](https://git-scm.com/docs) یا [کتاب git](https://git-scm.com/book) که نسخه فارسی هم داره ببینید.
@@ -129,7 +129,11 @@ git add "*.txt"
 
 در هر لحظه از کار می‌توان با استفاده از دستور git status وضعیت فایل‌ها را مشاهده کرد.
 
-![git status](https://alirsabet.com/wp-content/uploads/2023/07/git-status-300x69.png)وضعیت‌های ممکن برای یک فایل به این صورت است:
+```bash
+git status
+```
+
+وضعیت‌های ممکن برای یک فایل به این صورت است:
 
 1.  فایل توسط git تِرَک نمی‌شود (Untracked files).
 2.  فایل شناسایی شده و تغییری در آن ایجاد نشده.
@@ -138,7 +142,9 @@ git add "*.txt"
 
 وقتی یک فایل جدید مثلا به نام file.txt می‌سازیم، اگر دستور git status رو بزنیم، وضعیت فایل untracked است، یعنی git اون رو پیگیری نمی‌کنه. اگر بخواهیم git این فایل رو پیگیری کنه و به حالت stage ببره، باید از دستور زیر استفاده کنیم.
 
-![git add filetxt](https://alirsabet.com/wp-content/uploads/2023/07/git-add-filetxt-300x69.png)
+```bash
+git add file.txt
+```
 
 حالا اگر مجددا دستور git status رو بزنیم، این فایل در دسته‌ی Changes to be committedها قرار گرفته است.
 
@@ -153,7 +159,9 @@ stage یک مرحله برزخی هست بین ثبت دائمی یک تغییر
 
 هر commit، یک شناسه‌ی یکتا، یک پیام و یک والد (که یک commit دیگر است) داره. git برخلاف ورژن کنترلرهای دیگه تغییرات رو ذخیره نمی‌کنه بلکه در هر commit، یک اسنپ‌شات از کل فایلها رو نگه می‌داره. commit یک موجود immutable است، یعنی بعد از ایجاد، تغییرپذیر نیست. بعد از بردن فایل‌ها به مرحله‌ی stage، با دستور زیر میشه یک commit ثبت کرد.
 
-![git commit](https://alirsabet.com/wp-content/uploads/2023/07/git-commit-300x69.png)
+```bash
+git commit -m "message"
+```
 
 به جای message، پیامِ commit رو می‌نویسیم که مهمه، چون هم‌تیمی‌ها از روی اون متوجه تغییراتی که طی این commit انجام شده میشن و هم ممکنه در آینده لازم بشه به اون برگردیم. برای نوشتنش best practiceهایی وجود داره، به طور خلاصه:
 
@@ -169,17 +177,23 @@ commitها رو atomic کنید، یعنی هر commit فقط یک کارِ کو
 
 با این دستور می‌توان تغییرات موجود در بخش staging را با commit آخری که انجام شده ترکیب کرد. در واقع commit آخر حذف می‌شود و یک commit جدید شامل تغییرات آن commit به علاوه تغییرات جدید ایجاد می‌شود (commitها تغییرپذیر نیستند). همچنین می‌توان فقط برای اصلاح پیام commit آخر نیز از این دستور استفاده کرد. فرض کنید آخرین commit به صورت زیر بوده است.
 
-![git amend 1](https://alirsabet.com/wp-content/uploads/2023/07/git-amend-1-300x69.png)
+```bash
+git commit -m "add file1 and file2"
+```
 
 ولی file1 را به اشتباه add نکرده بودیم. حالا میتوان دو کار کرد.
 
 1) فایل file1 را add کرده و از دستور زیر استفاده کرد تا file1 هم به commit قبل اضافه شود.
 
-![git amend 2](https://alirsabet.com/wp-content/uploads/2023/07/git-amend-2-300x69.png)
+```bash
+git commit --amend -m "add file1 and file2"
+```
 
 2) بدون add کردن file1 از دستور زیر صرفا برای تغییر پیام commit قبل استفاده کرد.
 
-![git amend 3](https://alirsabet.com/wp-content/uploads/2023/07/git-amend-3-300x69.png)
+```bash
+git commit --amend -m "add file2"
+```
 
 tag
 ---
@@ -196,7 +210,13 @@ tag
 
 دستور پنجم، در لیست تگ‌ها، جستجوی regexی انجام می‌دهد.
 
-![git tag](https://alirsabet.com/wp-content/uploads/2023/07/git-tag-300x106.png)
+```bash
+git tag <TAG_NAME>
+git tag -a <TAG_NAME> -m <MESSAGE>
+git tag -a <TAG_NAME> a9c30aad7f
+git tag -l
+git tag -l "v1.*"
+```
 
 در حالت عادی، وقتی پروژه را push می‌کنیم، tagها push نمی‌شوند.
 
@@ -204,7 +224,10 @@ tag
 
 دستور دوم، همه tagها را به ریپازیتوری ریموت origin می‌فرستد.
 
-![git push tags](https://alirsabet.com/wp-content/uploads/2023/07/git-push-tags-1-300x69.png)
+```bash
+git push origin v4.8.2
+git push origin --tags
+```
 
 ### نسخه‌بندی معنایی
 

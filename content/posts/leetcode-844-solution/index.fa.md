@@ -6,7 +6,7 @@ lastmod: 2023-07-03T14:00:00+03:30
 tags: ["leetcode", "لیتکد", "حل سوال 844 لیت‌کد", "backspace string compare"]
 author: "علی ثابت"
 draft: false
-comments: true
+comments: false
 description: "در این پست سوال 844 لیت‌کد (backspace string compare) رو حل می‌کنیم"
 ---
 برای دسترسی به سوال 844 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/backspace-string-compare/) استفاده کنید. سطح این سوال Easy است.

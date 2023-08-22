@@ -7,7 +7,7 @@ rssFullContent: true
 
 ShowReadingTime: true
 ShowShareButtons: false
-comments: true
+comments: false
 defaultTheme: auto
 disableSpecial1stPost: true
 DateFormat: "2006-01-02"

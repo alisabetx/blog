@@ -6,7 +6,7 @@ lastmod: 2023-06-01T14:00:00+03:30
 tags: ["تافل", "toefl"]
 author: "علی ثابت"
 draft: false
-comments: true
+comments: false
 description: "تجربه‌ها، منابع و نکات مهمِ تافل"
 ---
 تافل چیه؟

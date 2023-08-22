@@ -6,7 +6,7 @@ lastmod: 2023-07-05T14:00:00+03:30
 tags: ["leetcode", "لیتکد", "حل سوال 746 لیت‌کد", "min cost climbing stairs"]
 author: "علی ثابت"
 draft: false
-comments: true
+comments: false
 description: "در این پست سوال 746 لیت‌کد (min cost climbing stairs) رو حل می‌کنیم"
 ---
 برای دسترسی به سوال 746 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/min-cost-climbing-stairs/) استفاده کنید. سطح این سوال Easy است.

@@ -6,7 +6,7 @@ lastmod: 2023-07-11T14:00:00+03:30
 tags: ["leetcode", "لیتکد", "حل سوال 125 لیت‌کد", "valid palindrome"]
 author: "علی ثابت"
 draft: false
-comments: true
+comments: false
 description: "در این پست سوال 125 لیت‌کد (valid palindrome) رو حل می‌کنیم"
 ---
 برای دسترسی به سوال 125 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/valid-palindrome/) استفاده کنید. سطح این سوال Easy است.
