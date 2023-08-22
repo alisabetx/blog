@@ -18,6 +18,16 @@ homeInfoParams:
   Title: Ali Sabet
   Content: .NET developer with a heart for AI, coding love stories between data and algorithms
 
+# for search
+fuseOpts:
+  isCaseSensitive: false
+  shouldSort: true
+  location: 0
+  distance: 1000
+  threshold: 0.4
+  minMatchCharLength: 0
+  keys: ["title", "permalink", "summary", "content"]
+
 socialIcons:
   - name: linkedin
     url: https://linkedin.com/in/hialisabet/
@@ -35,8 +45,6 @@ socialIcons:
     url: https://instagram.com/hialisabet/
   - name: researchgate
     url: https://researchgate.net/profile/Ali-Sabet-6/
-  - name: cv
-    url: [cv-download-link]
   - name: email
     url: mailto:hialisabet+blog@gmail.com
   - name: rss

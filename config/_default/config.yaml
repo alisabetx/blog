@@ -24,6 +24,7 @@ outputs:
   home:
     - HTML
     - RSS
+    - JSON
 
 permalinks:
   posts: /posts/:year/:month/:slug/

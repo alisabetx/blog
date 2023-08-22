@@ -15,3 +15,7 @@ main:
     identifier: archives
     name: آرشیو
     url: /archives/
+  - weight: 6
+    identifier: search
+    name: جستجو
+    url: /search/
