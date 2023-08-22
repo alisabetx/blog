@@ -341,7 +341,7 @@ merge
 
 فرض کنید در حال توسعه‌ی یک برنامه هستیم و برنچ main رو داریم. حالا تصمیم بر این شد که ویژگی جدیدی به برنامه اضافه بشه، بنابراین برنچ feature رو ساختیم. حالا در این برنچ دو commit انجام داده‌ایم و هم‌تیمی‌ها، برنچ main رو با commit‌هایشان جلو بُرده‌اند. حالا برنچ main commit‌هایی دارد که برنچ feature ندارد و برنچ feature کامیت‌هایی دارد که برنچ main ندارد.
 
-![git merge 01](https://alirsabet.com/wp-content/uploads/2023/07/git-merge-01-300x155.png)
+{{< figure src="./images/git-merge-01.png" alt="git merge 01" >}}
 
 اگر دو برنچ با نام‌های main و feature داشته باشیم و بخواهیم تغییرات feature را در main اعمال کنیم باید به برنچ main رفته و از دستور زیر استفاده کنیم. در این شرایط یک commit جدید ساخته میشه که بهش merge commit میگن.
 
@@ -349,7 +349,7 @@ merge
 
 می‌دونیم که هر commit، یک والد (parent) داره. اما اینجا جاییه که این commit جدید، دو والد (parent) داره. در نتیجه، commit جدید، هم تاریخچه‌ی commit‌های برنچ main و هم تاریخچه‌ی commit‌های برنچ feature رو داره.
 
-![git merge 02](https://alirsabet.com/wp-content/uploads/2023/07/git-merge-02-300x172.png)
+{{< figure src="./images/git-merge-02.png" alt="git merge 02" >}}
 ------------------------------------------------------------------------------------------
 
 روش‌های merge
@@ -359,11 +359,11 @@ merge
 
 روش Fast-forward فقط در حالتی توسط git قابل اجراست که ما یک مسیر خطی از نقطه مشترک رفته باشیم، یعنی مثل پایین درحالی که برنچِ Some Feature از Master گرفته شده و تغییراتی هم به اون اضافه شده، گره مشترک (برنچ Master) نسبت به زمانی که ما ازش منشعب شدیم تغییری نکرده (commitی بهش اضافه نشده). در این روش git اشاره‌گر برنچ Master رو به نوک برنچ Some feature میبره، به طوری که انگار همه‌ی این تغییرات واقعاً توی همین برنچ ما صورت گرفته.
 
-![fast forward merge](https://alirsabet.com/wp-content/uploads/2023/07/fast-forward-merge-265x300.png)
+{{< figure src="./images/fast-forward-merge.png" alt="fast forward merge" >}}
 
 در شکل پایین، برنچِ Some Feature از Master گرفته شده و دو تا commit‌ هم داشته، در حالی که خود master هم نسبت به زمانی که ما ازش منشعب شدیم تغییر کرده. توی این حالت دیگه Fast-forward قابل اجرا نیست. git در اینجور مواقع از روش three-way استفاده می‌کنه. اسمش‌ از اینجا میاد که گیت باید سه تا اشاره‌گر رو بروزرسانی کنه.
 
-![3-way merge](https://alirsabet.com/wp-content/uploads/2023/07/3-way-merge-218x300.png)
+{{< figure src="./images/3-way-merge.png" alt="3 way merge" >}}
 
 conflict
 --------
@@ -383,11 +383,11 @@ rebase این امکان رو به ما میده که تغییرات رو طور
 
 این سناریو رو در نظر بگیرید. در حال کار روی پروژه در برنچ main (بالا) هستیم. بعد از کامیت B، تصمیم اضافه کردن یک ویژگی جدید گرفته شده است. در branch جدید (پایین)، روی این ویژگی کار می‌کنیم (کامیت‌های E و F)، همزمان، هم‌تیمی‌هایمان تغییراتی را روی برنچ main قرار می‌دهند (کامیت C). ما نیاز به این تغییرات داریم. بنابرین با دریافت و merge کردن تغییرات، کامیت X به وجود می‌آید. همین روند تکرار می‌شود و کامیت Y به وجود می‌آید.
 
-![git rebase 01](https://alirsabet.com/wp-content/uploads/2023/07/git-rebase-01-300x212.png)
+{{< figure src="./images/git-rebase-01.png" alt="git rebase 01" >}}
 
 اما ما واقعا به کامیت‌های X و Y نیازی نداشتیم و فقط برای اینکه تغییراتِ هم‌تیمی‌هایمان را داشته باشیم، این commit‌ها ایجاد شده اند. چه خوب می‌شد که در تاریخچه‌ی commit‌ها، این دو commit را نبینیم و تغییراتی که در branch خود داده‌ایم، در ادامه‌ی تغییراتِ هم‌تیمی‌هایمان باشد. در این حالت، merge کردن هم با استراتژیِ آسان‌ترِ Fast-forward انجام خواهد شد. commit‌های قرمز رنگ جدید هستند (hash متفاوتی دارند). کامیت H، همان کامیت E است. کامیت I، ترکیب کامیت‌های F و X است. کامیت J، ترکیب کامیت‌های G و Y است.
 
-![git rebase 002](https://alirsabet.com/wp-content/uploads/2023/07/git-rebase-002-300x212.png)
+{{< figure src="./images/git-rebase-02.png" alt="git rebase 02" >}}
 
 قصد داریم تغییرات برنچ feature در ادامه‌ی برنچ main بیاید. ابتدا به برنچ feature می‌رویم، سپس دستور rebase را اجرا می‌کنیم.
 
@@ -432,7 +432,11 @@ restore
 
 دستور سوم، فایل test.txt را به وضعیتی که در اولین commit داشت برمی‌گرداند.
 
-![git restore](https://alirsabet.com/wp-content/uploads/2023/07/git-restore-300x80.png)
+```bash
+git restore test.txt
+git restore --staged test.txt
+git restore --source=first test.txt
+```
 
 revert
 ------
@@ -443,7 +447,10 @@ revert
 
 برای اینکه conflict رخ ندهد، بهتر است commit‌ها به ترتیب revert شوند، مثلا اگر می‌خواهیم 3 کامیت به گذشته برویم و به ترتیب commit آخر، یکی مانده به آخر و دوتا مانده به آخر را revert کنیم، از دستور دوم استفاده می‌کنیم.
 
-![git revert command](https://alirsabet.com/wp-content/uploads/2023/07/git-revert-command-300x69.png)
+```bash
+git revert abcdefgh
+git revert HEAD HEAD~1 HEAD~2
+```
 
 reset
 -----
@@ -456,7 +463,11 @@ reset
 
 دستور سوم، با گرفتن یک commit تنها تاریخچه را حذف کرده و HEAD را به آن commit منتقل می‌کند. در واقع در این حالت، git فایل‌های لوکال و add شده به بخش staging را برای شما نگه می‌دارد و تنها عملیات انتقال به commit موردنظر را انجام می‌دهد.
 
-![git reset](https://alirsabet.com/wp-content/uploads/2023/07/git-reset-300x80.png)
+```bash
+git reset --hard <COMMIT_ID>
+git reset --mixed <COMMIT_ID>
+git reset --soft <COMMIT_ID>
+```
 
 stash
 -----
@@ -479,7 +490,16 @@ stash
 
 دستور هشتم، همه‌ی stashها را پاک می‌کند.
 
-![git stash commands](https://alirsabet.com/wp-content/uploads/2023/07/git-stash-commands-300x145.png)
+```bash
+git stash
+git stash save "MESSAGE"
+git stash list
+git stash apply
+git stash apply n
+git stash pop
+git stash pop n
+git stash clear
+```
 
 diff
 ----
@@ -498,7 +518,14 @@ diff
 
 دستور ششم، تغییرات بین دو commit را نشان می‌دهد.
 
-![git diff](https://alirsabet.com/wp-content/uploads/2023/07/git-diff-300x119.png)
+```bash
+git diff
+git diff file2.txt filel.txt
+git diff --staged
+git diff HEAD
+git diff <COMMIT1> <COMMIT2>
+git diff <BRANCH1> <BRANCH2>
+```
 
 bisect
 ------
@@ -515,14 +542,23 @@ git هر بار commitی را به ما نشان می‌دهد و باید چک 
 
 با دستور git bisect reset فرایند را به اتمام می‌رسانیم.
 
-![git bisect](https://alirsabet.com/wp-content/uploads/2023/07/git-bisect-300x158.png)
+```bash
+git bisect start
+git bisect good old_commit_id
+git bisect bad new_commit_id
+git bisect bad
+git bisect good
+git bisect reset
+```
 
 cherry-pick
 -----------
 
 اگر یک commit را به cherry-pick بدهیم، تغییرات آن commit را طی commit جدیدی روی برنچ فعلی اعمال می‌کند.
 
-![git cherry-pick](https://alirsabet.com/wp-content/uploads/2023/07/git-cherry-pick-300x69.png)
+```bash
+git cherry-pick <COMMIT>
+```
 
 مثلا فرض کنید شما و هم‌تیمی‌تان روی دو branch مختلف از پروژه در حال کار کردن هستید. اگر متوجه شوید که بخشی از کدی که باید پیاده‌سازی کنید را هم‌تیمی‌تان روی branch خودش هم پیاده کرده چه می‌کنید؟ طبیعتا دوباره خودتان پیاده‌سازی نمی‌کنید! در این مواقع می‌توانید با استفاده از cherry-pick کد هم‌تیمی‌تان را وارد branch خود کنید.
 
@@ -552,7 +588,7 @@ pull request
 
 در این نوع جریان داده چند branch اصلی وجود دارد. یکی از این branch‌ها که برنچ main است همواره پایدار بوده و هر commit آن می‌تواند به عنوان نسخه‌ای از پروژه منتشر شود.
 
-![gitflow](https://alirsabet.com/wp-content/uploads/2023/07/gitflow-300x215.png)
+{{< figure src="./images/gitflow.png" alt="gitflow" >}}
 
 برای ساختن این جریان کار ابتدا از روی برنچ main برنچ اصلی مورد نظرمان (develop) را می‌سازیم. این branch مانند برنچ main همواره وجود خواهد داشت. حال برای پیشرفت کد و پیاده‌سازی ویژگی‌های جدید، روی این برنچ، برنچ جدید زده و تغییرات مورد نظرمان را اعمال می‌کنیم و در نهایت آن را با برنچ develop مرج می‌کنیم. در هر لحظه‌ای که بخواهیم نسخه‌ی جدیدی از پروژه را روی main داشته باشیم، یک branch جدید مثلا با نام Release زده و کد‌های روی برنچ develop را روی آن می‌بریم. این برنچ به هیچ عنوان برای پیشرفت کد استفاده نخواهد شد و تنها برای حل مشکلات همین نسخه استفاده می‌شود.
 
@@ -581,7 +617,13 @@ pull request
 
 **استاندارد مورد توافق برای متن commitها به این صورت است (الگوی Semantic):**
 
-![git commit message](https://alirsabet.com/wp-content/uploads/2023/07/git-commit-message-300x106.png)
+```txt
+<type>(<scope>): <subject>
+# blank line
+<body>
+# blank line
+<footer>
+```
 
 مقدار type باید برابر با یکی از آیتمهای زیر باشد:
 
@@ -618,9 +660,15 @@ subject توضیحی است که می‌گوید چه کاری انجام شده
 *   می‌توان با کلیدواژه‌ی Closes به همراه # به issue ها ارجاع داد و گفت که در نتیجه‌ی این کامیت چه issue ای رفع شده است
 *   می‌توان با کلیدواژه‌ی Trello به یک کارت در ترلو ارجاع داد
 
-![git commit message sample](https://alirsabet.com/wp-content/uploads/2023/07/git-commit-message-sample-300x194.png)
+{{< figure src="./images/git-commit-message-sample.png" alt="git commit message sample" >}}
 
 **منابع**
 ---------
 
-[+](https://quera.org/)، [+](https://mjafar.me/)، [+](https://virgool.io/Software/@sorousht)، [+](https://www.youtube.com/@GolemCourse)، [+](https://www.atlassian.com/)، [+](https://virgool.io/gitscm)، [+](https://virgool.io/@rezakamalifard)
+[quera](https://quera.org/)
+[mjafar](https://mjafar.me/)
+[@sorousht](https://virgool.io/Software/@sorousht)
+[@GolemCourse](https://www.youtube.com/@GolemCourse)
+[atlassian](https://www.atlassian.com/)
+[@gitscm](https://virgool.io/@gitscm)
+[@rezakamalifard](https://virgool.io/@rezakamalifard)

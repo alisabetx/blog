@@ -11,8 +11,6 @@ description: "در این پست سوال 1 لیت‌کد (two sum) رو حل م
 ---
 برای دسترسی به سوال 1 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/two-sum/) استفاده کنید. سطح این سوال Easy است.
 
-![leetcode 1](https://alirsabet.com/wp-content/uploads/2023/07/leetcode-1-300x300.jpg)
-
 شرایط مسئله
 -----------
 
@@ -29,7 +27,18 @@ description: "در این پست سوال 1 لیت‌کد (two sum) رو حل م
 
 در این مرحله، چند مثال می‌نویسیم که هم شرایط خواسته شده و هم edge case هایی که بالاتر اشاره کردیم رو pass کنه.
 
-![leetcode 01 testcase](https://alirsabet.com/wp-content/uploads/2023/07/leetcode-01-testcase-300x189.png)
+```txt
+input = [1,3,7,9,2] , target = 11
+output = [3,4]
+input = [1,3,7,9,2] , target = 25
+output = null
+input = [] , target = 1
+output = null
+input = [5] , target = 5
+output = null
+input = [1,6] , target = 7
+output = [0,1]
+```
 
 راه حل منطقی
 ------------
@@ -47,7 +56,19 @@ description: "در این پست سوال 1 لیت‌کد (two sum) رو حل م
 
 تابعی داریم که یک آرایه و یک عدد به عنوان تارگت میگیره. نکته مهم جایگاه پوینتر اول و دومه. پوینتر اول از سمت چپ ترین خانه آرایه شروع میکنه، پوینتر دوم همیشه در اولین خانه در سمت راست پوینتر اول قرار میگیره و یکی یکی میره جلو تا به انتهای آرایه برسه. بعدش پوینتر اول یه خانه به راست میره و همین ماجرا تکرار میشه. خط یک مونده به آخر که null برمیگردونه، تضمین میکنه که اگه جوابی وجود نداشت، نال برگرده.
 
-![leetcode 01 solution](https://alirsabet.com/wp-content/uploads/2023/07/leetcode-01-solution-300x254.png)
+```js
+const findTwoSum = function(nums, target) {
+    for (let p1 = 0; p1 < nums.length; p1++) {
+        const numberToFind = target - nums[p1];
+        for (let p2 = p1 + 1; p2 < nums.length; p2++) {
+            if (numberToFind === nums[p2]) {
+                return [p1, p2];
+            }
+        }
+    }
+    return null;
+};
+```
 
 پیچیدگی زمانی و حافظه‌ای
 ------------------------
@@ -67,4 +88,18 @@ description: "در این پست سوال 1 لیت‌کد (two sum) رو حل م
 
 به عنوان مثال، وقتی روی 1 هستم، حاصل (1-11) رو حساب میکنم که میشه 10. حالا key رو 10 میذارم و value رو ایندکس 1 یعنی 0 میذارم. این چه کمکی میکنه؟ به بعدی که برم میگم چک کن آیا توی کلیدها 10 داریم یا نه؟ اگه داریم، ایندکسش رو بده که همین الان جواب رو برگردونیم. در این حالت مرتبه زمانی الگوریتم به O(n) میرسه.
 
-![leetcode 01 optimal](https://alirsabet.com/wp-content/uploads/2023/07/leetcode-01-optimal-300x208.png)
+```js
+const findTwoSum = function(nums, target) {
+    const numsMap = {};
+    for (let p = 0; p < nums.length; p++) {
+        const currentMapVal = numsMap[nums[p]];
+        if (currentMapVal >= 0) {
+            return [currentMapVal, p];
+        } else {
+            const numberToFind = target - nums[p];
+            numsMap[numberToFind] = p;
+        }
+    }
+    return null;
+}
+```

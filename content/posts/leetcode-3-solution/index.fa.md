@@ -11,11 +11,8 @@ description: "در این پست سوال 3 لیت‌کد (longest substring wit
 ---
 برای دسترسی به سوال 3 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/longest-substring-without-repeating-characters/) استفاده کنید. سطح این سوال Medium است.
 
-![leetcode 3](https://alirsabet.com/wp-content/uploads/2023/07/leetcode-3-300x300.png)
-
 شرایط مسئله
 -----------
-
 در این مرحله، شرایط خاص مسئله و حالت‌های edge case رو بررسی می‌کنیم. این شرایط باید در توضیحات سوال یا مثال‌ها مشخص شده باشن یا اینکه از پاسخ‌های پیش فرض استفاده کنیم.
 
 *   در این سوال ممکنه substringها متفاوت باشن و مثلا چند substring با طول n و شرایط خواسته شده داشته باشیم، اما مهم، برگرداندن طول substring با شرایط خواسته شده است، حتی اگه چند تا باشن. مثلا در abccabb دو سابسترینگ abc و cab بلندترین substringها با کاراکترهای غیر تکراری هستن، هر دو هم طول 3 دارن، پس 3 رو به عنوان جواب برمیگردونیم.
@@ -27,7 +24,16 @@ description: "در این پست سوال 3 لیت‌کد (longest substring wit
 
 در این مرحله، چند مثال می‌نویسیم که هم شرایط خواسته شده و هم edge case هایی که بالاتر اشاره کردیم رو pass کنه.
 
-![leetcode 3 testcase](https://alirsabet.com/wp-content/uploads/2023/07/leetcode-3-testcase-300x145.png)
+```txt
+input = "abccabb"
+output = 3 (abc, cab) 
+input = "cccccc" 
+output = 1
+input = "" 
+output = 0
+input = "abcbda" 
+output = 4 (abc, cbda) 
+```
 
 راه حل منطقی
 ------------
@@ -57,14 +63,39 @@ description: "در این پست سوال 3 لیت‌کد (longest substring wit
 
 یه نکته منطقی که همین ابتدا به ذهن میرسه اینه که تعداد کاراکتر استرینگ ورودی رو چک کنیم. اگه 0 بود، جواب ما 0 و اگه 1 بود، جواب ما 1 خواهد بود.
 
-![leetcode 3 solution](https://alirsabet.com/wp-content/uploads/2023/07/leetcode-3-solution-222x300.png)
+```js
+const lengthOfLongestSubstring = function(s) {
+    if (s.length <= 1) return s.length;
+
+    let longest = 0;
+
+    for (let left = 0; left < s.length; left++) {
+        let seenChar = {},
+            currentLength = 0;
+
+        for (let right = left; right < s.length; right++) {
+            const currentChar = s[right];
+
+            if (!seenChar[currentChar]) {
+                currentLength++;
+                seenChar[currentChar] = true;
+                longest = Math.max(longest, currentLength);
+            } else {
+                break;
+            }
+        }
+    }
+
+    return longest;
+}
+```
 
 پیچیدگی زمانی و حافظه‌ای
 ------------------------
 
 در این مرحله به بررسی پیچیدگی زمانی و حافظه ای راه حل می‌پردازیم. یعنی تحلیل می‌کنیم که بین زمان اجرای الگوریتم و حافظه مصرفی آن، چه رابطه ای با اندازه ورودی الگوریتم وجود دارد.
 
-پیچیدگی زمانی الگوریتم O(n2) است. حلقه بیرونی n بار اجرا می‌شود، حلقه درونی به تعداد کمتر اجرا می‌شود اما به همون دلیلی که در [حل سوال 1](https://alirsabet.com/algorithm/leetcode-1-solution/) بیان شد، مرتبه زمانی، به مرتبه پایین‌تر نمی‌رسد و O(n2) می‌ماند.
+پیچیدگی زمانی الگوریتم O(n2) است. حلقه بیرونی n بار اجرا می‌شود، حلقه درونی به تعداد کمتر اجرا می‌شود اما به همون دلیلی که در حل سوال 1 بیان شد، مرتبه زمانی، به مرتبه پایین‌تر نمی‌رسد و O(n2) می‌ماند.
 
 پیچیدگی حافظه‌ای O(n) است. چرا؟ چون حداکثر مقدار حافظه‌ای که در طول اجرا به آن نیاز دارد، n است. این مقدار حافظه توسط آبجکت seenChars مصرف می‌شود. seenChars کاراکترهایی که تاکنون دیده شده است را نگه می‌دارد و اندازه آن وابسته به تعداد کاراکترهای unique در substring است. در بدترین حالت، زمانی که همه‌ی کاراکترها متمایز باشند، اندازه‌ی seenChars می‌تواند به اندازه طول string ورودی باشد. پس پیچیدگی حافظه‌ای O(n) است.
 

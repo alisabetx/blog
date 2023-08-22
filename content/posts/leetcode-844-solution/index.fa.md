@@ -11,8 +11,6 @@ description: "در این پست سوال 844 لیت‌کد (backspace string co
 ---
 برای دسترسی به سوال 844 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/backspace-string-compare/) استفاده کنید. سطح این سوال Easy است.
 
-![leetcode 844](https://alirsabet.com/wp-content/uploads/2023/07/leetcode-844-300x300.jpg)
-
 شرایط مسئله
 -----------
 
@@ -26,7 +24,18 @@ description: "در این پست سوال 844 لیت‌کد (backspace string co
 نوشتن test case
 ---------------
 
-![leetcode 844 testcase](https://alirsabet.com/wp-content/uploads/2023/07/leetcode-844-testcase-300x171.png)
+```txt
+s = "ab#z", t = "az#z"
+output = true
+s = "abc#d", t = "acc#c"
+output = false
+s = "x#y#z#", t = "a#"
+output = true
+s = "a###b", t = "b"
+output = true
+s = "Ab#z", t = "ab#z"
+output = false
+```
 
 راه حل منطقی
 ------------
