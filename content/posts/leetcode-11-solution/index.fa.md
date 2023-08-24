@@ -87,3 +87,8 @@ description: "در این پست سوال 11 لیت‌کد (container with most 
 ![leetcode 11 optimal solution](https://alirsabet.com/wp-content/uploads/2023/07/leetcode-11-optimal-solution-256x300.png)
 
 در الگوریتمِ بهینه‌شده، آرایه فقط یکبار پیمایش شد که باعث میشه پیچیدگی زمانی اون به O(n) برسه و پیچیدگی حافظه‌ای، O(1) بمونه.
+
+**منابع**
+---------
+
+[udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)

@@ -391,3 +391,8 @@ ModelState یکی از ویژگی‌های ControllerBase است که در actio
 ### Custom Validations with Multiple Properties
 
 ...
+
+**منابع**
+---------
+
+[udemy](https://www.udemy.com/course/asp-net-core-true-ultimate-guide-real-project/)

@@ -24,7 +24,7 @@ ASP.Net Core چیه؟
 
 *   Asp.Net Web Forms در سال 2002 معرفی شد، مشکلات performanceای زیادی داشت، فقط روی ویندوز اجرا می‌شد، open-source نبود و مدل توسعه‌اش event-driven بود
 *   Asp.Net Mvc در سال 2009 معرفی شد، مشکلات performanceای کمتری داشت، فقط روی ویندوز اجرا می‌شد، اجرایش در cloud ساده نبود، open-source شد و مدل توسعه‌اش بر اساس الگوی model-view-controller بود
-*   Asp.Net Core در سال 2016 معرفی شد، از ابتدا بازنویسی شد و مشکلات نسخه‌های قبلی رو حل کرد، cross-platform شد و دیگه مختص ویندوز نبود، cloud-friendly شد، open-source شد و مدل توسعه‌اش بر اساس الگوی model-view-controller بود
+*   Asp.Net Core در سال 2016 معرفی شد، از ابتدا بازنویسی شد و مشکلات نسخه‌های قبلی رو حل کرد، cross-platform شد و دیگه مختص ویندوز نبود، cloud-friendly شد و مدل توسعه‌اش بر اساس الگوی model-view-controller بود
 
 **در داتنت‌کور، 4 ماژول اصلی داریم:**
 

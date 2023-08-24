@@ -90,3 +90,8 @@ public bool ValidSubPalindrome(string s, int start, int end) {
 در این مرحله به بررسی پیچیدگی زمانی و حافظه ای راه حل می‌پردازیم. یعنی تحلیل می‌کنیم که بین زمان اجرای الگوریتم و حافظه مصرفی آن، چه رابطه ای با اندازه ورودی الگوریتم وجود دارد.
 
 پیچیدگی زمانی الگوریتم O(n) و پیچیدگی حافظه‌ای O(1) است.
+
+**منابع**
+---------
+
+[udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)

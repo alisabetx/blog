@@ -77,6 +77,11 @@ public int MaxDepth(TreeNode node, int currentDepth)
 
 ![skewed binary tree](./images/skewed-binary-tree.png#center)
 
-در یک درخت دودویی متوارن، پیچیدگی حافظه‌ای O(log n) است.
+در یک درخت دودویی متوازن، پیچیدگی حافظه‌ای O(log n) است.
 
 ![balanced binary tree](./images/balanced-binary-tree.jpg#center)
+
+**منابع**
+---------
+
+[udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)

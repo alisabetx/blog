@@ -134,3 +134,8 @@ const lengthOfLongestSubstring = function(s) {
 ![leetcode 3 optimal](https://alirsabet.com/wp-content/uploads/2023/07/leetcode-3-optimal-300x202.png)
 
 پیچیدگی زمانی و پیچیدگی حافظه‌ای آن O(n) است.
+
+**منابع**
+---------
+
+[udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)
