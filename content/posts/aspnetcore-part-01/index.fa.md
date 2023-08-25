@@ -8,7 +8,7 @@ author: "علی ثابت"
 draft: false
 comments: false
 ShowToc: true
-description: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+description: "آموزش مفاهیم اولیه‌ی asp dotnet core"
 ---
 سرور
 ----
@@ -150,23 +150,62 @@ app.ExtensionMethodName();
 
 در روش factory-based، کلاس جداگانه‌ای به نام MyCustomMiddleware برای middleware می‌نویسیم که اینترفیس IMiddleware رو پیاده‌سازی می‌کنه.
 
-![MyCustomMiddleware](https://alirsabet.com/wp-content/uploads/2023/08/MyCustomMiddleware-300x117.png)
+```csharp
+public class MyCustomMiddleware: IMiddleware {
+  public async Task InvokeAsync(HttpContext context, RequestDelegate next) {
+    await context.ResponseAriteAsync("Hello MyCustomMiddleware");
+    await next(context);
+    await context.ResponseAriteAsync("Bye MyCustomMiddleware");
+  }
+}
+```
 
-![MyCustomMiddleware registration](https://alirsabet.com/wp-content/uploads/2023/08/MyCustomMiddleware-registration-300x93.png)
+```csharp
+builder.Services.AddTransient<MyCustomMiddleware>();
+app.UseMiddleware<MyCustomMiddleware>();
+```
 
 به کمک قابلیت [extension method](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods)، تعریف یک middleware دلخواه به روش factory-based و معرفیِ اون در Program.cs می‌تونه ساده‌تر انجام بشه.
 
-![MyCustomMiddleware ext](https://alirsabet.com/wp-content/uploads/2023/08/MyCustomMiddleware-ext-300x163.png)
+```csharp
+public class MyCustomMiddleware: IMiddleware {
+  public async Task InvokeAsync(HttpContext context, RequestDelegate next) {
+    await context.Response.WriteAsync("MyCustomMiddleware Starts\n");
+    await next(context);
+    await context.Response.WriteAsync("MyCustomMiddleware Ends\n");
+  }
+}
 
-![MyCustomMiddleware ext registration](https://alirsabet.com/wp-content/uploads/2023/08/MyCustomMiddleware-ext-registration-300x93.png)
+public static class CustomMiddlewareExtension {
+  public static IApplicationBuilder UseMyCustomMiddleware(this IApplicationBuilder app) {
+    return app.UseMiddleware < MyCustomMiddleware > ();
+  }
+}
+```
+
+```csharp
+builder.Services.AddTransient<MyCustomMiddleware>();
+app.UseMyCustomMiddleware();
+```
 
 ### ترتیب اجرا
 
 در داتنت‌کور، از قبل میدلورهایی تعریف شده، از طرفی ممکنه در پروژه نیاز به ساخت میدلورهای دلخواه هم داشته باشیم. با توجه به اینکه ترتیبِ اجرای میدلورها اهمیت داره، مایکروسافت ترتیب زیر رو پیشنهاد می‌کنه.
 
-![The Right Order of Middleware schema](https://alirsabet.com/wp-content/uploads/2023/08/The-Right-Order-of-Middleware-1024x560.png)
-
-![order of middlewares](https://alirsabet.com/wp-content/uploads/2023/08/order-of-middlewares-300x197.png)
+```csharp
+app.UseExceptionHandler("/Error");
+app.UseHsts();
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+app.UseRouting();
+app.UseCors();
+app.UseAuthentication();
+app.UseAuthorization();
+app.UseSession();
+app.MapControllers();
+//add your custom middlewares
+app.Run();
+```
 
 * * *
 
@@ -175,45 +214,109 @@ routing
 
 به فرایندی که در طیِ اون، HTTP requestsها به endpointهای مربوطه ارتباط داده می‌شن، routing گفته میشه. این کار با بررسی HTTP method و url انجام میشه. مثلا وقتی کاربر آدرس alirsabet.com/home رو وارد کرد، باید بتونیم اون رو به endpoint مربوط به home بفرستیم تا صفحه‌ی موردنظر رو ببینه. زمانی که یک میدلور بر اساس routing اجرا میشه بهش endpoint گفته میشه.
 
-![routing](https://alirsabet.com/wp-content/uploads/2023/08/routing-1024x270.png)
+![routing](./images/routing.png#center)
 
 مسیریابی در داتنت‌کور به وسیله‌ی میدلورهای UseRouting و UseEndPoints انجام میشه. UseRouting، یک endpoint متناسب با HTTP method و url رو پیدا می‌کنه و UseEndPoints اون endpoint مناسب که توسط UseRouting پیدا شده رو اجرا می‌کنه.
 
-![use routing use endpoints](https://alirsabet.com/wp-content/uploads/2023/08/use-routing-use-endpoints-300x145.png)
+```csharp
+app.UseRouting();
+
+app.UseEndPoints(endpoints => 
+{
+      endpoints.Map();
+      endpoints.MapGet();
+      endpoints.MapPost();
+});
+```
 
 ### mapها
 
 Mapها چی هستن؟ قوانینی هستند برای اینکه requestهای دریافتی رو به بخش‌های مختلف برنامه ارتباط بدن. Map برای همه‌ی HTTP methodها کار می‌کنه اما میشه با MapGet فقط به درخواست‌های Get و با MapPost فقط به درخواست‌های Post پاسخ داد. مثلا در این تصویر، Map به همه‌ی درخواست‌هایی که با "path" شروع می‌شن رسیدگی می‌کنه، MapGet به درخواست‌های نوعِ Get که با "path" شروع می‌شن رسیدگی می‌کنه و MapPost به درخواست‌های نوعِ Post که با "path" شروع می‌شن رسیدگی می‌کنه.
 
-![map mapget mappost](https://alirsabet.com/wp-content/uploads/2023/08/map-mapget-mappost-300x239.png)
+```csharp
+endpoints.Map("path", async (HttpContext context) =>
+{
+ //code
+});
 
-### متد GetEndpoint
+endpoints.MapGet("path", async (HttpContext context) =>
+{
+ //code
+});
 
-یکی از متدهایی که در context وجود داره، GetEndpoint است که شی‌ای از نوع Microsoft.AspNetCore.Http.Endpoint برمی‌گردونه. وقتی از UseRouting استفاده می‌کنیم، endpointهای متناسب با HTTP method و url رو به برنامه میشناسونیم، پس قبل از UseRouting، برنامه این شناخت رو نخواهد داشت. در کد زیر، endPoint اول null خواهد بود و endPoint دوم، اطلاعات endpoint رو خواهد داشت (چون بعد از UseRouting اومده).
-
-![getendpoints](https://alirsabet.com/wp-content/uploads/2023/08/getendpoints-300x268.png)
+endpoints.MapPost("path", async (HttpContext context) =>
+{
+ //code
+});
+```
 
 ### route parameters
 
 آدرس‌هایی که ما رو به محتوای مورد نظرمون می‌رسونن، یک قسمت ثابت و یک قسمت متغیر دارن، مثلا در یک سیستمِ نمایشِ اطلاعاتِ کارمندان، "employee/profile/ali" ما رو به اطلاعات پروفایل علی و "employee/profile/reza" ما رو به اطلاعات رضا می‌رسونه. بخشِ "employee/profile" در هر دو مشترکه. به اون قسمت‌هایی که میتونه تغییر کنه و مقادیر مختلف بگیره، route parameter می‌گن. route parameterها رو داخل {} می‌ذاریم.
 
-![Route Parameters](https://alirsabet.com/wp-content/uploads/2023/08/Route-Parameters-1024x224.png)
-
-![route parameter example](https://alirsabet.com/wp-content/uploads/2023/08/route-parameter-example-300x80.png)
+```csharp
+/employee/profile/ali
+/employee/profile/reza
+/employee/profile/{name}
+```
 
 مثلا در کد زیر اگر آدرس وارد شده به صورت "files/sample.txt" باشه، وارد endpoint اول و اگه به صورت "employee/profile/ali" باشه وارد endpoint دوم می‌شیم.
 
-![route parameters](https://alirsabet.com/wp-content/uploads/2023/08/route-parameters-1-300x202.png)
+```csharp
+//enable routing
+app.UseRouting();
+
+//creating endpoints
+app.UseEndpoints(endpoints =>
+{
+  //Eg: files/sample.txt
+  endpoints.Map("files/{filename}.{extension}", async context =>
+  {
+    string? fileName = Convert.ToString(context.Request.RouteValues["filename"]);
+    string? extension = Convert.ToString(context.Request.RouteValues["extension"]);
+
+    await context.Response.WriteAsync($"In files - {fileName} - {extension}");
+  });
+
+  //Eg: employee/profile/john
+  endpoints.Map("employee/profile/{EmployeeName}", async context =>
+  {
+    string? employeeName = Convert.ToString(context.Request.RouteValues["employeename"]);
+    await context.Response.WriteAsync($"In Employee profile {employeeName}");
+  });
+});
+```
 
 ### default/optional value
 
 وقتی الگویی برای url تعریف می‌کنیم، انتظار داریم url وارد شده دقیقا مطابق اون باشه. اما اگر به هر دلیلی مطابق نباشه چی؟ میشه برای پارامترها مقدار پیش‌فرض (default) گذاشت، یعنی اگر مقدار وارد نشده بود، مقدارِ پیش‌فرضِ default\_value رو به جاش بذاره. مثلا در برنامه، لیستی از کالاها با شناسه‌ی 1 تا 100 داریم. قصد داریم منطق برنامه به شکلی باشه که اگر کاربر در url، شناسه‌ی id رو وارد کرد، اطلاعات کالای با شناسه‌ی id رو ببینه، اما اگر شناسه‌ی کالا رو وارد نکرد، اطلاعات کالای با شناسه‌ی 1 رو ببینه.
 
-![routing default parameter](https://alirsabet.com/wp-content/uploads/2023/08/routing-default-parameter-300x145.png)
+```csharp
+app.UseEndpoints(endpoints =>
+{
+ //Eg: products/details/1
+ endpoints.Map("products/details/{id=1}", async context => {
+  int id = Convert.ToInt32(context.Request.RouteValues["id"]);
+  await context.Response.WriteAsync($"Products details {id}");
+ });
+});
+```
 
 راهِ دیگرِ هندل کردن این موضوع، استفاده از مقدار اختیاری (optional) است. مثلا قصد داریم پارامتر id اختیاری باشه.
 
-![Optional Route Parameters](https://alirsabet.com/wp-content/uploads/2023/08/Optional-Route-Parameters-300x136.png)
+```csharp
+endpoints.Map("products/details/{id?}", async context => {
+if (context.Request.RouteValues.ContainsKey("id"))
+{
+ int id = Convert.ToInt32(context.Request.RouteValues["id"]);
+ await context.Response.WriteAsync($"Products details {id}");
+ }
+ else
+{
+  await context.Response.WriteAsync("Id is not supplied");
+ }
+});
+```
 
 * * *
 
@@ -222,7 +325,7 @@ controllerها
 
 در یک پروژه‌ی واقعی نمیشه همه‌ی actionهایی که نیاز است رو در فایل Program وارد کنیم. Controller، کلاسیه که action methodهای مرتبط به هم رو در اون گروه‌بندی می‌کنیم. زمانی که request میاد، action methodها یک کارِ خاص رو انجام میدن و response رو برمی‌گردونن.
 
-![controllers](https://alirsabet.com/wp-content/uploads/2023/08/controllers-1024x259.png)
+![controllers](./images/controllers.png#center)
 
 کنترلرها معمولا 4 وظیفه اصلی دارن:
 
@@ -236,26 +339,65 @@ controllerها
 *   نامِ کلاس، پسوند Controller داشته باشه، مثلا HomeController
 *   ویژگی (attribute) \[Controller\] روی اون یا base classش اعمال بشه
 
-![Creating Controllers](https://alirsabet.com/wp-content/uploads/2023/08/Creating-Controllers-300x106.png)
+```csharp
+[Controller]
+class ClassNameController
+{
+  //action methods here
+}
+```
 
 بهتره کنترلرها رو در فولدر Controllers قرار بدیم، یک کار اختیاری اما خوب اینه که کلاس از نوع public باشه و از Microsoft.AspNetCore.Mvc.Controller ارث‌بری کنه. در کنترلر زیر، اگه requestای از نوع GET به آدرس "/Home/" بیاد (مثلا کاربر در مرورگر آدرس وارد کنه)، وارد متد Index می‌شیم و اگه "/Home/Welcome/" رو وارد کنه، وارد متد Welcome می‌شیم.
 
-![Sample Controller](https://alirsabet.com/wp-content/uploads/2023/08/Sample-Controller-300x260.png)
+```csharp
+using Microsoft.AspNetCore.Mvc;
+
+public class HomeController: Controller {
+  // GET: /Home/ 
+  public string Index() {
+    return "This is my default action...";
+  }
+  // GET: /Home/Welcome/ 
+  public string Welcome() {
+    return "This is the Welcome action method...";
+  }
+}
+```
 
 اگر کنترلر بالا رو تعریف کرده باشیم و هر یک از آدرس‌های بیان شده رو وارد کنیم، برنامه کار نخواهد کرد، به 2 دلیل:
 
 *   کلاس کنترلر در داتنت‌کور، جزو سرویس‌هاست و باید به عنوان service class به برنامه معرفی بشه (DI)
 *   قابلیت routing باید برای متدهای کلاس کنترلر تعریف بشه
 
-![controllers DI and map](https://alirsabet.com/wp-content/uploads/2023/08/controllers-DI-and-map-300x158.png)
+```csharp
+builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllers();
+app = builder.Build();
+app.MapControllers();
+app.Run();
+```
 
 در تصویر بالا خط 2 همه‌ی کنترلرهای برنامه رو به عنوان service معرفی می‌کنه و زمانی که یک endpoint به اون‌ها نیاز داشته باشه، قابل دسترس خواهند بود. خط 4 همه‌ی action methodها رو به عنوان endpoint معرفی می‌کنه و عملا نیاز نیست تک‌تک مشخص کنیم که هر endpoint به کجا بره، کاری که در شکل زیر انجام شده و توصیه نمیشه.
 
-![UseEndpoints not recommended](https://alirsabet.com/wp-content/uploads/2023/08/UseEndpoints-not-recommended-300x117.png)
+```csharp
+app.UseRouting(); 
+
+app.UseEndpoints(endpoints => 
+{
+  app.MapGet("/hello/", (string name) => $"Hello {name}!"); 
+});
+```
 
 حالا باید قالبی برای urlها تعریف کنیم و به برنامه بدیم تا بدونه urlهایی که میان به چه شکل هستن. روش attribute routing اینه که بالای هر action، دقیقا url رو بیاریم. الان با وارد کردن آدرس "/test/" وارد متد زیر میشیم.
 
-![route attribute non efficient](https://alirsabet.com/wp-content/uploads/2023/08/route-attribute-non-efficient-300x145.png)
+```csharp
+public class HomeController: Controller {
+  [Route("test")]
+  public string Index() {
+    return "alirsabet.com";
+  }
+}
+```
 
 روش بهتر اینه که قالب کلی رو مشخص کنیم.
 
@@ -265,13 +407,25 @@ controllerها
 
 ContentResult می‌تونه هر نوع پاسخی باشه و بستگی به [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types) (مایم‌تایپ) داره. MIME type چیه؟ یک شناسه‌ی دو قسمتی که فرمت فایل‌ها رو مشخص می‌کنه، مثلا text/plain و text/html و application/json و...
 
-![ContentResult](https://alirsabet.com/wp-content/uploads/2023/08/ContentResult-300x80.png)
+```csharp
+return new ContentResult() { 
+  Content = "content", ContentType = "content type" 
+};
+//or
+return Content(
+  "content", "content type"
+);
+```
 
 **JsonResult**
 
 JsonResult پاسخ (مثلا شی‌ای از کلاس Person) رو در قالب فرمت json برمی‌گردونه.
 
-![JsonResult](https://alirsabet.com/wp-content/uploads/2023/08/JsonResult-300x139.png)
+```csharp
+return new JsonResult(your_object);
+//or
+return Json(your_object);
+```
 
 **FileResult**
 
@@ -281,45 +435,114 @@ VirtualFileResult فایلی که در WebRoot (فولدر wwwroot) با زیر�
 
 PhysicalFileResult فایلی که الزاما در WebRoot (فولدر wwwroot) قرار نداره رو برمی‌گردونه.
 
-![FileResult](https://alirsabet.com/wp-content/uploads/2023/08/FileResult-300x199.png)
+```csharp
+return new VirtualFileResult(
+  "file relative path", "content type"
+);
+//or
+return File(
+  "file relative path", "content type"
+);
+```
+
+```csharp
+return new PhysicalFileResult(
+  "file absolute path", "content type"
+);
+//or
+return PhysicalFile(
+  "file absolute path", "content type"
+);
+```
 
 FileContentResult فایل رو به شکل آرایه‌ای از بایت‌ها برمی‌گردونه.
 
-![FileContentResult](https://alirsabet.com/wp-content/uploads/2023/08/FileContentResult-300x112.png)
+```csharp
+return new FileContentResult(
+  byte_array, "content type"
+);
+//or
+return File(
+  byte_array, "content type"
+);
+```
 
 **IActionResult**
 
 IActionResult، اینترفیسِ والدِ همه‌ی کلاس‌های action result مثل ContentResult و JsonResult و... است. بنابراین می‎‌تونیم نوع مقدار خروجیِ همه‌ی action methodها رو IActionResult بذاریم.
 
-![IActionResult](https://alirsabet.com/wp-content/uploads/2023/08/IActionResult-1024x484.png)
+![IActionResult](./images/IActionResult.png#center)
 
 استفاده از IActionResult برای مشخص کردن نوع خروجیِ action methodها پیشنهاد میشه. فرض کنید قصد داریم در action method زیر، اگر در query string مقدار bookid وارد شده باشه، فایل sample.pdf رو برگردونیم و در غیر این صورت، یک Content حاوی پیام مناسب برگردونیم. این کار به راحتی قابل انجامه.
 
-![IActionResult recommended](https://alirsabet.com/wp-content/uploads/2023/08/IActionResult-recommended-300x223.png)
+```csharp
+[Route("book")]
+public IActionResult Index() {
+  //Book id should be applied 
+  if (!Request.Query.ContainsKey("bookid")) {
+    Response.StatusCode = 400;
+    return Content("Book id is not supplied");
+  }
+  return File("/sample.pdf", "application/pdf");
+}
+```
 
 **StatusCodeResult**
 
 معمولا علاقه‌مندیم در پاسخی که برمی‌گردونیم، status code رو هم مشخص کنیم تا چک کردنش توسط client ساده باشه. معروف‌ترین status codeها، 200 و 400 و 401 و 404 و 500 هستن. [لیست کامل اینجاست](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status).
 
-![StatusCodeResult](https://alirsabet.com/wp-content/uploads/2023/08/StatusCodeResult-300x223.png)
+```csharp
+return new StatusCodeResult(status_code);
+//or
+return StatusCode(status_code);
+```
+```csharp
+return new UnauthorizedResult();
+//or
+return Unauthorized();
+```
+```csharp
+return new BadRequestResult();
+//or
+return BadRequest();
+```
+```csharp
+return new NotFoundResult();
+//or
+return NotFound();
+```
 
 **Redirect Result**
 
 Redirect result، کد 301 یا 302 رو به مرورگر ارسال می‌کنه، با این هدف که به یک url یا action دیگه [redirect](https://developer.mozilla.org/en-US/docs/Web/HTTP/Redirections) بشه. چرا ممکنه به redirect نیاز پیدا کنیم؟ در یک سناریوی ساده فرض کنید قبلا فروشگاه اینترنتی کتاب داشته‌اید که در آدرس "/bookstore/" قرار داشت،اما حالا قراره علاوه بر کتاب، کالاهای دیگری هم بفروشید و می‌خواهید دسته‌ی کتاب‌ها رو به "/store/books/" منتقل کنید. این کار به راحتی امکان‌پذیره، اما اگر کسانی آدرس قبلی رو در مرورگر ذخیره (bookmark) باشند چی؟ اگر آدرس قبلی رو وارد کنند، باید اون‌ها رو به آدرس جدید بفرستیم (redirect کنیم).
 
-![Redirect Results](https://alirsabet.com/wp-content/uploads/2023/08/Redirect-Results-1024x328.png)
+![Redirect Results](./images/Redirect-Results.png#center)
 
 RedirectToActionResult بر اساس نام action و نام controller، از یک action method به یک action method دیگر redirect می‌کند.
 
-![RedirectToActionResult](https://alirsabet.com/wp-content/uploads/2023/08/RedirectToActionResult-300x92.png)
+```csharp
+return new RedirectToActionResult(
+  "action", "controller", 
+  new { route_values }, 
+  permanent
+);
+```
 
 LocalRedirectResult بر اساس یک url مشخص، از یک action method به یک action method دیگر redirect می‌کند.
 
-![LocalRedirectResult](https://alirsabet.com/wp-content/uploads/2023/08/LocalRedirectResult-300x132.png)
+```csharp
+return new LocalRedirectResult(
+  "local_url", permanent
+);
+```
 
 RedirectResult از یک action method به هر url دیگری (داخل یا خارج از برنامه) redirect می‌کند.
 
-![RedirectResult](https://alirsabet.com/wp-content/uploads/2023/08/RedirectResult-300x132.png)
+```csharp
+return new RedirectResult(
+  "url", permanent
+);
+```
 
 * * *
 
@@ -328,21 +551,39 @@ model binding
 
 در کنترلرها و ویوها به داده‌هایی که از http requestها می‌آیند نیاز داریم، بنابراین باید اون‌ها تک‌به‌تک در action methodها دریافت کنیم. کاری تکراری و سخت و احتمالا پر از خطا. Model Binding یکی از ویژگی‌های asp.net core است که مقادیر را از http requestها می‌خواند و آن‌ها را به عنوان ورودی (argument) به action methodها می‌دهد. در Model Binding، داده‌ها به ترتیبِ form fields و request body و route data و query string parameters خوانده می‌شن و این ترتیب مهمه.
 
-![Model Binding](https://alirsabet.com/wp-content/uploads/2023/08/Model-Binding-1024x374.png)
+![Model Binding](./images/Model-Binding.png#center)
 
 ### \[FromQuery\] و \[FromRoute\]
 
-![[FromQuery] and [FromRoute]](https://alirsabet.com/wp-content/uploads/2023/08/FromQuery-and-FromRoute-1024x411.png)
+![FromQuery and FromRoute](./images/FromQuery-and-FromRoute.png#center)
 
 اگر بخواهیم مقادیر رو از query string بخونیم از \[FromQuery\] و اگر بخواهیم مقادیر رو از route data بخونیم از \[FromRoute\] استفاده می‌کنیم (میشه از هر دو استفاده کرد و برای هر پارامتر ورودی چداگانه تعیین کنیم که \[FromQuery\] باشه یا \[FromRoute\]). چون ممکنه null باشن از ? استفاده می‌کنیم.
 
-![[FromQuery] and [FromRoute] code](https://alirsabet.com/wp-content/uploads/2023/08/FromQuery-and-FromRoute-code-300x173.png)
+```csharp
+//gets the value from query string only
+public IActionResult ActionMethodName( [FromQuery] type parameter)
+{
+  //code
+}
+```
+```csharp
+//gets the value from route parameters only
+public IActionResult ActionMethodName( [FromRoute] type parameter)
+{
+  //code
+}
+```
 
 Model کلاسیه که از طریق propertyها، ساختار داده‎‌ای که قراره از طریق request بگیریم یا از طریق response بفرستیم رو مشخص می‌کنه و اون رو به نام POCO (Plain Old CLR Objects) هم می‌شناسیم.
 
-![POCO](https://alirsabet.com/wp-content/uploads/2023/08/POCO-1024x308.png)
+![POCO](./images/POCO.png#center)
 
-![Model class ClassName](https://alirsabet.com/wp-content/uploads/2023/08/Model-class-ClassName-300x93.png)
+```csharp
+class ClassName
+{
+  public type PropertyName { get; set; }
+}
+```
 
 ### form fields
 
@@ -350,11 +591,28 @@ Model کلاسیه که از طریق propertyها، ساختار داده‎‌
 
 در روش form-urlencoded که روش پیش‌فرضِ HTML است، مقدار Content-Type در Request Headers به صورت زیر تعریف میشه و مقادیر فرم به صورت query string در Request Body قرار می‌گیره (شبیه‌سازی به کمک متد POST و روش x-www-form-urlencoded در Postman).
 
-![form-urlencoded](https://alirsabet.com/wp-content/uploads/2023/08/form-urlencoded-300x106.png)
+```csharp
+Request Headers
+Content-Type: application/x-www-form-urlencoded
+
+Request Body
+param1=value1&param2=value2
+```
 
 در روش form-data مقدار Content-Type در Request Headers به صورت زیر تعریف میشه و مقادیر فرم با فرمت نمایش داده شده در Request Body قرار می‌گیره (شبیه‌سازی به کمک متد POST و روش form-data در Postman).
 
-![form-data](https://alirsabet.com/wp-content/uploads/2023/08/form-data-300x171.png)
+```csharp
+Request Headers
+Content-Type: multipart/form-data
+
+Request Body
+--------------------------d74496d66958873e
+Content-Disposition: form-data; name="param1"
+value1
+--------------------------d74496d66958873e
+Content-Disposition: form-data; name="param2"
+value2
+```
 
 معمولا در حالتی که فیلدهای کمی (مثلا 5 تا) داریم، روش form-urlencoded کار می‌کنه، اما در حالتی که فیلدها زیاد هستند و فایل هم در فرم داریم، از روش form-data استفاده می‌کنیم.
 
@@ -362,13 +620,56 @@ Model کلاسیه که از طریق propertyها، ساختار داده‎‌
 
 فرض کنید که model binding انجام شده و به مقادیرِ مدل دست پیدا کرده‌ایم. چطور اون‌ها رو اعتبارسنجی کنیم؟ مثلا انتظار داریم نام افراد فقط شامل حروف انگلیسی، ایمیل‌شون حتما شامل "@" و شماره موبایل‌شون 11 رقم باشه. به این کار Model Validation می‌گن. در این روش، به کمک \[attribute\]ها، قوانین مورد نظرمون رو برای هر property معرفی می‌کنیم.
 
-![Model Validation](https://alirsabet.com/wp-content/uploads/2023/08/Model-Validation-1024x349.png)
+![Model Validation](./images/Model-Validation.png#center)
 
-![Model Validation code](https://alirsabet.com/wp-content/uploads/2023/08/Model-Validation-code-300x114.png)
+```csharp
+class ClassName
+{
+  [Attribute] 
+  //applies validation rule on this property
+  public type PropertyName { get; set; }
+}
+```
 
 مثلا در تصویر زیر، کلاس Person رو با چند property معرفی کرده‌ایم و برای هر کدام، چند validation گذاشته‌ایم و در صورت عدم تطابق، پیام مناسب (ErrorMessage) به کاربر برمی‌گردونیم. [لیست کامل attributeها اینجاست](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations).
 
-![Model Validation person](https://alirsabet.com/wp-content/uploads/2023/08/Model-Validation-person-300x265.png)
+```csharp
+public class Person
+  {
+    [Required(ErrorMessage = "{0} can't be empty or null")]
+    [Display(Name = "Person Name")]
+    [StringLength(40, MinimumLength = 3, ErrorMessage = "{0} should be between {2} and {1} characters long")]
+    [RegularExpression("^[A-Za-z .]$", ErrorMessage = "{0} should contain only alphabets, space and dot (.)")]
+    public string? PersonName { get; set; }
+
+    [EmailAddress(ErrorMessage = "{0} should be a proper email address")]
+    [Required(ErrorMessage = "{0} can't be blank")]
+    public string? Email { get; set; }
+
+    [Phone(ErrorMessage = "{0} should contain 10 digits")]
+    //[ValidateNever]
+    public string? Phone { get; set; }
+
+
+    [Required(ErrorMessage = "{0} can't be blank")]
+    public string? Password { get; set; }
+
+
+    [Required(ErrorMessage = "{0} can't be blank")]
+    [Compare("Password", ErrorMessage = "{0} and {1} do not match")]
+    [Display(Name = "Re-enter Password")]
+    public string? ConfirmPassword { get; set; }
+
+
+    [Range(0, 999.99, ErrorMessage = "{0} should be between ${1} and ${2}")]
+    public double? Price { get; set; }
+
+    public override string ToString()
+    {
+      return $"Person object - Person name: {PersonName}, Email: {Email}, Phone: {Phone}, Password: {Password}, Confirm Password: {ConfirmPassword}, Price: {Price}";
+    }
+  }
+```
 
 ModelState یکی از ویژگی‌های ControllerBase است که در action methodها در دسترسه و میتونه وضعیتِ معتبر بودنِ مدل رو به ما اعلام کنه. ModelState سه property مهم داره.
 
@@ -376,21 +677,75 @@ ModelState یکی از ویژگی‌های ControllerBase است که در actio
 *   ErrorCount تعداد خطاها در فرایند اعتبارسنجی رو نشون میده
 *   Values لیستی از خطاهای همه‌ی propertyهای مدل رو نشون میده
 
-![Model Validation controller](https://alirsabet.com/wp-content/uploads/2023/08/Model-Validation-controller-300x141.png)
+```csharp
+public class HomeController : Controller
+  {
+    [Route("register")]
+    public IActionResult Index(Person person)
+    {
+      if (!ModelState.IsValid)
+      {
+        string errors = string.Join("\n", ModelState.Values.SelectMany(value => value.Errors).Select(err => err.ErrorMessage));
+        return BadRequest(errors);
+      }
+      return Content($"{person}");
+    }
+  }
+```
 
 ### Custom Validations
 
 داتنت‌کور، attributeهای زیادی در اختیارمون گذاشته که به کمک اون‌ها میشه validation انجام داد. اما اگر نیاز به یک validation خاص داشته باشیم چی؟ می‌تونیم Custom Validation بنویسیم.
 
-![custom ValidationAttribute](https://alirsabet.com/wp-content/uploads/2023/08/custom-ValidationAttribute-300x99.png)
+```csharp
+class ClassName : ValidationAttribute
+{
+  public override ValidationResult? IsValid(object? value, ValidationContext validationContext)
+  {
+    return ValidationResult.Success;
+    //or
+    return new ValidationResult("error message");
+  }
+}
+```
 
 فرض کنید قراره اعتبارسنجی جدیدی به برنامه اضافه کنیم تا مطمئن بشیم سال تولد افراد، قبل از 2000 است، بنابراین قصد داریم MinimumYearValidatorAttribute رو بسازیم. خوبه که فولدر جداگانه‌ای به نام CustomValidators بسازیم و validatorمون رو در اون قرار بدیم. این کلاس باید از ValidationAttribute (که کلاسِ پایه‌ی همه‌ی attributeهاست) ارث‌بری کنه و متد IsValid رو override کنه.
 
-![MinimumYearValidatorAttribute code](https://alirsabet.com/wp-content/uploads/2023/08/MinimumYearValidatorAttribute-code-300x287.png)
+```csharp
+public class MinimumYearValidatorAttribute : ValidationAttribute
+  {
+    public int MinimumYear { get; set; } = 2000;
+    public string DefaultErrorMessage { get; set; } = "Year should not be less than {0}";
 
-### Custom Validations with Multiple Properties
+    //parameterless constructor
+    public MinimumYearValidatorAttribute()
+    {
+    }
 
-...
+    //parameterized constructor
+    public MinimumYearValidatorAttribute(int minimumYear)
+    {
+      MinimumYear = minimumYear;
+    }
+
+    protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
+    {
+      if (value != null)
+      {
+        DateTime date = (DateTime)value;
+        if (date.Year >= MinimumYear)
+        {
+          return new ValidationResult(string.Format(ErrorMessage ?? DefaultErrorMessage, MinimumYear));
+        }
+        else
+        {
+          return ValidationResult.Success;
+        }
+      }
+      return null;
+    }
+  }
+```
 
 **منابع**
 ---------

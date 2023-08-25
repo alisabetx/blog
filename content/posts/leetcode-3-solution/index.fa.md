@@ -27,13 +27,13 @@ description: "در این پست سوال 3 لیت‌کد (longest substring wit
 
 ```txt
 input = "abccabb"
-output = 3 (abc, cab) 
-input = "cccccc" 
+output = 3 (abc, cab)
+input = "cccccc"
 output = 1
-input = "" 
+input = ""
 output = 0
-input = "abcbda" 
-output = 4 (abc, cbda) 
+input = "abcbda"
+output = 4 (abc, cbda)
 ```
 
 راه حل منطقی
@@ -96,7 +96,7 @@ const lengthOfLongestSubstring = function(s) {
 
 در این مرحله به بررسی پیچیدگی زمانی و حافظه ای راه حل می‌پردازیم. یعنی تحلیل می‌کنیم که بین زمان اجرای الگوریتم و حافظه مصرفی آن، چه رابطه ای با اندازه ورودی الگوریتم وجود دارد.
 
-پیچیدگی زمانی الگوریتم O(n2) است. حلقه بیرونی n بار اجرا می‌شود، حلقه درونی به تعداد کمتر اجرا می‌شود اما به همون دلیلی که در حل سوال 1 بیان شد، مرتبه زمانی، به مرتبه پایین‌تر نمی‌رسد و O(n2) می‌ماند.
+پیچیدگی زمانی الگوریتم O(n^2) است. حلقه بیرونی n بار اجرا می‌شود، حلقه درونی به تعداد کمتر اجرا می‌شود اما به همون دلیلی که در حل سوال 1 بیان شد، مرتبه زمانی، به مرتبه پایین‌تر نمی‌رسد و O(n^2) می‌ماند.
 
 پیچیدگی حافظه‌ای O(n) است. چرا؟ چون حداکثر مقدار حافظه‌ای که در طول اجرا به آن نیاز دارد، n است. این مقدار حافظه توسط آبجکت seenChars مصرف می‌شود. seenChars کاراکترهایی که تاکنون دیده شده است را نگه می‌دارد و اندازه آن وابسته به تعداد کاراکترهای unique در substring است. در بدترین حالت، زمانی که همه‌ی کاراکترها متمایز باشند، اندازه‌ی seenChars می‌تواند به اندازه طول string ورودی باشد. پس پیچیدگی حافظه‌ای O(n) است.
 
@@ -107,7 +107,7 @@ const lengthOfLongestSubstring = function(s) {
 
 اگر مسئله، بر اساس یک آرایه، لیست یا نوع رشته ای از ساختار داده باشد و مفهوم آن عمدتاً مبتنی بر ایده‌هایی مانند طولانی‌ترین دنباله یا کوتاه‌ترین دنباله باشد، پنجره کشویی میتواند به بهینه کردن الگوریتم کمک کند.  پنجره کشویی شامل یه بخش روی استرینگ یا دنباله است، شامل چند عنصر پشت سر هم است، میتواند جلو و عقب برود و میتواند تعداد عناصر مختلفی داشته باشد.
 
-![sliding-window](https://alirsabet.com/wp-content/uploads/2023/07/sliding-window-300x238.jpeg)
+![sliding window](./images/sliding-window.png#center)
 
 برای استفاده از این تکنیک، باید boundary‌ها رو مشخص کنیم، یعنی معلوم بشه که مرزهای پنجره کجاست. کانتر longest مثل قبل وجود خواهد داشت. همچنین از ساختمان داده Dictionary استفاده می‌کنیم تا علاوه بر کاراکتر دبده شده، indexش رو هم ذخیره کنیم.
 
@@ -131,7 +131,31 @@ const lengthOfLongestSubstring = function(s) {
 
 پیاده‌سازی الگوریتم جدید به صورت زیر خواهد بود.
 
-![leetcode 3 optimal](https://alirsabet.com/wp-content/uploads/2023/07/leetcode-3-optimal-300x202.png)
+```csharp
+public int LengthOfLongestSubstring(string s)
+{
+
+  if (s.Length <= 1) return s.Length;
+
+  var seen = Dictionary<char,int>();
+  int left = 0, longest = 0;
+
+  for (int right = 0; right < s.Length; right++) {
+    char currentChar = s[right];
+    int previouslySeenChar;
+
+    if (seen.TryGetValue(currentChar, out previouslySeenChar) 
+    && previouslySeenChar >= left) {
+      left = previouslySeenChar + 1;
+    }
+
+    seen[currentChar] = right;
+    longest = Math.Max(longest, right - left + 1);
+  }
+
+  return longest;
+}
+```
 
 پیچیدگی زمانی و پیچیدگی حافظه‌ای آن O(n) است.
 

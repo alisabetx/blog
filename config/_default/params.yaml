@@ -1,6 +1,6 @@
 env: production
 title: Ali Sabet
-description: .NET developer with a heart for AI, coding love stories between data and algorithms
+description: .NET developer with a heart for AI
 author: Ali Sabet
 
 rssFullContent: true
@@ -8,7 +8,9 @@ rssFullContent: true
 ShowReadingTime: true
 ShowShareButtons: true
 ShareButtons: ["linkedin", "twitter", "whatsapp", "telegram"]
+ShowCodeCopyButtons: true
 ShowToc: true
+TocOpen: false
 comments: false
 defaultTheme: auto
 disableSpecial1stPost: true
@@ -16,7 +18,7 @@ DateFormat: "2006-01-02"
 
 homeInfoParams:
   Title: Ali Sabet
-  Content: .NET developer with a heart for AI, coding love stories between data and algorithms
+  Content: .NET developer with a heart for AI
 
 # for search
 fuseOpts:

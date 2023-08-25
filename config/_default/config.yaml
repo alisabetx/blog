@@ -29,3 +29,9 @@ outputs:
 permalinks:
   posts: /posts/:year/:month/:slug/
   pages: /:slug/
+
+markup:
+  highlight:
+    lineNos: true
+    style: paraiso-dark
+    tabWidth: 4
