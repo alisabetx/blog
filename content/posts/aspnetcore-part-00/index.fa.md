@@ -12,13 +12,11 @@ description: "مقدمه‌ای از asp dotnet core"
 ---
 این پست با هدف نظم دادن به چیزهایی که در مورد ASP.NET Core یاد گرفته‌ام نوشته شده. اگر مطالب علوم کامپیوتر و زبان csharp رو در حد مقدماتی بلد باشید، می‌تونید ازش به عنوان منبع آموزشی برای ASP.NET Core استفاده کنید.
 
-ASP.Net Core چیه؟
------------------
+# ASP.Net Core چیه؟
 
 یک فریم‌ورک cross-platform (قابل اجرا در ویندوز، لینوکس و مک) و [open-source](https://github.com/dotnet/aspnetcore) مبتنی بر داتنت و زبان سی‌شارپ، که میشه باهاش برنامه‌های وب، سرویس و... بسازیم.
 
-نام‌گذاری
----------
+# نام‌گذاری
 
 مایکروسافت در نام‌گذاری اکوسیستم داتنت، مثل نام‌گذاری نسخه‌های ویندوز، دچار سرگیجه بوده. اگر به اکوسیستم داتنت نگاه کرده باشید، حتما اسم‌های زیادی دیده‌اید که باعث سردرگمی میشه.
 
@@ -33,21 +31,15 @@ ASP.Net Core چیه؟
 *   Asp.Net Core Razor Pages برای ساخت برنامه‌های وبِ ساده‌ی متمرکز بر صفحه
 *   Asp.Net Core Blazor برای ساخت برنامه‌های وب‌ای که هر دو سمت client و server با سی‌شارپ نوشته شده باشه
 
-پیش‌نیازها
-----------
-
+# پیش‌نیازها
 *   زبان سی‌شارپ
 *   برنامه‌نویسی شی‌گرا
 *   مفاهیم پایه‌ای فرانت مثل HTML و CSS و کمی JS
 *   نصب [Visual Studio](https://visualstudio.microsoft.com/downloads/) (نسخه Community هم کافیه) و [SSMS](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms) و [Postman](https://www.postman.com/downloads/)
 
-سرفصل‌ها
---------
-
+# سرفصل‌ها
 سرفصل‌ها مطابق دوره‌ی Udemy Asp.Net Core 7 (.NET 7) True Ultimate Guide خواهد بود، البته مطالب بیشتری بهش اضافه خواهد شد. کدها رو می‌تونید در [گیت‌هاب دوره](https://github.com/Harsha-Global/AspNetCore-Harsha) ببینید.
 
-**منابع**
----------
-
+# منابع
 [udemy](https://www.udemy.com/course/asp-net-core-true-ultimate-guide-real-project/)
 [microsoft](https://learn.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core)

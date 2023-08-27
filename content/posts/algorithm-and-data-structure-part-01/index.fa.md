@@ -10,9 +10,6 @@ comments: false
 ShowToc: true
 description: "XXXXXXXXXXXXXXXXXXXXXXX"
 ---
-XXXXXXXXXXXXXXXXXXXXX
-
-**منابع**
----------
-
+XXXXXXXXXXXXXXXXXXX
+# منابع
 [quera](https://quera.org/)
