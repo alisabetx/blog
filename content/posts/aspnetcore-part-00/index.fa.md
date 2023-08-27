@@ -45,3 +45,9 @@ ASP.Net Core چیه؟
 --------
 
 سرفصل‌ها مطابق دوره‌ی Udemy Asp.Net Core 7 (.NET 7) True Ultimate Guide خواهد بود، البته مطالب بیشتری بهش اضافه خواهد شد. کدها رو می‌تونید در [گیت‌هاب دوره](https://github.com/Harsha-Global/AspNetCore-Harsha) ببینید.
+
+**منابع**
+---------
+
+[udemy](https://www.udemy.com/course/asp-net-core-true-ultimate-guide-real-project/)
+[microsoft](https://learn.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core)

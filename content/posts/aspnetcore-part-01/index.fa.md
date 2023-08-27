@@ -751,3 +751,4 @@ public class MinimumYearValidatorAttribute : ValidationAttribute
 ---------
 
 [udemy](https://www.udemy.com/course/asp-net-core-true-ultimate-guide-real-project/)
+[microsoft](https://learn.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core)
