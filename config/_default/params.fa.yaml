@@ -6,4 +6,6 @@ homeInfoParams:
   Content: مهندس نرم‌افزار در اکوسیستم Dotnet، علاقه‌مند به AI
 
 editPost:
+  URL: "https://github.com/hialisabet/blog/tree/main/content"
   Text: "پیشنهاد اصلاح متن"
+  appendFilePath: true
