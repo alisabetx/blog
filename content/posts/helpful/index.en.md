@@ -5,9 +5,9 @@ date: 2023-09-01T14:00:00+03:30
 lastmod: 2023-09-01T14:00:00+03:30
 tags: ["tool", "site", "bookmark", "helpful"]
 author: "Ali Sabet"
-draft: true
+draft: false
 comments: true
-ShowToc: true
+ShowToc: false
 description: "Helpful things"
 ---
 xxxxxxxxxx
