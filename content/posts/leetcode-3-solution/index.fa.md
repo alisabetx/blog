@@ -10,6 +10,7 @@ comments: true
 ShowToc: true
 description: "در این پست سوال 3 لیت‌کد (longest substring without repeating characters) رو حل می‌کنیم"
 ---
+{{< edit/edit-fa >}}
 برای دسترسی به سوال 3 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/longest-substring-without-repeating-characters/) استفاده کنید. سطح این سوال Medium است.
 
 # شرایط مسئله
@@ -155,5 +156,5 @@ public int LengthOfLongestSubstring(string s)
 پیچیدگی زمانی و پیچیدگی حافظه‌ای آن O(n) است.
 
 # منابع
-
 [udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)
+{{< comment/comment-fa >}}

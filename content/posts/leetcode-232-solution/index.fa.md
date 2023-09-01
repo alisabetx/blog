@@ -10,6 +10,7 @@ comments: true
 ShowToc: true
 description: "در این پست سوال 232 لیت‌کد (implement queue using stacks) رو حل می‌کنیم"
 ---
+{{< edit/edit-fa >}}
 برای دسترسی به سوال 232 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/implement-queue-using-stacks/) استفاده کنید. سطح این سوال Easy است.
 
 # شرایط مسئله
@@ -130,5 +131,5 @@ public class QueueWithStacks <T>
 ```
 
 # منابع
-
 [udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)
+{{< comment/comment-fa >}}

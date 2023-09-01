@@ -10,6 +10,8 @@ comments: true
 ShowToc: true
 description: "مقدمه‌ای از الگوریتم و ساختمان‌داده"
 ---
+{{< edit/edit-fa >}}
 XXXXXXXXXXXXXXXXXXX
 # منابع
 [quera](https://quera.org/)
+{{< comment/comment-fa >}}

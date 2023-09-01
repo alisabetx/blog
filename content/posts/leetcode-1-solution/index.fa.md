@@ -10,6 +10,7 @@ comments: true
 ShowToc: true
 description: "در این پست سوال 1 لیت‌کد (two sum) رو حل می‌کنیم"
 ---
+{{< edit/edit-fa >}}
 برای دسترسی به سوال 1 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/two-sum/) استفاده کنید. سطح این سوال Easy است.
 
 # شرایط مسئله
@@ -100,5 +101,5 @@ const findTwoSum = function(nums, target) {
 ```
 
 # منابع
-
 [udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)
+{{< comment/comment-fa >}}

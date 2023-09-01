@@ -10,6 +10,7 @@ comments: true
 ShowToc: true
 description: "در این پست سوال 1249 لیت‌کد (minimum remove to make valid parentheses) رو حل می‌کنیم"
 ---
+{{< edit/edit-fa >}}
 برای دسترسی به سوال 1249 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/) استفاده کنید. سطح این سوال Medium است.
 
 # شرایط مسئله
@@ -112,5 +113,5 @@ public string MinRemoveToMakeValid(string str)
 پیچیدگی حافظه‌ای الگوریتم O(n) است. الگوریتم از حافظه با طول n برای ذخیره آرایه استفاده می‌کند و پیچیدگی‌اش O(n) است. در مورد Stack، در بدترین حالت، زمانی که همه پرانتزها باز باشند، Stack بیشترین اندازه خورد را خواهد داشت و پیچیدگی‌اش O(n) خواهد بود.
 
 # منابع
-
 [udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)
+{{< comment/comment-fa >}}

@@ -10,6 +10,7 @@ comments: true
 ShowToc: true
 description: "در این پست سوال 844 لیت‌کد (backspace string compare) رو حل می‌کنیم"
 ---
+{{< edit/edit-fa >}}
 برای دسترسی به سوال 844 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/backspace-string-compare/) استفاده کنید. سطح این سوال Easy است.
 
 # شرایط مسئله
@@ -187,5 +188,5 @@ public class Solution {
 پیچیدگی زمانی، مشابه با راه حل قبلی، O(s+t) است، اما پیچیدگی حافظه‌ای به O(1) رسیده است.
 
 # منابع
-
 [udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)
+{{< comment/comment-fa >}}

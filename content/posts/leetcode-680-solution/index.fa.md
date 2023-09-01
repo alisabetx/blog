@@ -10,6 +10,7 @@ comments: true
 ShowToc: true
 description: "در این پست سوال 680 لیت‌کد (valid palindrome ii) رو حل می‌کنیم"
 ---
+{{< edit/edit-fa >}}
 برای دسترسی به سوال 680 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/valid-palindrome-ii/) استفاده کنید. سطح این سوال Easy است.
 
 # شبه‌پالیندروم
@@ -88,5 +89,5 @@ public bool ValidSubPalindrome(string s, int start, int end) {
 پیچیدگی زمانی الگوریتم O(n) و پیچیدگی حافظه‌ای O(1) است.
 
 # منابع
-
 [udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)
+{{< comment/comment-fa >}}
