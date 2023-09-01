@@ -18,7 +18,7 @@ To run this blog locally, follow these steps:
 
 1. **Install Hugo**: Make sure you have Hugo installed. If not, you can download it from [Hugo's official website](https://gohugo.io/getting-started/installing/).
 
-2. **Clone the repository**: Start by cloning this repository to your local machine using `git clone https://github.com/hialisabet/blog.git`
+2. **Clone the repository**: Start by cloning using `git clone https://github.com/hialisabet/blog.git`
 
 4. **Navigate to the project folder**: Open a terminal and navigate to the directory where you cloned the repository.
 
@@ -32,9 +32,7 @@ This blog serves as a platform for me to share my thoughts and experiences. Feel
 
 ## Contact
 
-I'd love to hear your feedback and thoughts about my blog. You can reach me via email at `hialisabet[at]gmail[dot]com`
-
-Thank you for visiting my blog repository!
+I'd love to hear your feedback and thoughts. You can reach me via email at `hialisabet[at]gmail[dot]com`
 
 ---
 

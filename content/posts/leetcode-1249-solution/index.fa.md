@@ -11,6 +11,7 @@ ShowToc: true
 description: "در این پست سوال 1249 لیت‌کد (minimum remove to make valid parentheses) رو حل می‌کنیم"
 ---
 {{< edit/edit-fa >}}
+{{< comment/comment-fa >}}
 برای دسترسی به سوال 1249 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/) استفاده کنید. سطح این سوال Medium است.
 
 # شرایط مسئله
@@ -114,4 +115,3 @@ public string MinRemoveToMakeValid(string str)
 
 # منابع
 [udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)
-{{< comment/comment-fa >}}

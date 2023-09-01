@@ -11,6 +11,7 @@ ShowToc: true
 description: "مقدمه‌ای از asp dotnet core"
 ---
 {{< edit/edit-fa >}}
+{{< comment/comment-fa >}}
 این پست با هدف نظم دادن به چیزهایی که در مورد ASP.NET Core یاد گرفته‌ام نوشته شده. اگر مطالب علوم کامپیوتر و زبان csharp رو در حد مقدماتی بلد باشید، می‌تونید ازش به عنوان منبع آموزشی برای ASP.NET Core استفاده کنید.
 
 # ASP.Net Core چیه؟
@@ -46,4 +47,3 @@ description: "مقدمه‌ای از asp dotnet core"
 # منابع
 [udemy](https://www.udemy.com/course/asp-net-core-true-ultimate-guide-real-project/)
 [microsoft](https://learn.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core)
-{{< comment/comment-fa >}}

@@ -11,6 +11,7 @@ ShowToc: true
 description: "در این پست سوال 20 لیت‌کد (valid parentheses) رو حل می‌کنیم"
 ---
 {{< edit/edit-fa >}}
+{{< comment/comment-fa >}}
 برای دسترسی به سوال 20 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/valid-parentheses/) استفاده کنید. سطح این سوال Easy است.
 
 # شرایط مسئله
@@ -97,4 +98,3 @@ public bool IsValid(string s)
 
 # منابع
 [udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)
-{{< comment/comment-fa >}}

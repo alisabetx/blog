@@ -11,6 +11,7 @@ ShowToc: true
 description: "در این پست سوال 104 لیت‌کد (maximum depth of binary tree) رو حل می‌کنیم"
 ---
 {{< edit/edit-fa >}}
+{{< comment/comment-fa >}}
 برای دسترسی به سوال 104 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/maximum-depth-of-binary-tree/) استفاده کنید. سطح این سوال Easy است.
 
 # شرایط مسئله
@@ -80,4 +81,3 @@ public int MaxDepth(TreeNode node, int currentDepth)
 
 # منابع
 [udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)
-{{< comment/comment-fa >}}

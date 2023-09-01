@@ -11,6 +11,7 @@ ShowToc: true
 description: "در این پست سوال 746 لیت‌کد (min cost climbing stairs) رو حل می‌کنیم"
 ---
 {{< edit/edit-fa >}}
+{{< comment/comment-fa >}}
 برای دسترسی به سوال 746 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/min-cost-climbing-stairs/) استفاده کنید. سطح این سوال Easy است.
 
 # فهم مسئله
@@ -147,4 +148,3 @@ public static int MinCostClimbingStairs(int[] cost) {
 
 # منابع
 [udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)
-{{< comment/comment-fa >}}

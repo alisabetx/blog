@@ -11,6 +11,7 @@ ShowToc: true
 description: "خلاصه‌ی سریع از مهم‌ترین دستورات گیت"
 ---
 {{< edit/edit-fa >}}
+{{< comment/comment-fa >}}
 این پست با هدف یادآوری نکات مهم گیت (Git) نوشته شده. اگر به دنبال یافتن سریع کامندهای موردنظرتون هستید، [Git Explorer](https://gitexplorer.com/) رو ببینید. از طرفی، همه‌ی IDEهای معروف مثل Visual Studio و محصولات Jetbrains مثل PyCharm، امکانات git رو به شکل گرافیکی و بدون نیاز به نوشتن دستورات، در اختیارتون قرار میدن. بنابراین ممکنه نیازی به نوشتن دستورات نداشته باشید، اما همچنان دانستن مفهوم هر دستور، لازمه. فرض بر اینه که اهمیتِ استفاده از git رو می‌دونیم، می‌ریم سراغ استفاده‌اش. اطلاعات کامل، دقیق و به‌روز رو می‌تونید در [مستندات git](https://git-scm.com/docs) یا [کتاب git](https://git-scm.com/book) که نسخه فارسی هم داره ببینید.
 
 # نصب
@@ -694,4 +695,3 @@ subject توضیحی است که می‌گوید چه کاری انجام شده
 [atlassian](https://www.atlassian.com/)
 [@gitscm](https://virgool.io/@gitscm)
 [@rezakamalifard](https://virgool.io/@rezakamalifard)
-{{< comment/comment-fa >}}

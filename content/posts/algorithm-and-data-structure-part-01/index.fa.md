@@ -11,7 +11,7 @@ ShowToc: true
 description: "XXXXXXXXXXXXXXXXXXXXXXX"
 ---
 {{< edit/edit-fa >}}
+{{< comment/comment-fa >}}
 XXXXXXXXXXXXXXXXXXX
 # منابع
 [quera](https://quera.org/)
-{{< comment/comment-fa >}}

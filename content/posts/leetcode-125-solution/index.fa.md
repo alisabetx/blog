@@ -11,6 +11,7 @@ ShowToc: true
 description: "در این پست سوال 125 لیت‌کد (valid palindrome) رو حل می‌کنیم"
 ---
 {{< edit/edit-fa >}}
+{{< comment/comment-fa >}}
 برای دسترسی به سوال 125 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/valid-palindrome/) استفاده کنید. سطح این سوال Easy است.
 
 # پالیندروم
@@ -83,4 +84,3 @@ public class Solution {
 
 # منابع
 [udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)
-{{< comment/comment-fa >}}
