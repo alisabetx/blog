@@ -10,9 +10,9 @@ comments: true
 ShowToc: true
 description: "آموزش مفاهیم اولیه‌ی asp dotnet core"
 ---
+قسمت قبلی رو در [asp dotnet core (قسمت صفر)]({{< ref "aspnetcore-part-00" >}}) ببینید.
 {{< edit/edit-fa >}}
 {{< comment/comment-fa >}}
-قسمت قبلی رو در [asp dotnet core (قسمت صفر)]({{< ref "aspnetcore-part-00" >}}) ببینید.
 # سرور
 
 اپ‌های داتنت‌کور برای گرفتن درخواست‌ها (request) و ارسال پاسخ (response) به سرور (server) نیاز دارن. سرورِ پیش‌فرض داتنت‌کور، kestrel است که می‌تونه در محیط توسعه (development) و واقعی (production) استفاده بشه، اما معمولا از kestrel به عنوان application server و از reverse proxy serverها مثل iis و nginx در محیط واقعی استفاده می‌کنیم.

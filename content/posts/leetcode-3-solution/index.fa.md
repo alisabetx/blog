@@ -10,10 +10,9 @@ comments: true
 ShowToc: true
 description: "در این پست سوال 3 لیت‌کد (longest substring without repeating characters) رو حل می‌کنیم"
 ---
+برای دسترسی به سوال 3 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/longest-substring-without-repeating-characters/) استفاده کنید. سطح این سوال Medium است.
 {{< edit/edit-fa >}}
 {{< comment/comment-fa >}}
-برای دسترسی به سوال 3 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/longest-substring-without-repeating-characters/) استفاده کنید. سطح این سوال Medium است.
-
 # شرایط مسئله
 
 در این مرحله، شرایط خاص مسئله و حالت‌های edge case رو بررسی می‌کنیم. این شرایط باید در توضیحات سوال یا مثال‌ها مشخص شده باشن یا اینکه از پاسخ‌های پیش فرض استفاده کنیم.

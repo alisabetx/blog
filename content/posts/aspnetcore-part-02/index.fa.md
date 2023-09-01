@@ -10,6 +10,7 @@ comments: true
 ShowToc: true
 description: "آموزش مفاهیم اولیه‌ی asp dotnet core"
 ---
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 {{< edit/edit-fa >}}
 {{< comment/comment-fa >}}
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXX

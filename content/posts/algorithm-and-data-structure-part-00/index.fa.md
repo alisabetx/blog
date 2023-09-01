@@ -10,6 +10,7 @@ comments: true
 ShowToc: true
 description: "مقدمه‌ای از الگوریتم و ساختمان‌داده"
 ---
+XXXXXXXXXXXXXXXXXXX
 {{< edit/edit-fa >}}
 {{< comment/comment-fa >}}
 XXXXXXXXXXXXXXXXXXX
