@@ -20,6 +20,11 @@ homeInfoParams:
   Title: Ali Sabet
   Content: .NET developer with a heart for AI
 
+editPost:
+  URL: "https://github.com/hialisabet/blog/tree/main/content"
+  Text: "Suggest Changes"
+  appendFilePath: true
+
 # for search
 fuseOpts:
   isCaseSensitive: false
