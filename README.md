@@ -32,7 +32,9 @@ This blog serves as a platform for me to share my thoughts and experiences. Feel
 
 ## Contact
 
-I'd love to hear your feedback and thoughts about my blog. You can reach me via email at <hialisabet[@]gmail.com>. Thank you for visiting my blog repository!
+I'd love to hear your feedback and thoughts about my blog. You can reach me via email at `hialisabet[at]gmail[dot]com`
+
+Thank you for visiting my blog repository!
 
 ---
 

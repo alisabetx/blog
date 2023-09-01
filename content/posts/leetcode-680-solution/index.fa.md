@@ -6,7 +6,7 @@ lastmod: 2023-07-07T14:00:00+03:30
 tags: ["leetcode", "لیتکد", "حل سوال 680 لیت‌کد", "valid palindrome ii"]
 author: "علی ثابت"
 draft: false
-comments: false
+comments: true
 ShowToc: true
 description: "در این پست سوال 680 لیت‌کد (valid palindrome ii) رو حل می‌کنیم"
 ---

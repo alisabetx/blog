@@ -6,7 +6,7 @@ lastmod: 2023-08-20T14:00:00+03:30
 tags: ["asp.net core"]
 author: "علی ثابت"
 draft: false
-comments: false
+comments: true
 ShowToc: true
 description: "آموزش مفاهیم اولیه‌ی asp dotnet core"
 ---

@@ -6,7 +6,7 @@ lastmod: 2023-06-08T14:00:00+03:30
 tags: ["پایتون", "گوگل شیت", "python", "google sheets"]
 author: "علی ثابت"
 draft: false
-comments: false
+comments: true
 ShowToc: true
 description: "در این پست، سعی می‌کنیم پایتون رو به Google Sheets وصل کنیم و باهاش یک پروژه ساده بسازیم"
 ---

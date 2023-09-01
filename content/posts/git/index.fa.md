@@ -6,7 +6,7 @@ lastmod: 2023-08-01T14:00:00+03:30
 tags: ["گیت", "git"]
 author: "علی ثابت"
 draft: false
-comments: false
+comments: true
 ShowToc: true
 description: "خلاصه‌ی سریع از مهم‌ترین دستورات گیت"
 ---

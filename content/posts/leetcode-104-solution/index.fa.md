@@ -6,7 +6,7 @@ lastmod: 2023-07-13T14:00:00+03:30
 tags: ["leetcode", "لیتکد", "حل سوال 104 لیت‌کد", "maximum depth of binary tree"]
 author: "علی ثابت"
 draft: false
-comments: false
+comments: true
 ShowToc: true
 description: "در این پست سوال 104 لیت‌کد (maximum depth of binary tree) رو حل می‌کنیم"
 ---

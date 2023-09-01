@@ -6,7 +6,7 @@ lastmod: 2023-07-19T14:00:00+03:30
 tags: ["leetcode", "لیتکد", "حل سوال 3 لیت‌کد", "longest substring without repeating characters"]
 author: "علی ثابت"
 draft: false
-comments: false
+comments: true
 ShowToc: true
 description: "در این پست سوال 3 لیت‌کد (longest substring without repeating characters) رو حل می‌کنیم"
 ---

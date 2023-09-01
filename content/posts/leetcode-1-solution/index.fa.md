@@ -6,7 +6,7 @@ lastmod: 2023-07-21T14:00:00+03:30
 tags: ["leetcode", "لیتکد", "حل سوال 1 لیت‌کد", "two sum"]
 author: "علی ثابت"
 draft: false
-comments: false
+comments: true
 ShowToc: true
 description: "در این پست سوال 1 لیت‌کد (two sum) رو حل می‌کنیم"
 ---

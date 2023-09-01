@@ -6,7 +6,7 @@ lastmod: 2023-01-01T00:00:00+03:30
 tags: ["تافل", "toefl"]
 author: "علی ثابت"
 draft: true
-comments: false
+comments: true
 ShowToc: true
 description: "تجربه‌ها، منابع و نکات مهمِ تافل"
 ---

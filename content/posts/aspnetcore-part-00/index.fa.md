@@ -6,7 +6,7 @@ lastmod: 2023-08-10T14:00:00+03:30
 tags: ["asp.net core"]
 author: "علی ثابت"
 draft: false
-comments: false
+comments: true
 ShowToc: true
 description: "مقدمه‌ای از asp dotnet core"
 ---
