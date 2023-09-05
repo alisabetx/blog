@@ -1,11 +1,11 @@
 ---
-title: "چیزهای مفید"
-slug: "helpful"
-date: 2023-09-01T14:00:00+03:30
-lastmod: 2023-09-01T14:00:00+03:30
+title: "بوک‌مارک‌ها"
+slug: "bookmarks"
+date: 2023-09-05T14:00:00+03:30
+lastmod: 2023-09-05T14:00:00+03:30
 tags: ["ابزار", "سایت", "بوکمارک", "مفید"]
 author: "علی ثابت"
-draft: false
+draft: true
 comments: true
 ShowToc: false
 description: "معرفی چیزهای مفیدی که می‌شناسم"
