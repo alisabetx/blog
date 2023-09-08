@@ -3,7 +3,7 @@
 
       function getGiscusTheme() {
           const preferredTheme = localStorage.getItem("pref-theme");
-          const giscusTheme = preferredTheme == null || preferredTheme == "light" ? "light" : "dark";
+          const giscusTheme = preferredTheme == null || preferredTheme == "dark" ? "dark" : "light";
           return giscusTheme;
       }
 
@@ -15,7 +15,7 @@
           }
           sendMessage({
               setConfig: {
-                  theme: getGiscusTheme() == "light" ? "light" : "dark",
+                  theme: getGiscusTheme() == "dark" ? "dark" : "light",
               },
           });
       }
