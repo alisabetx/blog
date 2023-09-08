@@ -24,7 +24,7 @@ To run this blog locally, follow these steps:
 
 5. **Update theme**: `git submodule update --init --recursive`
 
-6. **Serve the website**: Run `hugo server -D` to start a local development server.
+6. **Serve the website**: Run `hugo server` to start a local development server.
 
 ## Usage
 
