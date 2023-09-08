@@ -16,7 +16,7 @@
         }
         sendMessage({
           setConfig: {
-          theme: getGiscusTheme() == "light" ? "dark": "light",
+          theme: getGiscusTheme() == "light" ? "light": "dark",
           },
         });
       }
@@ -32,8 +32,8 @@
           "data-reactions-enabled": "1",
           "data-emit-metadata": "0",
           "data-input-position": "bottom",
-          "data-theme": "preferred_color_scheme",
-          //"data-theme": getGiscusTheme(),       
+          //"data-theme": "preferred_color_scheme",
+          "data-theme": getGiscusTheme(),       
           "data-lang": "en",
           "crossorigin": "anonymous",
           "async": ""
