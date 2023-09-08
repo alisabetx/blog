@@ -11,8 +11,7 @@ ShowToc: true
 description: "در این پست سوال 680 لیت‌کد (valid palindrome ii) رو حل می‌کنیم"
 ---
 برای دسترسی به سوال 680 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/valid-palindrome-ii/) استفاده کنید. سطح این سوال Easy است.
-{{< edit/edit-fa >}}
-{{< comment/comment-fa >}}
+{{< edit/edit >}}
 # شبه‌پالیندروم
 
 رشته‌ی Almost Palindrome (شبه‌پالیندروم)، به رشته‌ای گفته می‌شه که با حذف یک کاراکتر، به Palindrome تبدیل میشه. مثلا "race a car" پالیندروم نیست، اما با حذف کاراکتر 'a' یا 'e' به پالیندروم تبدیل می‌شه. پس شبه‌پالیندرومه!

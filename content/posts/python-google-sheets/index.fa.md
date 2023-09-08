@@ -10,8 +10,7 @@ comments: true
 ShowToc: true
 description: "در این پست، سعی می‌کنیم پایتون رو به Google Sheets وصل کنیم و باهاش یک پروژه ساده بسازیم"
 ---
-{{< edit/edit-fa >}}
-{{< comment/comment-fa >}}
+{{< edit/edit >}}
 # آشنایی با Google Sheets
 
 گوگل شیت (که البته Google Sheets درسته!)، یک برنامه مشابه اکسل، تحت وب و رایگانه. این برنامه روی همه پلتفرم‌های رایج مثل [Android](https://play.google.com/store/apps/details?id=com.google.android.apps.docs.editors.sheets) و [iOS](https://apps.apple.com/us/app/google-sheets/id842849113) هم در دسترسه. تنها چیزی که برای کار با گوگل شیت نیاز داریم، داشتن حساب کاربری در گوگله. اگر گوشی اندرویدی یا حساب Gmail دارید، حتما اکانت گوگل هم دارید و می‌تونید با همون حساب [وارد گوگل‌شیت بشید](https://docs.google.com/spreadsheets/u/0/). در این پست فرض بر اینه که گوگل‌شیت رو می‌شناسید و قصد دارید ازش در کنار پایتون استفاده کنید.

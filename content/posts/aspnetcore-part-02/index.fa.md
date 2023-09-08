@@ -11,8 +11,7 @@ ShowToc: true
 description: "آموزش مفاهیم اولیه‌ی asp dotnet core"
 ---
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-{{< edit/edit-fa >}}
-{{< comment/comment-fa >}}
+{{< edit/edit >}}
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 # منابع
 [udemy](https://www.udemy.com/course/asp-net-core-true-ultimate-guide-real-project/)

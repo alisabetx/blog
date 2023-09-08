@@ -10,5 +10,4 @@ comments: true
 ShowToc: false
 description: "Introducing the useful things I know"
 ---
-{{< edit/edit-en >}}
-{{< comment/comment-en >}}
+{{< edit/edit >}}
