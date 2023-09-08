@@ -1,28 +1,27 @@
 <div class="giscus">
+  <script>
 
-    <script>
-        
       function getGiscusTheme() {
           const preferredTheme = localStorage.getItem("pref-theme");
           const giscusTheme = preferredTheme == null || preferredTheme == "light" ? "light" : "dark";
           return giscusTheme;
       }
-    
+
       function setGiscusTheme() {
-        function sendMessage(message) {
-          const iframe = document.querySelector('iframe.giscus-frame');
-          if (!iframe) return;
-          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-        }
-        sendMessage({
-          setConfig: {
-          theme: getGiscusTheme() == "light" ? "light": "dark",
-          },
-        });
+          function sendMessage(message) {
+              const iframe = document.querySelector("iframe.giscus-frame");
+              if (!iframe) return;
+              iframe.contentWindow.postMessage({ giscus: message }, "https://giscus.app");
+          }
+          sendMessage({
+              setConfig: {
+                  theme: getGiscusTheme() == "light" ? "light" : "dark",
+              },
+          });
       }
-    
+
       const attrs = {
-          "src": "https://giscus.app/client.js",
+          src: "https://giscus.app/client.js",
           "data-repo": "hialisabet/blog",
           "data-repo-id": "R_kgDOKHwkEw",
           "data-category": "General",
@@ -33,20 +32,23 @@
           "data-emit-metadata": "0",
           "data-input-position": "bottom",
           //"data-theme": "preferred_color_scheme",
-          "data-theme": getGiscusTheme(),       
+          "data-theme": getGiscusTheme(),
           "data-lang": "en",
-          "crossorigin": "anonymous",
-          "async": ""
+          crossorigin: "anonymous",
+          async: "",
       };
 
       const giscusScript = document.createElement("script");
       Object.entries(attrs).forEach(([key, value]) => giscusScript.setAttribute(key, value));
-        document.body.appendChild(giscusScript);
-    
-      const toggle = document.querySelector('#theme-toggle');
+      document.body.appendChild(giscusScript);
+
+      const toggle = document.querySelector("#theme-toggle");
       if (toggle) {
-        toggle.addEventListener('click', setGiscusTheme);
+          toggle.addEventListener("click", setGiscusTheme);
       }
-    </script>
-    
-    <noscript>Please enable JavaScript to view the comments</noscript>
+
+  </script>
+
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+</div>
