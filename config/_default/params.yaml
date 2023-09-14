@@ -16,6 +16,15 @@ defaultTheme: auto
 disableSpecial1stPost: true
 DateFormat: "2006-01-02"
 
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
 homeInfoParams:
   Title: Ali Sabet
   Content: .NET developer with a heart for AI
