@@ -80,7 +80,7 @@ git push -u origin main
 
 ```bash
 git remote add origin git@github.com:ati/repo.git
-git branch -N main
+git branch -M main
 git push -u origin main 
 ```
 
