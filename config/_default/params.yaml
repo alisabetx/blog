@@ -7,7 +7,7 @@ rssFullContent: true
 
 ShowReadingTime: true
 ShowShareButtons: true
-ShareButtons: ["linkedin", "twitter", "whatsapp", "telegram"]
+ShareButtons: ["linkedin", "x", "whatsapp", "telegram"]
 ShowCodeCopyButtons: true
 ShowToc: true
 TocOpen: false
