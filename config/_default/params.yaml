@@ -7,7 +7,7 @@ rssFullContent: true
 
 ShowReadingTime: true
 ShowShareButtons: true
-ShareButtons: ["linkedin", "x", "whatsapp", "telegram"]
+ShareButtons: ["linkedin", "twitter", "whatsapp", "telegram"]
 ShowCodeCopyButtons: true
 ShowToc: true
 TocOpen: false
@@ -53,8 +53,8 @@ socialIcons:
     url: https://letterboxd.com/hialisabet/
   - name: goodreads
     url: https://goodreads.com/hialisabet/
-  - name: x
-    url: https://x.com/alirsabet/
+  - name: twitter
+    url: https://twitter.com/alirsabet/
   - name: telegram
     url: https://alirsabet.t.me/
   - name: email
