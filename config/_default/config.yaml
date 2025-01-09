@@ -10,6 +10,8 @@ theme: PaperMod
 
 paginate: 10
 
+googleAnalytics: G-D418BHEZXR
+
 enableRobotsTXT: true
 
 disqusShortname: alirsabet
