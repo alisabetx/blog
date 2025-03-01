@@ -19,20 +19,20 @@ description: "با rabbitmq به صورت عملی کار کنیم"
 
 اگر خطای
 
-```bash
+```txt
 'erl' is not recognized as an internal or external command, operable program or batch file.
 ```
 
 گرفتید، یعنی ارلنگ به Path سیستم اضافه نشده و باید این کار رو دستی انجام بدید. آدرس ارلنگ کجاست؟ انتظار داریم در
 
-```bash
+```txt
 C:\Program Files\Erlang OTP\bin
 ```
 
 باشه، مگر اینکه اینجا نباشه و باید بگردید ببینید کجا نصب شده! به طور دقیق، آدرس پوشه bin ارلنگ رو نیاز دارید.
 حالا باید اون رو به Path سیستم اضافه کنید. برای این کار وارد
 
-```bash
+```txt
 This PC > Properties > Advanced system setting > Environment variables > System variables > Path > Edit > New
 ```
 
@@ -43,7 +43,7 @@ This PC > Properties > Advanced system setting > Environment variables > System 
 
 حالا باید خودِ RabbitMQ رو نصب کنید. روش سرراستِ نصب در ویندوز، رفتن به [صفحه مختص ویندوز](https://www.rabbitmq.com/docs/install-windows) و انتخاب Using the official installer as an administrative userست. در این بخش نکات مهمی رو توضیح داده که خوبه بخونید. بعد از انتخاب نسخه مورد نظر برای دانلود، میتونید RabbitMQ رو از گیتهاب دانلود کنید. در زمان نوشتن این پست، آخرین نسخه 4.0.7 بوده و گیتهاب‌اش اینجوریه:
 
-```bash
+```txt
 https://github.com/rabbitmq/rabbitmq-server/releases/tag/v4.0.7
 ```
 
@@ -51,19 +51,19 @@ https://github.com/rabbitmq/rabbitmq-server/releases/tag/v4.0.7
 
 فایل exe که سرراست‌ترین نوع نصب رو داره، دانلود و نصب کنید. چطور مطمئن بشیم RabbitMQ درست کار میکنه؟ به محل نصب RabbitMQ برید و آدرس‌اش رو کپی کنید. برای من
 
-```bash
+```txt
 C:\Program Files\RabbitMQ Server\rabbitmq\_server-4.0.7\sbin
 ```
 
 بود. حالا cmd رو run as administrator کنید (لازمه حتما این کار رو انجام بدید، در حالت عادی نمیشه) و بزنید:
 
-```bash
+```txt
 cd C:\Program Files\RabbitMQ Server\rabbitmq\_server-4.0.7\sbin
 ```
 
 در واقع رفتیم به محل نصب RabbitMQ. اگر بعد از زدن دستور
 
-```bash
+```txt
 rabbitmq-plugins.bat enable rabbitmq\_management
 ```
 
@@ -73,7 +73,7 @@ rabbitmq-plugins.bat enable rabbitmq\_management
 
 و بعد از زدن دستور
 
-```bash
+```txt
 rabbitmq-plugins enable rabbitmq\_shovel rabbitmq\_shovel\_management
 ```
 
@@ -85,7 +85,7 @@ rabbitmq-plugins enable rabbitmq\_shovel rabbitmq\_shovel\_management
 
 خوبه که
 
-```bash
+```txt
 C:\Program Files\RabbitMQ Server\rabbitmq\_server-4.0.7\sbin
 ```
 
@@ -93,7 +93,7 @@ C:\Program Files\RabbitMQ Server\rabbitmq\_server-4.0.7\sbin
 
 در ادامه، لازمه فایل hosts رو اصلاح کنیم. برنامه Notepad (یا برنامه های مشابه) رو run as administrator کنید، از منوی File گزینه Open رو بزنید و در آدرس بار بالا،
 
-```bash
+```txt
 C:\Windows\System32\drivers\etc
 ```
 
@@ -104,7 +104,7 @@ C:\Windows\System32\drivers\etc
 
 فایل hosts بالایی رو انتخاب کنید و در خطوط پایانی،
 
-```bash
+```txt
 127.0.0.1 rabbitmq
 ```
 
@@ -112,14 +112,14 @@ C:\Windows\System32\drivers\etc
 
 یه بار دیگه cmd رو run as administrator کنید و دستور
 
-```bash
+```txt
 net stop RabbitMQ
 net start RabbitMQ
 ```
 
 رو بزنید با RabbitMQ ری‌استارت بشه. در حالت پیش فرض، RabbitMQ روی پورت 15672 اجرا میشه. چطور بفهمیم این پورت بازه؟ دستور
 
-```bash
+```txt
 netstat -ano | findstr :15672
 ```
 
@@ -129,7 +129,7 @@ netstat -ano | findstr :15672
 
 خوشحال باشید! در مرورگر، آدرس
 
-```bash
+```txt
 http://localhost:15672/
 ```
 
@@ -139,7 +139,7 @@ http://localhost:15672/
 
 یعنی همه چیز به درستی انجام شده. در غیر این صورت، در جایی مشکلی وجود داشته! با
 
-```bash
+```txt
 username: guest
 password: guest
 ```
