@@ -1,5 +1,5 @@
 env: production
-title: Ali Sabet
+title: 23045019
 description: .NET developer with a heart for AI
 author: Ali Sabet
 
@@ -60,4 +60,4 @@ socialIcons:
   - name: email
     url: mailto:hialisabet+blog@gmail.com
   - name: rss
-    url: https://alirsabet.com/fa/index.xml
+    url: https://alirsabet.com/en/index.xml
