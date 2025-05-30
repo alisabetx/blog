@@ -8,7 +8,8 @@ languageName: فارسی
 
 theme: PaperMod
 
-paginate: 10
+pagination:
+  pagerSize: 10
 
 googleAnalytics: G-D418BHEZXR
 
@@ -35,3 +36,14 @@ markup:
     lineNos: true
     style: paraiso-dark
     tabWidth: 4
+  goldmark:
+    renderer:
+      unsafe: true
+
+# Move social links (example) here:
+params:
+  social:
+    - name: twitter
+      url: https://twitter.com/yourhandle
+    - name: github
+      url: https://github.com/yourhandle
