@@ -99,7 +99,6 @@ C:\Windows\System32\drivers\etc
 
 رو وارد کنید. لازمه نوع فایلها رو به All files تغییر بدید تا همه نوع فایلها رو ببینید.
 
-![](data:image/png;base64...)
 ![rabbitmq edit hosts](./images/rabbitmq-edit-hosts.png#center)
 
 فایل hosts بالایی رو انتخاب کنید و در خطوط پایانی،
