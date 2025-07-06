@@ -1,5 +1,8 @@
-name = "my-hugo-papermod-blog"
-compatibility_date = "2025-07-06"
+name = "alisabet-blog-worker"
+type = "javascript"
+
+[build]
+command = "bash build.sh"
 
 [site]
 bucket = "./public"
