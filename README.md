@@ -30,10 +30,6 @@ To run this blog locally, follow these steps:
 
 This blog serves as a platform for me to share my thoughts and experiences. Feel free to explore the articles, leave comments, and share your thoughts.
 
-## Contact
-
-I'd love to hear your feedback and thoughts. You can reach me via email at `hialisabet[at]gmail[dot]com`
-
 ---
 
 **Disclaimer:** The views, opinions, and expressions in this blog are solely those of the author and do not necessarily represent the official views or endorsements of any company or entity.
