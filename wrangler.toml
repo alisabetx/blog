@@ -1,0 +1,6 @@
+name = "my-hugo-papermod-blog"
+compatibility_date = "2025-07-06"
+
+[site]
+bucket = "./public"
+entry-point = "workers-site"
