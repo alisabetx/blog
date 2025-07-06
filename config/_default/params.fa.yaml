@@ -29,7 +29,7 @@ minify:
   minifyOutput: true
 
 editPost:
-  URL: "https://github.com/alirsabet/blog/tree/main/content"
+  URL: "https://github.com/alisabetx/blog/tree/main/content"
   Text: "پیشنهاد اصلاح متن"
   appendFilePath: true
 
@@ -45,14 +45,14 @@ fuseOpts:
 
 socialIcons:
   - name: linkedin
-    url: https://linkedin.com/in/alirsabet/
+    url: https://linkedin.com/in/alisabetx/
   - name: github
-    url: https://github.com/alirsabet/
+    url: https://github.com/alisabetx/
   - name: letterboxd
-    url: https://letterboxd.com/hialisabet/
+    url: https://letterboxd.com/alisabetx/
   - name: goodreads
-    url: https://goodreads.com/hialisabet/
+    url: https://goodreads.com/alisabetx/
   - name: twitter
-    url: https://twitter.com/alirsabet/
+    url: https://twitter.com/alisabetx/
   - name: rss
-    url: https://alirsabet.com/fa/index.xml
+    url: https://alisabetx.com/fa/index.xml
