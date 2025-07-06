@@ -18,7 +18,7 @@ To run this blog locally, follow these steps:
 
 1. **Install Hugo**: Make sure you have Hugo installed. If not, you can download it from [Hugo's official website](https://gohugo.io/getting-started/installing/).
 
-2. **Clone the repository**: Start by cloning using `git clone https://github.com/alirsabet/blog.git`
+2. **Clone the repository**: Start by cloning using `git clone https://github.com/alisabetx/blog.git`
 
 4. **Navigate to the project folder**: Open a terminal and navigate to the directory where you cloned the repository.
 

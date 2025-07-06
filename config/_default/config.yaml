@@ -1,4 +1,4 @@
-baseURL: https://alirsabet.com/
+baseURL: https://alisabetx.com/
 title: Ali Sabet
 
 defaultContentLanguageInSubdir: true
@@ -11,11 +11,9 @@ theme: PaperMod
 pagination:
   pagerSize: 10
 
-googleAnalytics: G-D418BHEZXR
-
 enableRobotsTXT: true
 
-disqusShortname: alirsabet
+disqusShortname: alisabetx
 
 minify:
   disableXML: true
@@ -40,18 +38,12 @@ markup:
     renderer:
       unsafe: true
 
-# Move social links (example) here:
 params:
-  social:
-    - name: linkedin
-      url: https://linkedin.com/in/alirsabet/
-    - name: github
-      url: https://github.com/alirsabet/
-    - name: letterboxd
-      url: https://letterboxd.com/hialisabet/
-    - name: goodreads
-      url: https://goodreads.com/hialisabet/
-    - name: twitter
-      url: https://twitter.com/alirsabet/
-    - name: rss
-      url: https://alirsabet.com/en/index.xml
+  env: production
+  analytics:
+    google:
+      SiteVerificationTag: "XYZabc"
+    bing:
+      SiteVerificationTag: "XYZabc"
+    yandex:
+      SiteVerificationTag: "XYZabc"

@@ -1,23 +1,29 @@
-env: production
 title: علی ثابت
 description: توسعه‌دهنده‌ی .Net، علاقه‌مند به AI
+keywords: [Blog, Portfolio]
 author: علی ثابت
 
-homeInfoParams:
-  Title: علی ثابت
-  Content: توسعه‌دهنده‌ی .Net، علاقه‌مند به AI
+DateFormat: "2006-01-02"
+defaultTheme: dark
+disableThemeToggle: false
 
 rssFullContent: true
 ShowReadingTime: true
 ShowShareButtons: true
 ShareButtons: ["linkedin", "twitter", "whatsapp", "telegram"]
+ShowPostNavLinks: true
+ShowBreadCrumbs: true
 ShowCodeCopyButtons: true
+ShowWordCount: true
+ShowRssButtonInSectionTermList: true
+UseHugoToc: true
 ShowToc: true
 TocOpen: false
-comments: true
-defaultTheme: auto
 disableSpecial1stPost: true
-DateFormat: "2006-01-02"
+disableScrollToTop: false
+comments: true
+hidemeta: false
+hideSummary: false
 
 enableRobotsTXT: true
 buildDrafts: false
@@ -28,12 +34,46 @@ minify:
   disableXML: true
   minifyOutput: true
 
+assets:
+  favicon: "<link / abs url>"
+  favicon16x16: "<link / abs url>"
+  favicon32x32: "<link / abs url>"
+  apple_touch_icon: "<link / abs url>"
+  safari_pinned_tab: "<link / abs url>"
+
+label:
+  text: "خانه"
+  icon: /apple-touch-icon.png
+  iconHeight: 35
+
+homeInfoParams:
+  Title: علی ثابت
+  Content: توسعه‌دهنده‌ی .Net، علاقه‌مند به AI
+
+socialIcons:
+  - name: linkedin
+    url: https://linkedin.com/in/alisabetx/
+  - name: github
+    url: https://github.com/alisabetx/
+  - name: x
+    url: https://x.com/alisabetx/
+  - name: letterboxd
+    url: https://letterboxd.com/alisabetx/
+  - name: goodreads
+    url: https://goodreads.com/alisabetx/
+  - name: rss
+    url: https://alisabetx.com/en/index.xml
+
+cover:
+  hidden: true
+  hiddenInList: true
+  hiddenInSingle: true
+
 editPost:
   URL: "https://github.com/alisabetx/blog/tree/main/content"
   Text: "پیشنهاد اصلاح متن"
   appendFilePath: true
 
-# for search
 fuseOpts:
   isCaseSensitive: false
   shouldSort: true
@@ -41,18 +81,5 @@ fuseOpts:
   distance: 1000
   threshold: 0.4
   minMatchCharLength: 0
+  limit: 10
   keys: ["title", "permalink", "summary", "content"]
-
-socialIcons:
-  - name: linkedin
-    url: https://linkedin.com/in/alisabetx/
-  - name: github
-    url: https://github.com/alisabetx/
-  - name: letterboxd
-    url: https://letterboxd.com/alisabetx/
-  - name: goodreads
-    url: https://goodreads.com/alisabetx/
-  - name: twitter
-    url: https://twitter.com/alisabetx/
-  - name: rss
-    url: https://alisabetx.com/fa/index.xml

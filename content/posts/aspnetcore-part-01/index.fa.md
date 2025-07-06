@@ -236,7 +236,7 @@ app.Run();
 
 # routing
 
-به فرایندی که در طیِ اون، HTTP requestsها به endpointهای مربوطه ارتباط داده می‌شن، routing گفته میشه. این کار با بررسی HTTP method و url انجام میشه. مثلا وقتی کاربر آدرس alirsabet.com/home رو وارد کرد، باید بتونیم اون رو به endpoint مربوط به home بفرستیم تا صفحه‌ی موردنظر رو ببینه. زمانی که یک میدلور بر اساس routing اجرا میشه بهش endpoint گفته میشه.
+به فرایندی که در طیِ اون، HTTP requestsها به endpointهای مربوطه ارتباط داده می‌شن، routing گفته میشه. این کار با بررسی HTTP method و url انجام میشه. مثلا وقتی کاربر آدرس alisabetx.com/home رو وارد کرد، باید بتونیم اون رو به endpoint مربوط به home بفرستیم تا صفحه‌ی موردنظر رو ببینه. زمانی که یک میدلور بر اساس routing اجرا میشه بهش endpoint گفته میشه.
 
 ![routing](./images/routing.png#center)
 
@@ -417,7 +417,7 @@ app.UseEndpoints(endpoints =>
 public class HomeController: Controller {
   [Route("test")]
   public string Index() {
-    return "alirsabet.com";
+    return "alisabetx.com";
   }
 }
 ```
