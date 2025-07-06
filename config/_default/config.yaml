@@ -43,7 +43,15 @@ markup:
 # Move social links (example) here:
 params:
   social:
-    - name: twitter
-      url: https://twitter.com/yourhandle
+    - name: linkedin
+      url: https://linkedin.com/in/alirsabet/
     - name: github
-      url: https://github.com/yourhandle
+      url: https://github.com/alirsabet/
+    - name: letterboxd
+      url: https://letterboxd.com/hialisabet/
+    - name: goodreads
+      url: https://goodreads.com/hialisabet/
+    - name: twitter
+      url: https://twitter.com/alirsabet/
+    - name: rss
+      url: https://alirsabet.com/en/index.xml
