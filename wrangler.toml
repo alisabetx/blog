@@ -1,9 +1,10 @@
-name = "alisabet-blog-worker"
-type = "javascript"
+name = "blog"
+compatibility_date = "2025-07-06"
 
 [build]
-command = "bash build.sh"
+command = "hugo"
 
-[site]
-bucket = "./public"
-entry-point = "workers-site"
+[assets]
+directory = "./public"
+not_found_handling = "404-page"
+html_handling = "auto-trailing-slash"
