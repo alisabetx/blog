@@ -4,14 +4,10 @@ slug: "leetcode-680-solution"
 date: 2023-07-07T14:00:00+03:30
 lastmod: 2023-07-07T14:00:00+03:30
 tags: ["leetcode", "لیتکد", "حل سوال 680 لیت‌کد", "valid palindrome ii"]
-author: "علی ثابت"
-draft: false
-comments: true
-ShowToc: true
 description: "در این پست سوال 680 لیت‌کد (valid palindrome ii) رو حل می‌کنیم"
 ---
 برای دسترسی به سوال 680 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/valid-palindrome-ii/) استفاده کنید. سطح این سوال Easy است.
-{{< edit/edit >}}
+
 # شبه‌پالیندروم
 
 رشته‌ی Almost Palindrome (شبه‌پالیندروم)، به رشته‌ای گفته می‌شه که با حذف یک کاراکتر، به Palindrome تبدیل میشه. مثلا "race a car" پالیندروم نیست، اما با حذف کاراکتر 'a' یا 'e' به پالیندروم تبدیل می‌شه. پس شبه‌پالیندرومه!
@@ -86,6 +82,8 @@ public bool ValidSubPalindrome(string s, int start, int end) {
 در این مرحله به بررسی پیچیدگی زمانی و حافظه ای راه حل می‌پردازیم. یعنی تحلیل می‌کنیم که بین زمان اجرای الگوریتم و حافظه مصرفی آن، چه رابطه ای با اندازه ورودی الگوریتم وجود دارد.
 
 پیچیدگی زمانی الگوریتم O(n) و پیچیدگی حافظه‌ای O(1) است.
+
+{{< edit/edit >}}
 
 # منابع
 [udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)

@@ -1,6 +1,6 @@
 title: علی ثابت
 description: توسعه‌دهنده‌ی .Net، علاقه‌مند به AI
-keywords: [Blog, Portfolio]
+keywords: [بلاگ, علی ثابت]
 author: علی ثابت
 
 DateFormat: "2006-01-02"
@@ -11,10 +11,10 @@ rssFullContent: true
 ShowReadingTime: true
 ShowShareButtons: true
 ShareButtons: ["linkedin", "twitter", "whatsapp", "telegram"]
-ShowPostNavLinks: true
-ShowBreadCrumbs: true
+ShowPostNavLinks: false
+ShowBreadCrumbs: false
 ShowCodeCopyButtons: true
-ShowWordCount: true
+ShowWordCount: false
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 ShowToc: true
@@ -24,6 +24,11 @@ disableScrollToTop: false
 comments: true
 hidemeta: false
 hideSummary: false
+author: "علی ثابت"
+draft: false
+disableHLJS: false
+disableShare: false
+searchHidden: true
 
 enableRobotsTXT: true
 buildDrafts: false
@@ -33,18 +38,6 @@ buildExpired: false
 minify:
   disableXML: true
   minifyOutput: true
-
-assets:
-  favicon: "<link / abs url>"
-  favicon16x16: "<link / abs url>"
-  favicon32x32: "<link / abs url>"
-  apple_touch_icon: "<link / abs url>"
-  safari_pinned_tab: "<link / abs url>"
-
-label:
-  text: "خانه"
-  icon: /apple-touch-icon.png
-  iconHeight: 35
 
 homeInfoParams:
   Title: علی ثابت
@@ -62,7 +55,7 @@ socialIcons:
   - name: goodreads
     url: https://goodreads.com/alisabetx/
   - name: rss
-    url: https://alisabetx.com/en/index.xml
+    url: https://alisabetx.com/fa/index.xml
 
 cover:
   hidden: true

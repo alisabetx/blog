@@ -4,14 +4,10 @@ slug: "leetcode-1-solution"
 date: 2023-07-21T14:00:00+03:30
 lastmod: 2023-07-21T14:00:00+03:30
 tags: ["leetcode", "لیتکد", "حل سوال 1 لیت‌کد", "two sum"]
-author: "علی ثابت"
-draft: false
-comments: true
-ShowToc: true
 description: "در این پست سوال 1 لیت‌کد (two sum) رو حل می‌کنیم"
 ---
 برای دسترسی به سوال 1 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/two-sum/) استفاده کنید. سطح این سوال Easy است.
-{{< edit/edit >}}
+
 # شرایط مسئله
 
 در این مرحله، شرایط خاص مسئله و حالت‌های edge case رو بررسی می‌کنیم. این شرایط باید در توضیحات سوال یا مثال‌ها مشخص شده باشن یا اینکه از پاسخ‌های پیش فرض استفاده کنیم.
@@ -98,6 +94,8 @@ const findTwoSum = function(nums, target) {
     return null;
 }
 ```
+
+{{< edit/edit >}}
 
 # منابع
 [udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)

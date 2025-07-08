@@ -4,14 +4,10 @@ slug: "leetcode-104-solution"
 date: 2023-07-13T14:00:00+03:30
 lastmod: 2023-07-13T14:00:00+03:30
 tags: ["leetcode", "لیتکد", "حل سوال 104 لیت‌کد", "maximum depth of binary tree"]
-author: "علی ثابت"
-draft: false
-comments: true
-ShowToc: true
 description: "در این پست سوال 104 لیت‌کد (maximum depth of binary tree) رو حل می‌کنیم"
 ---
 برای دسترسی به سوال 104 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/maximum-depth-of-binary-tree/) استفاده کنید. سطح این سوال Easy است.
-{{< edit/edit >}}
+
 # شرایط مسئله
 
 در این مرحله، شرایط خاص مسئله و حالت‌های edge case رو بررسی می‌کنیم. این شرایط باید در توضیحات سوال یا مثال‌ها مشخص شده باشن یا اینکه از پاسخ‌های پیش فرض استفاده کنیم.
@@ -76,6 +72,8 @@ public int MaxDepth(TreeNode node, int currentDepth)
 در یک درخت دودویی متوازن، پیچیدگی حافظه‌ای O(log n) است.
 
 ![balanced binary tree](./images/balanced-binary-tree.png#center)
+
+{{< edit/edit >}}
 
 # منابع
 [udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)

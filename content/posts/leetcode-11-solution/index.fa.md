@@ -4,14 +4,10 @@ slug: "leetcode-11-solution"
 date: 2023-07-17T14:00:00+03:30
 lastmod: 2023-07-17T14:00:00+03:30
 tags: ["leetcode", "لیتکد", "حل سوال 11 لیت‌کد", "container with most water"]
-author: "علی ثابت"
-draft: false
-comments: true
-ShowToc: true
 description: "در این پست سوال 11 لیت‌کد (container with most water) رو حل می‌کنیم"
 ---
 برای دسترسی به سؤال 11 لیت‌کد می‌تونید از این [لینک](https://leetcode.com/problems/container-with-most-water/) استفاده کنید. سطح این سؤال Medium است.
-{{< edit/edit >}}
+
 در واقع به دنبال مساحت مستطیلی هستیم که کف‌اش محور x هاست و ارتفاع‌هاش، دو میله هستند. چون قراره داخلش با آب پر بشه، پس میله کوچک‌تر به‌عنوان ارتفاع در نظر گرفته می‌شه. فاصله میله‌ها با هم یک واحد است. مساحت مستطیل هم که می‌دونیم برابر حاصل‌ضرب طول در عرض است. بین مستطیل‌های با شرایطِ گفته شده، بیشترین مقدار ممکن رو می‌خواهیم.
 
 # شرایط مسئله
@@ -125,6 +121,8 @@ public static int GetMaxWaterContainer(int[] heights)
 ```
 
 در الگوریتمِ بهینه‌شده، آرایه فقط یکبار پیمایش شد که باعث میشه پیچیدگی زمانی اون به O(n) برسه و پیچیدگی حافظه‌ای، O(1) بمونه.
+
+{{< edit/edit >}}
 
 # منابع
 [udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)

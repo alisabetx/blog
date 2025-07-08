@@ -4,38 +4,8 @@ slug: "rabbitmq"
 date: 2025-02-28T14:00:00+03:30
 lastmod: 2025-02-28T14:00:00+03:30
 tags: ["rabbitmq", "ربیت ام کیو"]
-author: "علی ثابت"
-draft: false
-comments: true
-ShowToc: true
-TocOpen: false
 description: "با rabbitmq به صورت عملی کار کنیم"
-hidemeta: false
-canonicalURL: "https://canonical.url/to/page"
-disableHLJS: false
-disableShare: false
-hideSummary: false
-searchHidden: true
-ShowReadingTime: true
-ShowBreadCrumbs: true
-ShowPostNavLinks: true
-ShowWordCount: true
-ShowRssButtonInSectionTermList: true
-UseHugoToc: true
-
-cover:
-  image: "<image path/url>" # image path/url
-  alt: "<alt text>" # alt text
-  caption: "<text>" # display caption under cover
-  relative: false # when using page bundles set this to true
-  hidden: true # only hide on current single page
-
-editPost:
-  URL: "https://github.com/<path_to_repo>/content"
-  Text: "Suggest Changes"
-  appendFilePath: true
 ---
-{{< edit/edit >}}
 # نصب RabbitMQ
 
 ابتدا باید زبان برنامه نویسی [Erlang](https://en.wikipedia.org/wiki/Erlang_programming_language) رو نصب کنید. این زبان بخاطر ویژگی‌هایی که داره، برای ساختن RabbitMQ مناسب بوده. وارد [سایت ارلنگ](https://www.erlang.org) بشید و از تب‌های بالا، download رو انتخاب کنید و download windows installer رو بزنید. نصبش ساده‌ست و با چند کلیک انجام میشه. حالا اگر در cmd ویندوز عبارت erl رو تایپ کنید، باید چیزی مشابه این عکس ببینید.
@@ -169,3 +139,5 @@ password: guest
 ```
 
 وارد بشید.
+
+{{< edit/edit >}}

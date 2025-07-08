@@ -4,14 +4,10 @@ slug: "leetcode-125-solution"
 date: 2023-07-11T14:00:00+03:30
 lastmod: 2023-07-11T14:00:00+03:30
 tags: ["leetcode", "لیتکد", "حل سوال 125 لیت‌کد", "valid palindrome"]
-author: "علی ثابت"
-draft: false
-comments: true
-ShowToc: true
 description: "در این پست سوال 125 لیت‌کد (valid palindrome) رو حل می‌کنیم"
 ---
 برای دسترسی به سوال 125 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/valid-palindrome/) استفاده کنید. سطح این سوال Easy است.
-{{< edit/edit >}}
+
 # پالیندروم
 
 پالیندروم (Palindrome) از مفاهیم پرکاربرد و از sub-problem های پرتکرار در سوالات الگوریتمی است. به واژه، جمله، عدد، شعر یا هر چیز دیگری گفته می‌شود که خواندن آن از چپ به راست یا از راست به چپ کاملاً یکسان باشد، مثلا عدد "42324" و کلمه‌ی "نادان". عبارتی مثل "race car" هم با حذف فاصله، پالیندروم خواهد بود. معمولا فرض بر این است که فاصله‌ها، ویرگول‌ها و هر کاراکتری غیر از الفبا و اعداد را نادیده می‌گیریم. همچنین کوچک یا بزرگ بودن حروف مهم نیست.
@@ -79,6 +75,8 @@ public class Solution {
     }
 }
 ```
+
+{{< edit/edit >}}
 
 # منابع
 [udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)

@@ -4,14 +4,8 @@ slug: "aspnet-core-part-01"
 date: 2023-08-20T14:00:00+03:30
 lastmod: 2023-08-20T14:00:00+03:30
 tags: ["asp.net core"]
-author: "علی ثابت"
-draft: false
-comments: true
-ShowToc: true
 description: "آموزش مفاهیم اولیه‌ی asp dotnet core"
 ---
-
-{{< edit/edit >}}
 
 # ASP.Net Core چیه؟
 
@@ -768,6 +762,8 @@ public class MinimumYearValidatorAttribute : ValidationAttribute
     }
   }
 ```
+
+{{< edit/edit >}}
 
 # منابع
 [udemy](https://www.udemy.com/course/asp-net-core-true-ultimate-guide-real-project/)

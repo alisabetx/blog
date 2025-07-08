@@ -4,14 +4,10 @@ slug: "leetcode-232-solution"
 date: 2023-07-09T14:00:00+03:30
 lastmod: 2023-07-09T14:00:00+03:30
 tags: ["leetcode", "لیتکد", "حل سوال 232 لیت‌کد", "implement queue using stacks"]
-author: "علی ثابت"
-draft: false
-comments: true
-ShowToc: true
 description: "در این پست سوال 232 لیت‌کد (implement queue using stacks) رو حل می‌کنیم"
 ---
 برای دسترسی به سوال 232 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/implement-queue-using-stacks/) استفاده کنید. سطح این سوال Easy است.
-{{< edit/edit >}}
+
 # شرایط مسئله
 
 در این مرحله، شرایط خاص مسئله و حالت‌های edge case رو بررسی می‌کنیم. این شرایط باید در توضیحات سوال یا مثال‌ها مشخص شده باشن یا اینکه از پاسخ‌های پیش فرض استفاده کنیم.
@@ -128,6 +124,8 @@ public class QueueWithStacks <T>
     }
 }
 ```
+
+{{< edit/edit >}}
 
 # منابع
 [udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)
