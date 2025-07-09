@@ -2,5 +2,5 @@
 title: "جستجو"
 layout: "search"
 summary: "جستجو"
-placeholder: "جستجو در وبلاگ"
+placeholder: "جستجو در بلاگ"
 ---
