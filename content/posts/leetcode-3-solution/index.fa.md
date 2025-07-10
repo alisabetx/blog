@@ -1,8 +1,8 @@
 ---
 title: "حل سوال 3 لیت‌کد"
 slug: "leetcode-3-solution"
-date: 2023-07-19T14:00:00+03:30
-lastmod: 2023-07-19T14:00:00+03:30
+date: 2024-09-17T14:00:00+03:30
+lastmod: 2024-09-30T14:00:00+03:30
 tags: ["leetcode", "لیتکد", "حل سوال 3 لیت‌کد", "longest substring without repeating characters"]
 description: "در این پست سوال 3 لیت‌کد (longest substring without repeating characters) رو حل می‌کنیم"
 ---

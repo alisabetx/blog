@@ -1,8 +1,8 @@
 ---
 title: "حل سوال 232 لیت‌کد"
 slug: "leetcode-232-solution"
-date: 2023-07-09T14:00:00+03:30
-lastmod: 2023-07-09T14:00:00+03:30
+date: 2023-10-15T14:00:00+03:30
+lastmod: 2023-11-24T14:00:00+03:30
 tags: ["leetcode", "لیتکد", "حل سوال 232 لیت‌کد", "implement queue using stacks"]
 description: "در این پست سوال 232 لیت‌کد (implement queue using stacks) رو حل می‌کنیم"
 ---

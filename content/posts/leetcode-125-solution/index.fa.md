@@ -1,8 +1,8 @@
 ---
 title: "حل سوال 125 لیت‌کد"
 slug: "leetcode-125-solution"
-date: 2023-07-11T14:00:00+03:30
-lastmod: 2023-07-11T14:00:00+03:30
+date: 2025-01-22T14:00:00+03:30
+lastmod: 2025-03-07T14:00:00+03:30
 tags: ["leetcode", "لیتکد", "حل سوال 125 لیت‌کد", "valid palindrome"]
 description: "در این پست سوال 125 لیت‌کد (valid palindrome) رو حل می‌کنیم"
 ---

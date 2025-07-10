@@ -1,8 +1,8 @@
 ---
 title: "حل سوال 844 لیت‌کد"
 slug: "leetcode-844-solution"
-date: 2023-07-03T14:00:00+03:30
-lastmod: 2023-07-03T14:00:00+03:30
+date: 2024-03-19T14:00:00+03:30
+lastmod: 2024-03-28T14:00:00+03:30
 tags: ["leetcode", "لیتکد", "حل سوال 844 لیت‌کد", "backspace string compare"]
 description: "در این پست سوال 844 لیت‌کد (backspace string compare) رو حل می‌کنیم"
 ---

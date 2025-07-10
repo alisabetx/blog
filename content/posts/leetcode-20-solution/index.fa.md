@@ -1,8 +1,8 @@
 ---
 title: "حل سوال 20 لیت‌کد"
 slug: "leetcode-20-solution"
-date: 2023-07-15T14:00:00+03:30
-lastmod: 2023-07-15T14:00:00+03:30
+date: 2024-08-05T14:00:00+03:30
+lastmod: 2024-08-21T14:00:00+03:30
 tags: ["leetcode", "لیتکد", "حل سوال 20 لیت‌کد", "valid parentheses"]
 description: "در این پست سوال 20 لیت‌کد (valid parentheses) رو حل می‌کنیم"
 ---
