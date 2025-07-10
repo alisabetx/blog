@@ -3,7 +3,7 @@ title: "حل سوال 746 لیت‌کد"
 slug: "leetcode-746-solution"
 date: 2025-03-06T14:00:00+03:30
 lastmod: 2025-04-08T14:00:00+03:30
-tags: ["leetcode", "لیتکد", "حل سوال 746 لیت‌کد", "min cost climbing stairs"]
+tags: ["leetcode", "min cost climbing stairs", "dynamic programming", "dp", "الگوریتم", "برنامه‌نویسی پویا"]
 description: "در این پست سوال 746 لیت‌کد (min cost climbing stairs) رو حل می‌کنیم"
 ---
 برای دسترسی به سوال 746 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/min-cost-climbing-stairs/) استفاده کنید. سطح این سوال Easy است.

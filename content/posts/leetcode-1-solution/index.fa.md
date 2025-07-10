@@ -3,7 +3,7 @@ title: "حل سوال 1 لیت‌کد"
 slug: "leetcode-1-solution"
 date: 2025-04-30T14:00:00+03:30
 lastmod: 2025-06-01T14:00:00+03:30
-tags: ["leetcode", "لیتکد", "حل سوال 1 لیت‌کد", "two sum"]
+tags: ["leetcode", "two sum", "algorithm", "array", "حل سوال لیتکد", "الگوریتم", "آرایه"]
 description: "در این پست سوال 1 لیت‌کد (two sum) رو حل می‌کنیم"
 ---
 برای دسترسی به سوال 1 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/two-sum/) استفاده کنید. سطح این سوال Easy است.

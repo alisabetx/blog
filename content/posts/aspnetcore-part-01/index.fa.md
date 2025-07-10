@@ -3,7 +3,7 @@ title: "asp dotnet core (قسمت یک)"
 slug: "aspnet-core-part-01"
 date: 2024-06-18T14:00:00+03:30
 lastmod: 2024-07-31T14:00:00+03:30
-tags: ["asp.net core"]
+tags: ["asp.net core", "dotnet", "c#", "asp.net", "asp.net کور", "دات نت"]
 description: "آموزش مفاهیم اولیه‌ی asp dotnet core"
 ---
 
