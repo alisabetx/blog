@@ -1,8 +1,8 @@
 ---
 title: "حل سوال 1249 لیت‌کد"
 slug: "leetcode-1249-solution"
-date: 2023-07-01T14:00:00+03:30
-lastmod: 2023-07-01T14:00:00+03:30
+date: 2024-06-09T14:00:00+03:30
+lastmod: 2024-06-15T14:00:00+03:30
 tags: ["leetcode", "لیتکد", "حل سوال 1249 لیت‌کد", "minimum remove to make valid parentheses"]
 description: "در این پست سوال 1249 لیت‌کد (minimum remove to make valid parentheses) رو حل می‌کنیم"
 ---

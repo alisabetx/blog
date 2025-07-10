@@ -1,8 +1,8 @@
 ---
 title: "حل سوال 746 لیت‌کد"
 slug: "leetcode-746-solution"
-date: 2023-07-05T14:00:00+03:30
-lastmod: 2023-07-05T14:00:00+03:30
+date: 2024-05-21T14:00:00+03:30
+lastmod: 2024-06-14T14:00:00+03:30
 tags: ["leetcode", "لیتکد", "حل سوال 746 لیت‌کد", "min cost climbing stairs"]
 description: "در این پست سوال 746 لیت‌کد (min cost climbing stairs) رو حل می‌کنیم"
 ---

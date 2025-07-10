@@ -1,8 +1,8 @@
 ---
 title: "کار با google sheets در پایتون"
 slug: "python-google-sheets"
-date: 2023-06-08T14:00:00+03:30
-lastmod: 2023-06-08T14:00:00+03:30
+date: 2025-01-13T14:00:00+03:30
+lastmod: 2025-02-26T14:00:00+03:30
 tags: ["پایتون", "گوگل شیت", "python", "google sheets"]
 description: "در این پست، سعی می‌کنیم پایتون رو به Google Sheets وصل کنیم و باهاش یک پروژه ساده بسازیم"
 ---

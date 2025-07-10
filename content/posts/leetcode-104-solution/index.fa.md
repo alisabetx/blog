@@ -1,8 +1,8 @@
 ---
 title: "حل سوال 104 لیت‌کد"
 slug: "leetcode-104-solution"
-date: 2023-07-13T14:00:00+03:30
-lastmod: 2023-07-13T14:00:00+03:30
+date: 2025-02-16T14:00:00+03:30
+lastmod: 2025-03-31T14:00:00+03:30
 tags: ["leetcode", "لیتکد", "حل سوال 104 لیت‌کد", "maximum depth of binary tree"]
 description: "در این پست سوال 104 لیت‌کد (maximum depth of binary tree) رو حل می‌کنیم"
 ---

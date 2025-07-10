@@ -1,8 +1,8 @@
 ---
 title: "حل سوال 680 لیت‌کد"
 slug: "leetcode-680-solution"
-date: 2023-07-07T14:00:00+03:30
-lastmod: 2023-07-07T14:00:00+03:30
+date: 2023-08-14T14:00:00+03:30
+lastmod: 2023-08-25T14:00:00+03:30
 tags: ["leetcode", "لیتکد", "حل سوال 680 لیت‌کد", "valid palindrome ii"]
 description: "در این پست سوال 680 لیت‌کد (valid palindrome ii) رو حل می‌کنیم"
 ---

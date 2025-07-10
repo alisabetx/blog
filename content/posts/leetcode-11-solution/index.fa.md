@@ -1,8 +1,8 @@
 ---
 title: "حل سوال 11 لیت‌کد"
 slug: "leetcode-11-solution"
-date: 2023-07-17T14:00:00+03:30
-lastmod: 2023-07-17T14:00:00+03:30
+date: 2024-04-06T14:00:00+03:30
+lastmod: 2024-05-03T14:00:00+03:30
 tags: ["leetcode", "لیتکد", "حل سوال 11 لیت‌کد", "container with most water"]
 description: "در این پست سوال 11 لیت‌کد (container with most water) رو حل می‌کنیم"
 ---
