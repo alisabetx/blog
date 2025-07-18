@@ -17,7 +17,7 @@ ShowCodeCopyButtons: true
 ShowWordCount: false
 ShowRssButtonInSectionTermList: true
 UseHugoToc: false
-ShowToc: false
+ShowToc: true
 TocOpen: false
 disableSpecial1stPost: true
 disableScrollToTop: false
