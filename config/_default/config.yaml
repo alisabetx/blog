@@ -24,6 +24,7 @@ outputs:
     - HTML
     - RSS
     - JSON
+    - Sitemap
 
 permalinks:
   posts: /posts/:year/:month/:slug/

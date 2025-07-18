@@ -3,8 +3,9 @@ title: "Using Google Sheets with Python"
 slug: "python-google-sheets"
 date: 2024-03-15T14:00:00+03:30
 lastmod: 2024-04-14T14:00:00+03:30
-tags: ["python", "google sheets", "automation"]
-description: "In this post, we'll try to connect Python to Google Sheets and build a simple project with it."
+tags: ["python", "google sheets", "automation", "gspread", "google api", "python projects"]
+description: "Learn how to connect Python to Google Sheets using the gspread library. This tutorial covers setting up Google Cloud, enabling APIs, and writing a Python script to read and write data to a spreadsheet." 
+keywords: ["python google sheets", "gspread tutorial", "python automation", "google sheets api python"]
 ---
 # Getting to Know Google Sheets
 
