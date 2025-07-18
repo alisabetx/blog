@@ -43,15 +43,15 @@ import gspread
 
 credentials = {
   "type": "service_account",
-  "project_id": "XXXXXXXXXX",
-  "private_key_id": "XXXXXXXXXX",
-  "private_key": "-----BEGIN PRIVATE KEY-----\XXXXXXXXXX\n-----END PRIVATE KEY-----\n",
+  "project_id": "ABC",
+  "private_key_id": "DEF",
+  "private_key": "-----BEGIN PRIVATE KEY-----\GHI\n-----END PRIVATE KEY-----\n",
   "client_email": "aaa-965@glass-amplifier-392314.iam.gserviceaccount.com",
-  "client_id": "100929656955613337657",
+  "client_id": "1234567890",
   "auth_uri": "https://accounts.google.com/o/oauth2/auth",
   "token_uri": "https://oauth2.googleapis.com/token",
   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/aaa-965%40glass-amplifier-392314.iam.gserviceaccount.com",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/abcd.iam.gserviceaccount.com",
   "universe_domain": "googleapis.com"
 }
 
@@ -64,6 +64,7 @@ worksheet = sh.worksheet("SampleSheet")
 worksheet.update('A1', 'XXX')
 
 val = worksheet.acell('A1').value
+
 print(val)
 ```
 

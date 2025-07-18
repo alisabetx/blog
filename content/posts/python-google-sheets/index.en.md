@@ -16,7 +16,7 @@ As an end user, you can access Google Sheets through the website and work with i
 
 Google Cloud is a collection of cloud services that includes many tools for storage, computing, and more. This infrastructure and similar platforms like AWS help us focus only on our business without worrying about infrastructure (storage, computing, security, scalability, etc.) when building a software product.
 
-First, you need to visit the [Google Cloud Platform](https://console.cloud.google.com) website. This site is not accessible from Iran, so you need to use tools like w-i-n-d-s-c-r-i-b-e-.-c-o-m (remove the dashes). (The appearance of this website has changed a few times, but the steps remain the same, so there should be no disruption in the process). Use the Select a Project option and then choose New Project to create a new project. Pick a name for the project, set the location to No Organization, and click Create to create the project. Initially, you'll see a dashboard with general project info, usage, and features.
+First, you need to visit the [Google Cloud Platform](https://console.cloud.google.com) website. The appearance of this website has changed a few times, but the steps remain the same, so there should be no disruption in the process. Use the Select a Project option and then choose New Project to create a new project. Pick a name for the project, set the location to No Organization, and click Create to create the project. Initially, you'll see a dashboard with general project info, usage, and features.
 
 ## Enabling APIs
 
@@ -43,15 +43,15 @@ import gspread
 
 credentials = {
   "type": "service_account",
-  "project_id": "XXXXXXXXXX",
-  "private_key_id": "XXXXXXXXXX",
-  "private_key": "-----BEGIN PRIVATE KEY-----\XXXXXXXXXX\n-----END PRIVATE KEY-----\n",
+  "project_id": "ABC",
+  "private_key_id": "DEF",
+  "private_key": "-----BEGIN PRIVATE KEY-----\GHI\n-----END PRIVATE KEY-----\n",
   "client_email": "aaa-965@glass-amplifier-392314.iam.gserviceaccount.com",
-  "client_id": "100929656955613337657",
+  "client_id": "1234567890",
   "auth_uri": "https://accounts.google.com/o/oauth2/auth",
   "token_uri": "https://oauth2.googleapis.com/token",
   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/aaa-965%40glass-amplifier-392314.iam.gserviceaccount.com",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/abcd.iam.gserviceaccount.com",
   "universe_domain": "googleapis.com"
 }
 
@@ -64,6 +64,7 @@ worksheet = sh.worksheet("SampleSheet")
 worksheet.update('A1', 'XXX')
 
 val = worksheet.acell('A1').value
+
 print(val)
 ```
 

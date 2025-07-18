@@ -29,6 +29,7 @@ draft: false
 disableHLJS: false
 disableShare: false
 searchHidden: true
+mainSections: ["posts"]
 
 enableRobotsTXT: true
 buildDrafts: false
