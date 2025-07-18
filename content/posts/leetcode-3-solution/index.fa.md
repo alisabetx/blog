@@ -3,7 +3,7 @@ title: "حل سوال 3 لیت‌کد"
 slug: "leetcode-3-solution"
 date: 2024-09-17T14:00:00+03:30
 lastmod: 2024-09-30T14:00:00+03:30
-tags: ["leetcode", "longest substring", "substring", "string", "الگوریتم", "رشته", "ساب‌استرینگ"]
+tags: ["leetcode", "longest substring", "substring", "string", "الگوریتم"]
 description: "در این پست سوال 3 لیت‌کد (longest substring without repeating characters) رو حل می‌کنیم"
 ---
 برای دسترسی به سوال 3 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/longest-substring-without-repeating-characters/) استفاده کنید. سطح این سوال Medium است.
@@ -153,4 +153,4 @@ public int LengthOfLongestSubstring(string s)
 {{< edit/edit >}}
 
 # منابع
-[udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)
+[Udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)

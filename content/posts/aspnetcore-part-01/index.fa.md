@@ -3,7 +3,7 @@ title: "asp dotnet core (قسمت یک)"
 slug: "aspnet-core-part-01"
 date: 2024-06-18T14:00:00+03:30
 lastmod: 2024-07-31T14:00:00+03:30
-tags: ["asp.net core", "dotnet", "c#", "asp.net", "asp.net کور", "دات نت"]
+tags: ["asp.net core", "dotnet", "c#", "asp.net", "asp.net core", "دات نت"]
 description: "مفاهیم اولیه‌ی asp dotnet core"
 ---
 
@@ -19,7 +19,7 @@ description: "مفاهیم اولیه‌ی asp dotnet core"
 *   Asp.Net Mvc در سال 2009 معرفی شد، مشکلات performanceای کمتری داشت، فقط روی ویندوز اجرا می‌شد، اجرایش در cloud ساده نبود، open-source شد و مدل توسعه‌اش بر اساس الگوی model-view-controller بود
 *   Asp.Net Core در سال 2016 معرفی شد، از ابتدا بازنویسی شد و مشکلات نسخه‌های قبلی رو حل کرد، cross-platform شد و دیگه مختص ویندوز نبود، cloud-friendly شد و مدل توسعه‌اش بر اساس الگوی model-view-controller بود
 
-**در داتنت‌کور، 4 ماژول اصلی داریم:**
+**در داتنت‌، 4 ماژول اصلی داریم:**
 
 *   Asp.Net Core Mvc برای ساخت برنامه‌های وبِ متوسط تا پیچیده
 *   Asp.Net Core Web API برای ساخت سرویس‌های RESTful که می‌تونن هر نوع clientای داشته باشن
@@ -34,7 +34,7 @@ description: "مفاهیم اولیه‌ی asp dotnet core"
 
 # سرور
 
-اپ‌های داتنت‌کور برای گرفتن درخواست‌ها (request) و ارسال پاسخ (response) به سرور (server) نیاز دارن. سرورِ پیش‌فرض داتنت‌کور، kestrel است که می‌تونه در محیط توسعه (development) و واقعی (production) استفاده بشه، اما معمولا از kestrel به عنوان application server و از reverse proxy serverها مثل iis و nginx در محیط واقعی استفاده می‌کنیم.
+اپ‌های داتنت‌ برای گرفتن درخواست‌ها (request) و ارسال پاسخ (response) به سرور (server) نیاز دارن. سرورِ پیش‌فرض داتنت‌، kestrel است که می‌تونه در محیط توسعه (development) و واقعی (production) استفاده بشه، اما معمولا از kestrel به عنوان application server و از reverse proxy serverها مثل iis و nginx در محیط واقعی استفاده می‌کنیم.
 
 ![dotnet core servers](./images/dotnet-core-servers.png#center)
 
@@ -209,7 +209,7 @@ app.UseMyCustomMiddleware();
 
 ## ترتیب اجرا
 
-در داتنت‌کور، از قبل میدلورهایی تعریف شده، از طرفی ممکنه در پروژه نیاز به ساخت میدلورهای دلخواه هم داشته باشیم. با توجه به اینکه ترتیبِ اجرای میدلورها اهمیت داره، مایکروسافت ترتیب زیر رو پیشنهاد می‌کنه.
+در داتنت‌، از قبل میدلورهایی تعریف شده، از طرفی ممکنه در پروژه نیاز به ساخت میدلورهای دلخواه هم داشته باشیم. با توجه به اینکه ترتیبِ اجرای میدلورها اهمیت داره، مایکروسافت ترتیب زیر رو پیشنهاد می‌کنه.
 
 ```csharp
 app.UseExceptionHandler("/Error");
@@ -234,7 +234,7 @@ app.Run();
 
 ![routing](./images/routing.png#center)
 
-مسیریابی در داتنت‌کور به وسیله‌ی میدلورهای UseRouting و UseEndPoints انجام میشه. UseRouting، یک endpoint متناسب با HTTP method و url رو پیدا می‌کنه و UseEndPoints اون endpoint مناسب که توسط UseRouting پیدا شده رو اجرا می‌کنه.
+مسیریابی در داتنت‌ به وسیله‌ی میدلورهای UseRouting و UseEndPoints انجام میشه. UseRouting، یک endpoint متناسب با HTTP method و url رو پیدا می‌کنه و UseEndPoints اون endpoint مناسب که توسط UseRouting پیدا شده رو اجرا می‌کنه.
 
 ```csharp
 app.UseRouting();
@@ -383,7 +383,7 @@ public class HomeController: Controller {
 
 اگر کنترلر بالا رو تعریف کرده باشیم و هر یک از آدرس‌های بیان شده رو وارد کنیم، برنامه کار نخواهد کرد، به 2 دلیل:
 
-*   کلاس کنترلر در داتنت‌کور، جزو سرویس‌هاست و باید به عنوان service class به برنامه معرفی بشه (DI)
+*   کلاس کنترلر در داتنت‌، جزو سرویس‌هاست و باید به عنوان service class به برنامه معرفی بشه (DI)
 *   قابلیت routing باید برای متدهای کلاس کنترلر تعریف بشه
 
 ```csharp
@@ -413,8 +413,7 @@ public class HomeController: Controller {
   public string Index() {
     return "alisabetx.com";
   }
-}
-```
+}```
 
 روش بهتر اینه که قالب کلی رو مشخص کنیم.
 
@@ -711,7 +710,7 @@ public class HomeController : Controller
 
 ## Custom Validations
 
-داتنت‌کور، attributeهای زیادی در اختیارمون گذاشته که به کمک اون‌ها میشه validation انجام داد. اما اگر نیاز به یک validation خاص داشته باشیم چی؟ می‌تونیم Custom Validation بنویسیم.
+داتنت‌، attributeهای زیادی در اختیارمون گذاشته که به کمک اون‌ها میشه validation انجام داد. اما اگر نیاز به یک validation خاص داشته باشیم چی؟ می‌تونیم Custom Validation بنویسیم.
 
 ```csharp
 class ClassName : ValidationAttribute
@@ -766,5 +765,5 @@ public class MinimumYearValidatorAttribute : ValidationAttribute
 {{< edit/edit >}}
 
 # منابع
-[udemy](https://www.udemy.com/course/asp-net-core-true-ultimate-guide-real-project/)
+[Udemy](https://www.udemy.com/course/asp-net-core-true-ultimate-guide-real-project/)
 [microsoft](https://learn.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core)

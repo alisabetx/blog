@@ -3,7 +3,7 @@ title: "حل سوال 125 لیت‌کد"
 slug: "leetcode-125-solution"
 date: 2025-01-22T14:00:00+03:30
 lastmod: 2025-03-07T14:00:00+03:30
-tags: ["leetcode", "valid palindrome", "string", "two pointers", "الگوریتم", "رشته", "دو پوینتر"]
+tags: ["leetcode", "valid palindrome", "string", "الگوریتم", "رشته"]
 description: "در این پست سوال 125 لیت‌کد (valid palindrome) رو حل می‌کنیم"
 ---
 برای دسترسی به سوال 125 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/valid-palindrome/) استفاده کنید. سطح این سوال Easy است.
@@ -79,4 +79,4 @@ public class Solution {
 {{< edit/edit >}}
 
 # منابع
-[udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)
+[Udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)

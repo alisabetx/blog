@@ -3,7 +3,7 @@ title: "حل سوال 844 لیت‌کد"
 slug: "leetcode-844-solution"
 date: 2024-03-19T14:00:00+03:30
 lastmod: 2024-03-28T14:00:00+03:30
-tags: ["leetcode", "backspace string compare", "string", "two pointers", "الگوریتم", "رشته", "دو پوینتر"]
+tags: ["leetcode", "backspace string compare", "string", "الگوریتم", "رشته"]
 description: "در این پست سوال 844 لیت‌کد (backspace string compare) رو حل می‌کنیم"
 ---
 برای دسترسی به سوال 844 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/backspace-string-compare/) استفاده کنید. سطح این سوال Easy است.
@@ -185,4 +185,4 @@ public class Solution {
 {{< edit/edit >}}
 
 # منابع
-[udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)
+[Udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)

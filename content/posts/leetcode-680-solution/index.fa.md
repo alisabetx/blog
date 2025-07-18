@@ -3,7 +3,7 @@ title: "حل سوال 680 لیت‌کد"
 slug: "leetcode-680-solution"
 date: 2024-01-24T14:00:00+03:30
 lastmod: 2024-02-14T14:00:00+03:30
-tags: ["leetcode", "valid palindrome ii", "string", "two pointers", "الگوریتم", "رشته", "دو پوینتر"]
+tags: ["leetcode", "valid palindrome ii", "string", "الگوریتم", "رشته"]
 description: "در این پست سوال 680 لیت‌کد (valid palindrome ii) رو حل می‌کنیم"
 ---
 برای دسترسی به سوال 680 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/valid-palindrome-ii/) استفاده کنید. سطح این سوال Easy است.
@@ -86,4 +86,4 @@ public bool ValidSubPalindrome(string s, int start, int end) {
 {{< edit/edit >}}
 
 # منابع
-[udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)
+[Udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)
