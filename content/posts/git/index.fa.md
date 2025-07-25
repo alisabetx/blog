@@ -681,7 +681,7 @@ subject توضیحی است که می‌گوید چه کاری انجام شده
 
 ![git commit message sample](./images/git-commit-message-sample.png#center)
 
-{{< edit/edit >}}
+{{< edit >}}
 
 # منابع
 [quera](https://quera.org/)

@@ -107,7 +107,7 @@ public string MinRemoveToMakeValid(string str)
 
 پیچیدگی حافظه‌ای الگوریتم O(n) است. الگوریتم از حافظه با طول n برای ذخیره آرایه استفاده می‌کند و پیچیدگی‌اش O(n) است. در مورد Stack، در بدترین حالت، زمانی که همه پرانتزها باز باشند، Stack بیشترین اندازه خورد را خواهد داشت و پیچیدگی‌اش O(n) خواهد بود.
 
-{{< edit/edit >}}
+{{< edit >}}
 
 # منابع
 [Udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)

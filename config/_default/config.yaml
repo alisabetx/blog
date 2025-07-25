@@ -33,7 +33,7 @@ permalinks:
 markup:
   highlight:
     lineNos: true
-    style: paraiso-dark
+    style: github-dark
     tabWidth: 4
   goldmark:
     renderer:

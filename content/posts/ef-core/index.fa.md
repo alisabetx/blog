@@ -73,7 +73,7 @@ Microsoft.EntityFrameworkCore.Design
 	- به DbContext اضافه یا آپدیت بشن
 - 
 
-{{< edit/edit >}}
+{{< edit >}}
 
 # منابع
 [Microsoft Learn](https://learn.microsoft.com/)

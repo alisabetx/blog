@@ -83,7 +83,7 @@ public bool ValidSubPalindrome(string s, int start, int end) {
 
 پیچیدگی زمانی الگوریتم O(n) و پیچیدگی حافظه‌ای O(1) است.
 
-{{< edit/edit >}}
+{{< edit >}}
 
 # منابع
 [Udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)

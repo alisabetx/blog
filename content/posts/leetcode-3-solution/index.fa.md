@@ -150,7 +150,7 @@ public int LengthOfLongestSubstring(string s)
 
 پیچیدگی زمانی و پیچیدگی حافظه‌ای آن O(n) است.
 
-{{< edit/edit >}}
+{{< edit >}}
 
 # منابع
 [Udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)

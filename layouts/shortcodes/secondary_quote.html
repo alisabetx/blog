@@ -1,0 +1,11 @@
+{{ if eq .Site.Language.Lang "fa"}}
+<blockquote class="light-blue-quote-400-rtl">
+  <p>{{ .Inner | markdownify }}</p>
+</blockquote>
+{{ end }}
+
+{{ if eq .Site.Language.Lang "en"}}
+<blockquote class="light-blue-quote-400">
+  <p>{{ .Inner | markdownify }}</p>
+</blockquote>
+{{ end }}

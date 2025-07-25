@@ -125,7 +125,7 @@ public class QueueWithStacks <T>
 }
 ```
 
-{{< edit/edit >}}
+{{< edit >}}
 
 # منابع
 [Udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)

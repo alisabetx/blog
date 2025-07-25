@@ -126,7 +126,7 @@ description: "با ربیت‌ام‌کیو به صورت عملی کار کنی
 
 (ادامه دارد)
 
-{{< edit/edit >}}
+{{< edit >}}
 
 # منابع
 [RabbitMQ](https://rabbitmq.com/)

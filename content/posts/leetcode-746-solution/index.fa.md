@@ -140,7 +140,7 @@ public static int MinCostClimbingStairs(int[] cost) {
 
 پیچیدگی زمانی O(n) و پیچیدگی حافظه‌ای O(1) است.
 
-{{< edit/edit >}}
+{{< edit >}}
 
 # منابع
 [Udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)

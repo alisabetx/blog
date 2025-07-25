@@ -7,6 +7,7 @@ tags: ["python", "google sheets", "automation", "gspread", "google api", "python
 description: "Learn how to connect Python to Google Sheets using the gspread library. This tutorial covers setting up Google Cloud, enabling APIs, and writing a Python script to read and write data to a spreadsheet." 
 keywords: ["python google sheets", "gspread tutorial", "python automation", "google sheets api python"]
 ---
+
 # Getting to Know Google Sheets
 
 Google Sheets (which is the correct name!) is a web-based app similar to Excel and it's free. This app is available on all popular platforms like [Android](https://play.google.com/store/apps/details?id=com.google.android.apps.docs.editors.sheets) and [iOS](https://apps.apple.com/us/app/google-sheets/id842849113). The only thing you need to work with Google Sheets is a Google account. If you have an Android phone or a Gmail account, you definitely have a Google account and you can log into Google Sheets with that account [here](https://docs.google.com/spreadsheets/u/0/). This post assumes you know what Google Sheets is and want to use it alongside Python.
@@ -73,4 +74,4 @@ The credentials variable contains the content of the json file we downloaded. Op
 
 The sh variable holds the project object, and the worksheet variable holds the sheet object we will work on. In the code above, we update the content of cell A1 with our desired value and then print its content. For all features of the gspread package, see its [documentation](https://docs.gspread.org/).
 
-{{< edit/edit >}}
+{{< edit >}}

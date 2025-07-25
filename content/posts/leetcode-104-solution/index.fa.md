@@ -73,7 +73,7 @@ public int MaxDepth(TreeNode node, int currentDepth)
 
 ![balanced binary tree](./images/balanced-binary-tree.png#center)
 
-{{< edit/edit >}}
+{{< edit >}}
 
 # منابع
 [Udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)

@@ -90,7 +90,7 @@ public bool IsValid(string s)
 پیچیدگی حافظه‌ای O(n) است، چون در بدترین حالت، همه‌ی کاراکترهای string بررسی می‌شن و توی استک قرار می‌گیرن.
 پیچیدگی زمانی O(n) است، چون در بدترین حالت، یک حلقه داریم که در اون همه‌ی کاراکترهای string بررسی می‌شن.
 
-{{< edit/edit >}}
+{{< edit >}}
 
 # منابع
 [Udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)

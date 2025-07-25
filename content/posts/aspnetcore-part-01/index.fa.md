@@ -3,7 +3,7 @@ title: "asp dotnet core (قسمت یک)"
 slug: "aspnet-core-part-01"
 date: 2024-06-18T14:00:00+03:30
 lastmod: 2024-07-31T14:00:00+03:30
-tags: ["asp.net core", "dotnet", "c#", "asp.net", "asp.net core", "دات نت"]
+tags: ["asp.net core", "dotnet", "c#", "asp.net", "دات نت"]
 description: "مفاهیم اولیه‌ی asp dotnet core"
 ---
 
@@ -762,7 +762,7 @@ public class MinimumYearValidatorAttribute : ValidationAttribute
   }
 ```
 
-{{< edit/edit >}}
+{{< edit >}}
 
 # منابع
 [Udemy](https://www.udemy.com/course/asp-net-core-true-ultimate-guide-real-project/)

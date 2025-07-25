@@ -122,7 +122,7 @@ public static int GetMaxWaterContainer(int[] heights)
 
 در الگوریتمِ بهینه‌شده، آرایه فقط یکبار پیمایش شد که باعث میشه پیچیدگی زمانی اون به O(n) برسه و پیچیدگی حافظه‌ای، O(1) بمونه.
 
-{{< edit/edit >}}
+{{< edit >}}
 
 # منابع
 [Udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)
