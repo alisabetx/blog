@@ -209,6 +209,63 @@ Access Modifier یعنی اینکه کی می‌تونه به یه کلاس یا
 
 ---
 
+### کاربرد sealed در C# چیه؟
+
+{{< primary_quote >}}
+`sealed` یعنی این کلاس یا متد قابل ارث‌بری یا override نیست.
+{{< /primary_quote >}}
+
+دو کاربرد اصلی داره:
+
+1. جلوگیری از ارث‌بری از یک کلاس
+مثلا اگه یه کلاس `sealed` باشه، هیچ کلاسی نمی‌تونه ازش ارث ببره.
+
+```csharp
+sealed class A {
+	
+}
+```
+
+2. جلوگیری از override شدن متدهای override شده
+فقط متدهایی که override شدن رو می‌شه sealed کرد.
+
+```csharp
+class A {
+    public virtual void X() {}
+}
+
+class B : A {
+    public sealed override void X() {}
+}
+```
+
+---
+
+### کاربرد params در C# چیه؟
+
+{{< primary_quote >}}
+کلمه‌ی کلیدی `params` باعث می‌شه بتونی یه تعداد نامشخص از آرگومان‌ها رو به یه متد پاس بدی، ولی همشون باید از یه نوع باشن.
+{{< /primary_quote >}}
+
+مثلا:
+```csharp
+public int Sum(params int[] numbers) {
+    return numbers.Sum();
+}
+```
+
+حالا می‌تونی این متد رو اینجوری صدا بزنی:
+
+```csharp
+Sum(1, 2);
+Sum(1, 2, 3);
+```
+
+- `params` باید آخرین پارامتر در لیست پارامترها باشه.
+- فقط می‌تونه برای آرایه‌ی یک‌بعدی استفاده بشه.
+
+---
+
 ادامه
 
 {{< edit >}}
