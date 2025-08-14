@@ -71,7 +71,7 @@ CLR خودش حافظه رو مدیریت می‌کنه، یعنی وقتی یه
 
 ---
 
-### boxing و unboxing چی هستن؟
+### boxing و unboxing چی هستن؟ {#boxing-vs-unboxing}
 
 {{< primary_quote >}}
 Boxing یعنی تبدیل یه value type (مثل int) به object (یعنی پیچیدنش توی یه reference type)،
