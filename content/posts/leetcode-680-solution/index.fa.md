@@ -8,11 +8,11 @@ description: "در این پست سوال 680 لیت‌کد (valid palindrome ii
 ---
 برای دسترسی به سوال 680 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/valid-palindrome-ii/) استفاده کنید. سطح این سوال Easy است.
 
-# شبه‌پالیندروم {#almost-palindrome}
+# شبه‌پالیندروم {#medium-section-3}
 
 رشته‌ی Almost Palindrome (شبه‌پالیندروم)، به رشته‌ای گفته می‌شه که با حذف یک کاراکتر، به Palindrome تبدیل میشه. مثلا "race a car" پالیندروم نیست، اما با حذف کاراکتر 'a' یا 'e' به پالیندروم تبدیل می‌شه. پس شبه‌پالیندرومه!
 
-# شرایط مسئله {#problem-conditions}
+# شرایط مسئله {#problem}
 
 در این مرحله، شرایط خاص مسئله و حالت‌های edge case رو بررسی می‌کنیم. این شرایط باید در توضیحات سوال یا مثال‌ها مشخص شده باشن یا اینکه از پاسخ‌های پیش فرض استفاده کنیم. طبق تعریفی که برای پالیندروم داریم، کاراکترهای غیر از الفبا و عدد در نظر گرفته نمی‍شوند و کوچک و بزرگ بودن حروف هم مهم نیست.
 
@@ -37,7 +37,7 @@ input = "ab"
 output = true
 ```
 
-# راه حل منطقی {#logical-solution}
+# راه حل منطقی {#solution}
 
 در این مرحله به دنبال working solution هستیم، یعنی راه حلی منطقی که بتونه مسئله رو حل کنه. به راه حل بهینه فکر نمی‌کنیم. درگیر زبان برنامه نویسی و محدودیت‌های اون هم نخواهیم بود.
 
@@ -77,7 +77,7 @@ public bool ValidSubPalindrome(string s, int start, int end) {
 }
 ```
 
-# پیچیدگی زمانی و حافظه‌ای {#time-space-complexity}
+# پیچیدگی زمانی و حافظه‌ای {#time-complexity}
 
 در این مرحله به بررسی پیچیدگی زمانی و حافظه ای راه حل می‌پردازیم. یعنی تحلیل می‌کنیم که بین زمان اجرای الگوریتم و حافظه مصرفی آن، چه رابطه ای با اندازه ورودی الگوریتم وجود دارد.
 
@@ -85,5 +85,5 @@ public bool ValidSubPalindrome(string s, int start, int end) {
 
 {{< edit >}}
 
-# منابع {#resources}
+# منابع {#short-section-5}
 [Udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)

@@ -8,7 +8,7 @@ description: "در این پست سوال 844 لیت‌کد (backspace string co
 ---
 برای دسترسی به سوال 844 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/backspace-string-compare/) استفاده کنید. سطح این سوال Easy است.
 
-# شرایط مسئله {#problem-conditions}
+# شرایط مسئله {#problem}
 
 در این مرحله، شرایط خاص مسئله و حالت‌های edge case رو بررسی می‌کنیم. این شرایط باید در توضیحات سوال یا مثال‌ها مشخص شده باشن یا اینکه از پاسخ‌های پیش فرض استفاده کنیم.
 
@@ -32,7 +32,7 @@ s = "Ab#z", t = "ab#z"
 output = false
 ```
 
-# راه حل منطقی {#logical-solution}
+# راه حل منطقی {#solution}
 
 در این مرحله به دنبال working solution هستیم، یعنی راه حلی منطقی که بتونه مسئله رو حل کنه. به راه حل بهینه فکر نمی‌کنیم. درگیر زبان برنامه نویسی و محدودیت‌های اون هم نخواهیم بود. string چیزی نیست جز آرایه‌ای از کاراکترها. پس حتما از ایده‌های آرایه‌ای میشه در اون استفاده کرد.
 
@@ -50,7 +50,7 @@ output = false
 
 پس آرایه‌ی نهایی به صورت \[a,z\] خواهد بود.
 
-# تبدیل راه حل به کد {#solution-to-code}
+# تبدیل راه حل به کد {#code-solution}
 
 ```csharp
 public bool BackspaceCompare(string S, string T) {
@@ -83,7 +83,7 @@ private List < char > BuildString(string input) {
 }
 ```
 
-# پیچیدگی زمانی و حافظه‌ای {#time-space-complexity}
+# پیچیدگی زمانی و حافظه‌ای {#time-complexity}
 
 در این مرحله به بررسی پیچیدگی زمانی و حافظه ای راه حل می‌پردازیم. یعنی تحلیل می‌کنیم که بین زمان اجرای الگوریتم و حافظه مصرفی آن، چه رابطه ای با اندازه ورودی الگوریتم وجود دارد.
 
@@ -184,5 +184,5 @@ public class Solution {
 
 {{< edit >}}
 
-# منابع {#resources}
+# منابع {#short-section-5}
 [Udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)
