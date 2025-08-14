@@ -7,11 +7,11 @@ tags: ["asp.net core", "dotnet", "c#", "asp.net", "دات نت"]
 description: "مفاهیم اولیه‌ی asp dotnet core"
 ---
 
-# اصول سالید (SOLID)
+# اصول سالید (SOLID) {#اصول-سالید-solid}
 
 اصول سالید (SOLID)، وابسته به زبان و فریمورک خاصی نیستند و در همه زبان‌های برنامه‌نویسی قابل پیاده‌سازی‌اند. هدف اصلی آن‌ها، داشتن کدهایی با کمترین وابستگی بین ماژول‌ها (کلاس‌ها، متدها، سرویس‌ها و...)، منعطف و قابل نگهداری است.
 
-## اصل Single Responsibility (SRP)
+## اصل Single Responsibility (SRP) {#اصل-single-responsibility-srp}
 هر کلاس یا ماژول نرم‌افزاری باید فقط یک دلیل برای تغییر داشته باشه؛ یعنی فقط یک وظیفه‌ی مشخص داشته باشه و فقط یک کار انجام بده.
 
 ![SRP](./images/SRP.png#center)
@@ -59,7 +59,7 @@ public class EmailNotifier
 }
 ```
 
-## اصل Open/Closed (OCP)
+## اصل Open/Closed (OCP) {#اصل-openclosed-ocp}
 کلاس‌ها باید برای توسعه باز و برای تغییر بسته باشند.
 یعنی وقتی نیاز دارید رفتار یک کلاس رو تغییر بدید، نباید داخل همان کلاس دست بزنید! به‌جای آن، رفتار جدید رو با یک کلاس جدید یا با ارث‌بری/تزریق بنویسید.
 
@@ -154,7 +154,7 @@ public class SortedPersonService : PersonService
 
 متد مورد نظر در کلاسِ فرزند، با `override` بازنویسی میشه.
 
-## اصل Liskov Substitution (LSP)
+## اصل Liskov Substitution (LSP) {#اصل-liskov-substitution-lsp}
 
 کلاس‌های فرزند باید بتوانند بدون دردسر جای کلاس پدر استفاده شوند، بدون اینکه منطق برنامه به هم بریزد.  
 یعنی اگر یک متد در برنامه با `ParentClass` کار می‌کند، باید بتوانید خیلی راحت یک شیء از `ChildClass` را جایگزین آن کنید و همه‌چیز درست کار کند، انگار نه انگار چیزی عوض شده.
@@ -227,7 +227,7 @@ public interface IShortMessageNotifier
 
 اگه یه کلاس خاص باعث میشه که مجبور شی کدت رو براش اختصاصی کنی، شرط براش بزاری، یا تو استفاده ازش خطا بگیری، یعنی اون کلاس **رفتار متفاوتی داره و نباید زیرمجموعه interface پدرش باشه**.
 
-## اصل Interface Segregation (ISP)
+## اصل Interface Segregation (ISP) {#اصل-interface-segregation-isp}
 هیچ کلاسی نباید مجبور باشه متدهایی رو پیاده‌سازی کنه که ازشون استفاده نمی‌کنه. یعنی به‌جای اینکه یه اینترفیس بزرگ و سنگین بسازی، چندتا اینترفیس کوچیک و تخصصی بساز.
 
 ![ISP](./images/ISP.png#center)
@@ -325,7 +325,7 @@ public class Superman : IRunner, IFlyer, ISwimmer
 
 هیچ کسی مجبور نیست کاری کنه که بلد نیست، و این یعنی رعایت کامل Interface Segregation.
 
-## اصل Dependency Inversion (DIP)
+## اصل Dependency Inversion (DIP) {#اصل-dependency-inversion-dip}
 ماژول‌های سطح بالا نباید به ماژول‌های سطح پایین وابسته باشن؛ هر دو باید به Abstraction (انتزاع) وابسته باشن، نه به جزئیات.
 این سناریوی ساده رو در نظر بگیریم؛ در اینجا Controller یک Client است و Service یک Dependency است.
 ```csharp
@@ -418,7 +418,7 @@ public class OrderService
 
 اینجا در ماژول سطح بالا (OrderService) دیگه مستقیما با ماژول سطح پایین (MellatPaymentService) کار نمیکنیم، بلکه با اینترفیس IPaymentService کار میکنیم. برای OrderService مهم نیست که سرویس پرداخت چجوری داره پرداخت رو هندل میکنه (ملت، سامان یا هر درگاه دیگری)؛ اون به خودش مربوطه! فقط یه قرار داد مشترک با هم دارن به نام Pay، که میگه این داده ها رو بهت میدم و تو هم بعد از اتمام کار، فلان داده ها رو به من برگردون.
 
-# معماری Clean (در حال تکمیل)
+# معماری Clean (در حال تکمیل) {#معماری-clean-در-حال-تکمیل}
 
 
 Clean Architecture یا همون معماری تمیز (که بهش Onion Architecture هم می‌گن)، یه سبک طراحی نرم‌افزاره که تمرکزش روی جدا کردن بخش‌های مختلف برنامه‌ست، برای اینکه راحت‌تر تست بشه، بهتر بشه نگه‌داشتش، و بعداً هم بتونی راحت گسترشش بدی.
@@ -427,6 +427,6 @@ Clean Architecture یا همون معماری تمیز (که بهش Onion Archit
 
 {{< edit >}}
 
-# منابع
+# منابع {#resources}
 [Udemy](https://www.udemy.com/course/asp-net-core-true-ultimate-guide-real-project/)
 [microsoft](https://learn.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core)

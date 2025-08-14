@@ -8,23 +8,23 @@ description: "Learn how to connect Python to Google Sheets using the gspread lib
 keywords: ["python google sheets", "gspread tutorial", "python automation", "google sheets api python"]
 ---
 
-# Getting to Know Google Sheets
+# Getting to Know Google Sheets {#google-sheets-intro}
 
 Google Sheets (which is the correct name!) is a web-based app similar to Excel and it's free. This app is available on all popular platforms like [Android](https://play.google.com/store/apps/details?id=com.google.android.apps.docs.editors.sheets) and [iOS](https://apps.apple.com/us/app/google-sheets/id842849113). The only thing you need to work with Google Sheets is a Google account. If you have an Android phone or a Gmail account, you definitely have a Google account and you can log into Google Sheets with that account [here](https://docs.google.com/spreadsheets/u/0/). This post assumes you know what Google Sheets is and want to use it alongside Python.
 
 As an end user, you can access Google Sheets through the website and work with it. But if you want to work with it through a bot (like a Python script), you need some extra preparations. Next, we'll prepare Google Sheets for working with Python and then write Python code to work with its data.
 
-# Getting to Know Google Cloud
+# Getting to Know Google Cloud {#google-cloud-intro}
 
 Google Cloud is a collection of cloud services that includes many tools for storage, computing, and more. This infrastructure and similar platforms like AWS help us focus only on our business without worrying about infrastructure (storage, computing, security, scalability, etc.) when building a software product.
 
 First, you need to visit the [Google Cloud Platform](https://console.cloud.google.com) website. The appearance of this website has changed a few times, but the steps remain the same, so there should be no disruption in the process. Use the Select a Project option and then choose New Project to create a new project. Pick a name for the project, set the location to No Organization, and click Create to create the project. Initially, you'll see a dashboard with general project info, usage, and features.
 
-## Enabling APIs
+## Enabling APIs {#enabling-apis}
 
 By selecting APIs & Services and then Enable APIs & Services, you enter a page showing the services whose APIs are already enabled. Click Enable APIs & Services again. You'll see a page listing available APIs. From this page, click on Google Drive API once and Google Sheets API once, and on each page, click Enable to activate them.
 
-## Creating Credentials
+## Creating Credentials {#creating-credentials}
 
 To use these Google Cloud services, you need authentication credentials. These are different from your Google account login info and are specific to each project. From the left menu, go to APIs & Services and then Credentials to get these credentials. Enter the Credentials page and select Create Credentials, then Service Account to open the Service Account creation form. There are several authentication methods, like API Key or OAuth. Here, our program will run locally on our laptop. The simplest choice for us is Service Account.
 
@@ -32,11 +32,11 @@ In the service account name field, enter a name for the service. The next field,
 
 ![python google sheet create credential](./images/python-google-sheet-create-credential.jpg#center)
 
-# Creating a Spreadsheet
+# Creating a Spreadsheet {#create-spreadsheet}
 
 Go to Google Sheets and create a project named PySheet. Change the Worksheet name from Sheet1 to SampleSheet. Share this Spreadsheet with the [email](#service-account-email) provided by the Service Account with Editor access.
 
-# Creating the Python Project
+# Creating the Python Project {#python-project-setup}
 
 Create the Python project in your preferred environment (e.g., PyCharm). To work with Google Sheets in Python, there are several packages; in this project, we'll use [gspread](https://docs.gspread.org/).
 

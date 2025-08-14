@@ -7,11 +7,11 @@ tags: ["asp.net core", "dotnet", "c#", "asp.net", "دات نت"]
 description: "مفاهیم اولیه‌ی asp dotnet core"
 ---
 
-# ASP.Net Core چیه؟
+# ASP.Net Core چیه؟ {#what-is-aspnet-core}
 
 یک فریم‌ورک cross-platform (قابل اجرا در ویندوز، لینوکس و مک) و [open-source](https://github.com/dotnet/aspnetcore) مبتنی بر داتنت و زبان سی‌شارپ، که میشه باهاش برنامه‌های وب، سرویس و... بسازیم.
 
-# نام‌گذاری
+# نام‌گذاری {#naming}
 
 مایکروسافت در نام‌گذاری اکوسیستم داتنت، مثل نام‌گذاری نسخه‌های ویندوز، دچار سرگیجه بوده. اگر به اکوسیستم داتنت نگاه کرده باشید، حتما اسم‌های زیادی دیده‌اید که باعث سردرگمی میشه.
 
@@ -26,13 +26,13 @@ description: "مفاهیم اولیه‌ی asp dotnet core"
 *   Asp.Net Core Razor Pages برای ساخت برنامه‌های وبِ ساده‌ی متمرکز بر صفحه
 *   Asp.Net Core Blazor برای ساخت برنامه‌های وب‌ای که هر دو سمت client و server با سی‌شارپ نوشته شده باشه
 
-# پیش‌نیازها
+# پیش‌نیازها {#prerequisites}
 *   زبان سی‌شارپ
 *   برنامه‌نویسی شی‌گرا
 *   مفاهیم پایه‌ای فرانت مثل HTML و CSS و کمی JS
 *   نصب [Visual Studio](https://visualstudio.microsoft.com/downloads/) (نسخه Community هم کافیه) و [SSMS](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms) و [Postman](https://www.postman.com/downloads/)
 
-# سرور
+# سرور {#server}
 
 اپ‌های داتنت‌ برای گرفتن درخواست‌ها (request) و ارسال پاسخ (response) به سرور (server) نیاز دارن. سرورِ پیش‌فرض داتنت‌، kestrel است که می‌تونه در محیط توسعه (development) و واقعی (production) استفاده بشه، اما معمولا از kestrel به عنوان application server و از reverse proxy serverها مثل iis و nginx در محیط واقعی استفاده می‌کنیم.
 
@@ -46,7 +46,7 @@ kestrel در حالت پیش‌فرض فعاله و اگر برنامه اجرا
 
 * * *
 
-# http
+# http {#http}
 
 حضور ما در وب، به کمک http امکان‌پذیر شده. [http](https://en.wikipedia.org/wiki/HTTP)، مجموعه قوانینیه که برای ارسال درخواست از client به server و از server به client طراحی شده. به عنوان توسعه‌دهنده‌ی وب نیازی به جزئیات کارکردش نداریم ولی لازمه کاربردهاش رو بلد باشیم. https هم همون http است که لایه امنیت (security) بهش اضافه شده.
 
@@ -56,13 +56,13 @@ kestrel در حالت پیش‌فرض فعاله و اگر برنامه اجرا
 
 * * *
 
-# middleware
+# middleware {#middleware}
 
 middlewareها، اجزایی هستند که در مسیر (pipeline) برنامه قرار می‌گیرند تا به درخواست‌ها و پاسخ‌ها رسیدگی کنند. هر middleware، باید یک کار انجام بده (اصل S از اصول SOLID). middlewareها به شکل زنجیره‌ای، یکی پس از دیگری و به همون ترتیبی که در برنامه تعریف شده، اجرا میشن. ممکنه در مسیر برنامه، چند middleware داشته باشیم. هر کدوم از اون‌ها، یا از نوع non-terminating هستن و request رو به middleware بعدی پاس میدن یا از نوع terminating هستن و request رو به middleware بعدی پاس نمیدن.
 
 ![middlewares chain](./images/middlewares-chain.png#center)
 
-## استفاده از middleware
+## استفاده از middleware {#using-middleware}
 
 middlewareها رو به دو روش میشه ساخت، نوشتن به صورت request delegate (استفاده از lambda expressionها (برای کارهای ساده)) یا نوشتن class (برای کارهای پیچیده). برای تعریف middlewareهای نوعِ non-terminating از متد Use و برای تعریف middleware نوعِ terminating از متد Run استفاده می‌کنیم. پارامتر context که در هر دو متد وجود داره، اطلاعات request رو در خودش داره. پارامتر next در واقع delegate بعدی در مسیر رو معرفی می‌کنه (اگر next رو در بدنه‌ی middleware صدا نزنیم، عملا اون رو به middleware نوعِ terminating تبدیل کرده‌ایم).
 
@@ -128,7 +128,7 @@ app.UseWhen(context => {
   });
 ```
 
-## ساخت middleware دلخواه
+## ساخت middleware دلخواه {#custom-middleware}
 
 گاهی نیاز می‌شه middlewareی داشته باشیم که شامل چند دستور مختلفه. در این حالت نوشتن همه‌ی دستورات در فایل Program.cs و به شکل lambda expression، خوانایی کد رو کم می‌کنه. بهتره custom middlewareای بنویسیم که در یک کلاس جدا قرار داره. میدلور دلخواه رو می‌شه به روش‌های convention-based و factory-based ساخت. روش factory-based انعطاف‌پذیری بیشتری داره. در روش convention-based، میدلورها در ابتدای اجرای برنامه ساخته می‌شن، در حالی که در روش factory-based به ازای هر درخواست ساخته می‌شن. ([اطلاعات بیشتر](https://www.infoworld.com/article/3696983/how-to-use-factory-based-middleware-activation-in-aspnet-core.html))
 
@@ -207,7 +207,7 @@ builder.Services.AddTransient<MyCustomMiddleware>();
 app.UseMyCustomMiddleware();
 ```
 
-## ترتیب اجرا
+## ترتیب اجرا {#execution-order}
 
 در داتنت‌، از قبل میدلورهایی تعریف شده، از طرفی ممکنه در پروژه نیاز به ساخت میدلورهای دلخواه هم داشته باشیم. با توجه به اینکه ترتیبِ اجرای میدلورها اهمیت داره، مایکروسافت ترتیب زیر رو پیشنهاد می‌کنه.
 
@@ -228,7 +228,7 @@ app.Run();
 
 * * *
 
-# routing
+# routing {#routing}
 
 به فرایندی که در طیِ اون، HTTP requestsها به endpointهای مربوطه ارتباط داده می‌شن، routing گفته میشه. این کار با بررسی HTTP method و url انجام میشه. مثلا وقتی کاربر آدرس alisabetx.com/home رو وارد کرد، باید بتونیم اون رو به endpoint مربوط به home بفرستیم تا صفحه‌ی موردنظر رو ببینه. زمانی که یک میدلور بر اساس routing اجرا میشه بهش endpoint گفته میشه.
 
@@ -247,7 +247,7 @@ app.UseEndPoints(endpoints =>
 });
 ```
 
-## mapها
+## mapها {#maps}
 
 Mapها چی هستن؟ قوانینی هستند برای اینکه requestهای دریافتی رو به بخش‌های مختلف برنامه ارتباط بدن. Map برای همه‌ی HTTP methodها کار می‌کنه اما میشه با MapGet فقط به درخواست‌های Get و با MapPost فقط به درخواست‌های Post پاسخ داد. مثلا در این تصویر، Map به همه‌ی درخواست‌هایی که با "path" شروع می‌شن رسیدگی می‌کنه، MapGet به درخواست‌های نوعِ Get که با "path" شروع می‌شن رسیدگی می‌کنه و MapPost به درخواست‌های نوعِ Post که با "path" شروع می‌شن رسیدگی می‌کنه.
 
@@ -268,7 +268,7 @@ endpoints.MapPost("path", async (HttpContext context) =>
 });
 ```
 
-## route parameters
+## route parameters {#route-parameters}
 
 آدرس‌هایی که ما رو به محتوای مورد نظرمون می‌رسونن، یک قسمت ثابت و یک قسمت متغیر دارن، مثلا در یک سیستمِ نمایشِ اطلاعاتِ کارمندان، "employee/profile/ali" ما رو به اطلاعات پروفایل علی و "employee/profile/reza" ما رو به اطلاعات رضا می‌رسونه. بخشِ "employee/profile" در هر دو مشترکه. به اون قسمت‌هایی که میتونه تغییر کنه و مقادیر مختلف بگیره، route parameter می‌گن. route parameterها رو داخل {} می‌ذاریم.
 
@@ -305,7 +305,7 @@ app.UseEndpoints(endpoints =>
 });
 ```
 
-## default/optional value
+## default/optional value {#default-optional-values}
 
 وقتی الگویی برای url تعریف می‌کنیم، انتظار داریم url وارد شده دقیقا مطابق اون باشه. اما اگر به هر دلیلی مطابق نباشه چی؟ میشه برای پارامترها مقدار پیش‌فرض (default) گذاشت، یعنی اگر مقدار وارد نشده بود، مقدارِ پیش‌فرضِ default\_value رو به جاش بذاره. مثلا در برنامه، لیستی از کالاها با شناسه‌ی 1 تا 100 داریم. قصد داریم منطق برنامه به شکلی باشه که اگر کاربر در url، شناسه‌ی id رو وارد کرد، اطلاعات کالای با شناسه‌ی id رو ببینه، اما اگر شناسه‌ی کالا رو وارد نکرد، اطلاعات کالای با شناسه‌ی 1 رو ببینه.
 
@@ -338,7 +338,7 @@ if (context.Request.RouteValues.ContainsKey("id"))
 
 * * *
 
-# controllerها
+# controllerها {#controllers}
 
 در یک پروژه‌ی واقعی نمیشه همه‌ی actionهایی که نیاز است رو در فایل Program وارد کنیم. Controller، کلاسیه که action methodهای مرتبط به هم رو در اون گروه‌بندی می‌کنیم. زمانی که request میاد، action methodها یک کارِ خاص رو انجام میدن و response رو برمی‌گردونن.
 
@@ -417,7 +417,7 @@ public class HomeController: Controller {
 
 روش بهتر اینه که قالب کلی رو مشخص کنیم.
 
-## انواع resultها
+## انواع resultها {#result-types}
 
 **ContentResult**
 
@@ -562,13 +562,13 @@ return new RedirectResult(
 
 * * *
 
-# model binding
+# model binding {#model-binding}
 
 در کنترلرها و ویوها به داده‌هایی که از http requestها می‌آیند نیاز داریم، بنابراین باید اون‌ها تک‌به‌تک در action methodها دریافت کنیم. کاری تکراری و سخت و احتمالا پر از خطا. Model Binding یکی از ویژگی‌های asp.net core است که مقادیر را از http requestها می‌خواند و آن‌ها را به عنوان ورودی (argument) به action methodها می‌دهد. در Model Binding، داده‌ها به ترتیبِ form fields و request body و route data و query string parameters خوانده می‌شن و این ترتیب مهمه.
 
 ![Model Binding](./images/Model-Binding.png#center)
 
-## \[FromQuery\] و \[FromRoute\]
+## \[FromQuery\] و \[FromRoute\] {#from-query-route}
 
 ![FromQuery and FromRoute](./images/FromQuery-and-FromRoute.png#center)
 
@@ -600,7 +600,7 @@ class ClassName
 }
 ```
 
-## form fields
+## form fields {#form-fields}
 
 گاهی کاربر یک فرم رو پُر می‌کنه و با کلیک روی دکمه‌ی "ثبت"، اطلاعات در دیتابیس ذخیره میشه. این فرایند چطور کار می‌کنه؟ به کمک متد POST در HTTP و form fieldها. دو روش برای ثبت form fieldها داریم.
 
@@ -631,7 +631,7 @@ value2
 
 معمولا در حالتی که فیلدهای کمی (مثلا 5 تا) داریم، روش form-urlencoded کار می‌کنه، اما در حالتی که فیلدها زیاد هستند و فایل هم در فرم داریم، از روش form-data استفاده می‌کنیم.
 
-## Model Validation
+## Model Validation {#model-validation}
 
 فرض کنید که model binding انجام شده و به مقادیرِ مدل دست پیدا کرده‌ایم. چطور اون‌ها رو اعتبارسنجی کنیم؟ مثلا انتظار داریم نام افراد فقط شامل حروف انگلیسی، ایمیل‌شون حتما شامل "@" و شماره موبایل‌شون 11 رقم باشه. به این کار Model Validation می‌گن. در این روش، به کمک \[attribute\]ها، قوانین مورد نظرمون رو برای هر property معرفی می‌کنیم.
 
@@ -708,7 +708,7 @@ public class HomeController : Controller
   }
 ```
 
-## Custom Validations
+## Custom Validations {#custom-validations}
 
 داتنت‌، attributeهای زیادی در اختیارمون گذاشته که به کمک اون‌ها میشه validation انجام داد. اما اگر نیاز به یک validation خاص داشته باشیم چی؟ می‌تونیم Custom Validation بنویسیم.
 
@@ -764,6 +764,6 @@ public class MinimumYearValidatorAttribute : ValidationAttribute
 
 {{< edit >}}
 
-# منابع
+# منابع {#resources}
 [Udemy](https://www.udemy.com/course/asp-net-core-true-ultimate-guide-real-project/)
 [microsoft](https://learn.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core)

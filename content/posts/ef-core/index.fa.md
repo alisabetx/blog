@@ -8,11 +8,11 @@ description: "با EF Core به صورت عملی کار کنیم"
 draft: true
 ---
 
-# آشنایی با EF Core
+# آشنایی با EF Core {#ef-core-intro}
 
 (به زودی)
 
-## مقدمه و نصب
+## مقدمه و نصب {#intro-and-installation}
 
 (اگر تجربه کار با EF رو دارید، نیاز به خوندن این قسمت نیست). متناسب با ورژن EF Core، ابتدا باید [SDK دات‌نت](https://dotnet.microsoft.com/en-us/download) رو نصب کرده باشیم. بسته به نوع [Provider](https://learn.microsoft.com/en-us/ef/core/providers/) باید EF Core مرتبط با اون رو از طریق [Nuget](https://www.nuget.org/) نصب کنیم. مثلا پکیجی که باید برای کار با SQL Server نصب بشه، با پکیجی که باید برای کار با MySQL نصب بشه، متفاوته. در اینجا قراره با SQL Server کار کنیم، پس [Microsoft.EntityFrameworkCore.SqlServer](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.sqlserver/) رو نصب میکنیم. EF Core علاوه بر پکیج اصلی، تعدادی ابزار هم داره، ابزارها از طریق CLI (که با دستور dotnet ef) شروع میشن یاPackage Manager Console (که شامل دستوراتی مثل Add-Migration هستن) قابل استفاده اند.
 
@@ -25,7 +25,7 @@ Microsoft.EntityFrameworkCore.Tools
 Microsoft.EntityFrameworkCore.Design
 ```
 
-## ساخت اولین برنامه
+## ساخت اولین برنامه {#first-program}
 
 در اینجا قراره مرحله به مرحله، یک وب‌اپ ساده که با EF Core کار میکنه بسازیم. توی Visual Studio به این شکل اپ رو میسازیم:
 1. ایجاد پروژه جدید با انتخاب Create a new Project
@@ -41,9 +41,9 @@ Microsoft.EntityFrameworkCore.Design
 
 (ادامه دارد)
 
-# قسمت عملی
+# قسمت عملی {#practical-part}
 
-## طول عمر DbContext
+## طول عمر DbContext {#dbcontext-lifetime}
 
 طول عمر یک DbContext از زمانیه که یک نمونه (instance) از اون ساخته بشه، تا زمانی که اون instance از بین بره (dispose بشه). `DbContext instance` ساخته شده که برای یه کار استفاده بشه، به زبان حرفه ای تر، `unit of work`. مارتین فاولر میگه:
 
@@ -75,5 +75,5 @@ Microsoft.EntityFrameworkCore.Design
 
 {{< edit >}}
 
-# منابع
+# منابع {#resources}
 [Microsoft Learn](https://learn.microsoft.com/)

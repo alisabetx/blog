@@ -7,7 +7,7 @@ tags: ["asp.net core", "dotnet", "c#", "asp.net", "دات نت"]
 description: "سوالات مصاحبه‌ی asp dotnet core"
 ---
 
-### Common Intermediate Language (CIL) چیه؟
+### Common Intermediate Language (CIL) چیه؟ {#what-is-cil}
 
 {{< primary_quote >}}
 یه زبان میانی که همه‌ی زبون‌های .NET مثل C# و F# به اون کامپایل می‌شن، قبل از اینکه تبدیل به کد ماشین بشن.
@@ -41,7 +41,7 @@ JIT Compiler چیه؟
 
 ---
 
-### Common Language Runtime (CLR) چیه؟
+### Common Language Runtime (CLR) چیه؟ {#what-is-clr}
 
 {{< primary_quote >}}
 CLR محیط اجرای دات‌نت هست که اجرای اپلیکیشن رو مدیریت می‌کنه (مثل مدیریت حافظه، خطاها، تایپ‌ها و…).
@@ -113,7 +113,7 @@ Boxing و Unboxing هزینه داره! چون باید حافظه روی heap �
 
 ---
 
-### خطاهای اصلی در دات‌نت چی هستن؟
+### خطاهای اصلی در دات‌نت چی هستن؟ {#dotnet-exceptions}
 
 {{< primary_quote >}}
 - خطاهای کامپایل (Syntax Errors)
@@ -147,7 +147,7 @@ public double CalculateAverage(int a, int b, int c)
 
 ---
 
-### مدیریت خطا (Exception Handling) در C# چطوریه؟
+### مدیریت خطا (Exception Handling) در C# چطوریه؟ {#مدیریت-خطا-exception-handling-در-c-چطوریه}
 
 {{< primary_quote >}}
 با استفاده از try-catch-finally.
@@ -190,7 +190,7 @@ finally {
 
 ---
 
-### انواع دسترسی‌ها (Access Modifiers) در C# چیا هستن؟
+### انواع دسترسی‌ها (Access Modifiers) در C# چیا هستن؟ {#انواع-دسترسیها-access-modifiers-در-c-چیا-هستن}
 
 {{< primary_quote >}}
 شش نوع دسترسی داریم، `public`، `internal`، `protected`، `protected internal`، `private protected`، `private`.
@@ -209,7 +209,7 @@ Access Modifier یعنی اینکه کی می‌تونه به یه کلاس یا
 
 ---
 
-### کاربرد sealed در C# چیه؟
+### کاربرد sealed در C# چیه؟ {#کاربرد-sealed-در-c-چیه}
 
 {{< primary_quote >}}
 `sealed` یعنی این کلاس یا متد قابل ارث‌بری یا override نیست.
@@ -241,7 +241,7 @@ class B : A {
 
 ---
 
-### کاربرد params در C# چیه؟
+### کاربرد params در C# چیه؟ {#کاربرد-params-در-c-چیه}
 
 {{< primary_quote >}}
 کلمه‌ی کلیدی `params` باعث می‌شه بتونی یه تعداد نامشخص از آرگومان‌ها رو به یه متد پاس بدی، ولی همشون باید از یه نوع باشن.
@@ -270,7 +270,7 @@ Sum(1, 2, 3);
 
 {{< edit >}}
 
-# منابع
+# منابع {#resources}
 [Udemy](https://www.udemy.com/course/csharpnet-50-essential-interview-questions-junior-level/)
 [Udemy](https://www.udemy.com/course/csharpnet-50-essential-interview-questions-mid-level/)
 [microsoft](https://learn.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core)
