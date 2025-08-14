@@ -190,7 +190,7 @@ finally {
 
 ---
 
-### انواع دسترسی‌ها (Access Modifiers) در C# چیا هستن؟ {#access-modifiers-c}
+### انواع دسترسی‌ها (Access Modifiers) در C# چیا هستن؟ {#access-modifiers-csharp}
 
 {{< primary_quote >}}
 شش نوع دسترسی داریم، `public`، `internal`، `protected`، `protected internal`، `private protected`، `private`.
@@ -209,7 +209,7 @@ Access Modifier یعنی اینکه کی می‌تونه به یه کلاس یا
 
 ---
 
-### کاربرد sealed در C# چیه؟ {#sealed-c}
+### کاربرد sealed در C# چیه؟ {#sealed-csharp}
 
 {{< primary_quote >}}
 `sealed` یعنی این کلاس یا متد قابل ارث‌بری یا override نیست.
@@ -241,7 +241,7 @@ class B : A {
 
 ---
 
-### کاربرد params در C# چیه؟ {#params-c}
+### کاربرد params در C# چیه؟ {#params-csharp}
 
 {{< primary_quote >}}
 کلمه‌ی کلیدی `params` باعث می‌شه بتونی یه تعداد نامشخص از آرگومان‌ها رو به یه متد پاس بدی، ولی همشون باید از یه نوع باشن.
