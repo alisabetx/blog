@@ -6,6 +6,15 @@
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 
+{{- if or (eq (getenv "HUGO_ENV") "production") (eq .Site.Params.env "production") -}}
+<link rel="canonical" href="{{ .Permalink }}">
+<meta name="robots" content="index, follow">
+{{- else -}}
+<meta name="robots" content="noindex, nofollow">
+{{- end -}}
+
+{{- partial "breadcrumbs.html" . -}}
+
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ .Permalink }}">
