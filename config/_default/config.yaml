@@ -1,4 +1,7 @@
 baseURL: https://alisabetx.com/
+enableRobotsTXT: true
+canonifyURLs: true
+relativeURLs: false
 title: Ali Sabet
 
 defaultContentLanguageInSubdir: true
@@ -10,8 +13,6 @@ theme: PaperMod
 
 pagination:
   pagerSize: 10
-
-enableRobotsTXT: true
 
 disqusShortname: alisabetx
 

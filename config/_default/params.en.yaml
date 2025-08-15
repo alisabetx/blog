@@ -1,7 +1,6 @@
 title: Ali Sabet
 description: .NET developer with a heart for AI
 keywords: [Blog, Ali Sabet]
-author: Ali Sabet
 
 DateFormat: "2006-01-02"
 defaultTheme: dark
@@ -24,21 +23,15 @@ disableScrollToTop: false
 comments: true
 hidemeta: false
 hideSummary: false
-author: "Ali Sabet"
 draft: false
 disableHLJS: false
 disableShare: false
 searchHidden: true
 mainSections: ["posts"]
 
-enableRobotsTXT: true
 buildDrafts: false
 buildFuture: false
 buildExpired: false
-
-minify:
-  disableXML: true
-  minifyOutput: true
 
 homeInfoParams:
   Title: Ali Sabet
