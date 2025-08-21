@@ -128,6 +128,6 @@ description: "با ربیت‌ام‌کیو به صورت عملی کار کنی
 
 {{< edit >}}
 
-# منابع {#short-section-5}
+# منابع {#references}
 [RabbitMQ](https://rabbitmq.com/)
 [CloudAMQP](https://cloudamqp.com/)

@@ -12,7 +12,7 @@ description: "در این پست سوال 680 لیت‌کد (valid palindrome ii
 
 رشته‌ی Almost Palindrome (شبه‌پالیندروم)، به رشته‌ای گفته می‌شه که با حذف یک کاراکتر، به Palindrome تبدیل میشه. مثلا "race a car" پالیندروم نیست، اما با حذف کاراکتر 'a' یا 'e' به پالیندروم تبدیل می‌شه. پس شبه‌پالیندرومه!
 
-# شرایط مسئله {#problem}
+# شرایط مسئله {#problem-statement}
 
 در این مرحله، شرایط خاص مسئله و حالت‌های edge case رو بررسی می‌کنیم. این شرایط باید در توضیحات سوال یا مثال‌ها مشخص شده باشن یا اینکه از پاسخ‌های پیش فرض استفاده کنیم. طبق تعریفی که برای پالیندروم داریم، کاراکترهای غیر از الفبا و عدد در نظر گرفته نمی‍شوند و کوچک و بزرگ بودن حروف هم مهم نیست.
 
@@ -37,7 +37,7 @@ input = "ab"
 output = true
 ```
 
-# راه حل منطقی {#solution}
+# راه حل منطقی {#solution-approach}
 
 در این مرحله به دنبال working solution هستیم، یعنی راه حلی منطقی که بتونه مسئله رو حل کنه. به راه حل بهینه فکر نمی‌کنیم. درگیر زبان برنامه نویسی و محدودیت‌های اون هم نخواهیم بود.
 
@@ -85,5 +85,5 @@ public bool ValidSubPalindrome(string s, int start, int end) {
 
 {{< edit >}}
 
-# منابع {#short-section-5}
+# منابع {#references}
 [Udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)

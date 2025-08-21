@@ -693,7 +693,7 @@ subject توضیحی است که می‌گوید چه کاری انجام شده
 
 {{< edit >}}
 
-# منابع {#short-section-5}
+# منابع {#references}
 [quera](https://quera.org/)
 [mjafar](https://mjafar.me/)
 [@sorousht](https://virgool.io/Software/@sorousht)

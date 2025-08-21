@@ -270,7 +270,7 @@ Sum(1, 2, 3);
 
 {{< edit >}}
 
-# منابع {#short-section-5}
+# منابع {#references}
 [Udemy](https://www.udemy.com/course/csharpnet-50-essential-interview-questions-junior-level/)
 [Udemy](https://www.udemy.com/course/csharpnet-50-essential-interview-questions-mid-level/)
 [microsoft](https://learn.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core)

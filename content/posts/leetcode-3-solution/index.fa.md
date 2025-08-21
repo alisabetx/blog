@@ -8,7 +8,7 @@ description: "در این پست سوال 3 لیت‌کد (longest substring wit
 ---
 برای دسترسی به سوال 3 لیت‌کد میتونید از این [لینک](https://leetcode.com/problems/longest-substring-without-repeating-characters/) استفاده کنید. سطح این سوال Medium است.
 
-# شرایط مسئله {#problem}
+# شرایط مسئله {#problem-statement}
 
 در این مرحله، شرایط خاص مسئله و حالت‌های edge case رو بررسی می‌کنیم. این شرایط باید در توضیحات سوال یا مثال‌ها مشخص شده باشن یا اینکه از پاسخ‌های پیش فرض استفاده کنیم.
 
@@ -31,7 +31,7 @@ input = "abcbda"
 output = 4 (abc, cbda)
 ```
 
-# راه حل منطقی {#solution}
+# راه حل منطقی {#solution-approach}
 
 در این مرحله به دنبال working solution هستیم، یعنی راه حلی منطقی که بتونه مسئله رو حل کنه. به راه حل بهینه فکر نمی‌کنیم. درگیر زبان برنامه نویسی و محدودیت‌های اون هم نخواهیم بود.
 
@@ -53,7 +53,7 @@ output = 4 (abc, cbda)
 
 با همین روش میریم جلو تا به پایان برسیم. در نهایت جواب 4 خواهد بود.
 
-# تبدیل راه حل به کد {#code-solution}
+# تبدیل راه حل به کد {#code-implementation}
 
 یه نکته منطقی که همین ابتدا به ذهن میرسه اینه که تعداد کاراکتر استرینگ ورودی رو چک کنیم. اگه 0 بود، جواب ما 0 و اگه 1 بود، جواب ما 1 خواهد بود.
 
@@ -152,5 +152,5 @@ public int LengthOfLongestSubstring(string s)
 
 {{< edit >}}
 
-# منابع {#short-section-5}
+# منابع {#references}
 [Udemy](https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/)
