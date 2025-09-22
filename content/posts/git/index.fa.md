@@ -694,7 +694,6 @@ subject توضیحی است که می‌گوید چه کاری انجام شده
 {{< edit >}}
 
 # منابع {#references}
-[quera](https://quera.org/)
 [mjafar](https://mjafar.me/)
 [@sorousht](https://virgool.io/Software/@sorousht)
 [@golemCourse](https://www.youtube.com/@GolemCourse)
