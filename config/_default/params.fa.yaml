@@ -24,7 +24,7 @@ comments: true
 hidemeta: false
 hideSummary: false
 draft: false
-disableHLJS: false
+disableHLJS: true
 disableShare: false
 searchHidden: true
 mainSections: ["posts"]

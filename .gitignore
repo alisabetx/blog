@@ -46,3 +46,4 @@ hugo.linux
 .qodo
 /.wrangler
 /node_modules
+/.vs
