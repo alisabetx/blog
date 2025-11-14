@@ -18,7 +18,7 @@ As an end user, you can access Google Sheets through the website and work with i
 
 Google Cloud is a collection of cloud services that includes many tools for storage, computing, and more. This infrastructure and similar platforms like AWS help us focus only on our business without worrying about infrastructure (storage, computing, security, scalability, etc.) when building a software product.
 
-First, you need to visit the [Google Cloud Platform](https://console.cloud.google.com) website. The appearance of this website has changed a few times, but the steps remain the same, so there should be no disruption in the process. Use the Select a Project option and then choose New Project to create a new project. Pick a name for the project, set the location to No Organization, and click Create to create the project. Initially, you'll see a dashboard with general project info, usage, and features.
+First, you need to visit the [Google Cloud Platform](https://console.cloud.google.com) website. Use the Select a Project option and then choose New Project to create a new project. Pick a name for the project, set the location to No Organization, and click Create to create the project. Initially, you'll see a dashboard with general project info, usage, and features.
 
 ## Enabling APIs {#enable-apis}
 
