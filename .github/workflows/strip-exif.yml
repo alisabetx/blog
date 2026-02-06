@@ -1,0 +1,66 @@
+name: Strip metadata from files
+
+on:
+  push:
+    branches: ["main", "master"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  strip-metadata:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install exiftool
+        run: sudo apt-get update && sudo apt-get install -y libimage-exiftool-perl
+
+      - name: Strip metadata from changed files
+        shell: bash
+        run: |
+          set -euo pipefail
+          shopt -s globstar nullglob
+
+          changed=0
+
+          BEFORE="${{ github.event.before }}"
+          AFTER="${{ github.sha }}"
+
+          if [[ -z "$BEFORE" || "$BEFORE" == "0000000000000000000000000000000000000000" ]]; then
+            range="HEAD~1..HEAD"
+          else
+            range="$BEFORE..$AFTER"
+          fi
+
+          files="$(git diff --name-only --diff-filter=AMR $range || true)"
+
+          pattern='\.(jpg|jpeg|png|gif|tif|tiff|webp|heic|heif|bmp|svg|pdf|doc|docx|xls|xlsx|ppt|pptx|odt|ods|odp|rtf|epub|mp3|m4a|wav|flac|mp4|mov|mkv|avi|webm|zip)$'
+
+          for f in $files; do
+            if [[ "$f" =~ $pattern ]] && [[ -f "$f" ]]; then
+              exiftool -overwrite_original -all= "$f" >/dev/null 2>&1 || true
+              git add "$f"
+              changed=1
+            fi
+          done
+
+          if [[ "$changed" -eq 1 ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+            if ! git diff --cached --quiet; then
+              git commit -m "chore: strip metadata from files"
+              git push
+            else
+              echo "No metadata changes detected after stripping."
+            fi
+          else
+            echo "No eligible files changed."
+          fi
