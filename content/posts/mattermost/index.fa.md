@@ -3,7 +3,7 @@ title: "راه‌اندازی پیام‌رسان Mattermost"
 slug: "mattermost"
 date: 2026-02-13T14:00:00+03:30
 lastmod: 2026-02-13T14:00:00+03:30
-tags: ["mattermost"]
+tags: ["mattermost", "مترموست"]
 description: "راه‌اندازی پیام‌رسان Mattermost برای استفاده خانوادگی، دوستانه و کاری در روزهای قطعی اینترنت"
 ---
 ## خرید سرور!
