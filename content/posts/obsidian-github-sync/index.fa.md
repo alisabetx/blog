@@ -64,7 +64,7 @@ git init
 
 ## 3.4 اولین commit {#first-commit}
 
-```powershell
+```bash
 git add -A
 git commit -m "Initial commit"
 ```
@@ -141,7 +141,7 @@ git push -u origin main
 
 این نسخه هم ساده‌ست، هم برای لاگ گرفتن مناسب، هم دردسر Quote کردن آرگومان‌ها رو نداره:
 
-```powershell
+```bash
 # ================================
 # Auto Git Commit & Push Script (beginner-friendly + robust logging)
 # Repo: D:\Obsidian
