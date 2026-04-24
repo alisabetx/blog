@@ -71,21 +71,21 @@ git remote add origin https://github.com/X/Y.git
 
 ## فرستادن ریپازیتوری به گیت‌هاب {#repo}
 
-فرض کنید نام کاربری اکانت گیت‌هاب من `alisabetx` باشه و در اون، یک ریپازیتوری خالی به نام repo ساخته باشم. حالا قصد دارم پروژه‌ای که در لپتاپ خودم دارم رو روی گیت‌هاب قرار بدم. اگر قبلا اون پروژه رو به ریپازیتوری تبدیل نکرده باشم (git init نکرده باشم)، از طریق دستورات زیر، در محلِ پروژه، می‌تونم اون رو به گیت‌هاب بفرستم.
+فرض کنید نام کاربری اکانت گیت‌هاب من `alixsabet` باشه و در اون، یک ریپازیتوری خالی به نام repo ساخته باشم. حالا قصد دارم پروژه‌ای که در لپتاپ خودم دارم رو روی گیت‌هاب قرار بدم. اگر قبلا اون پروژه رو به ریپازیتوری تبدیل نکرده باشم (git init نکرده باشم)، از طریق دستورات زیر، در محلِ پروژه، می‌تونم اون رو به گیت‌هاب بفرستم.
 
 ```bash
 git init
 git add README.md
 git commit -m "first commit"
 git branch -M main
-git remote add origin git@github.com:alisabetx/repo.git
+git remote add origin git@github.com:alixsabet/repo.git
 git push -u origin main
 ```
 
 اگر قبلا اون رو به ریپازیتوری تبدیل کرده باشم (git init کرده باشم)، از طریق دستورات زیر، در محلِ پروژه، می‌تونم اون رو به گیت‌هاب بفرستم.
 
 ```bash
-git remote add origin git@github.com:alisabetx/repo.git
+git remote add origin git@github.com:alixsabet/repo.git
 git branch -M main
 git push -u origin main 
 ```

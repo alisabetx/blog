@@ -39,19 +39,19 @@ homeInfoParams:
 
 socialIcons:
   - name: linkedin
-    url: https://linkedin.com/in/alisabetx/
+    url: https://linkedin.com/in/alixsabet/
   - name: github
-    url: https://github.com/alisabetx/
+    url: https://github.com/alixsabet/
   - name: x
-    url: https://x.com/alisabetx/
+    url: https://x.com/alixsabet/
   - name: youtube
     url: http://youtube.com/@alixsabet/
   - name: letterboxd
-    url: https://letterboxd.com/alisabetx/
+    url: https://letterboxd.com/alixsabet/
   - name: goodreads
-    url: https://goodreads.com/alisabetx/
+    url: https://goodreads.com/alixsabet/
   - name: rss
-    url: https://alisabetx.com/fa/index.xml
+    url: https://alixsabet.com/fa/index.xml
 
 cover:
   hidden: true
@@ -59,7 +59,7 @@ cover:
   hiddenInSingle: true
 
 editPost:
-  URL: "https://github.com/alisabetx/blog/tree/main/content"
+  URL: "https://github.com/alixsabet/blog/tree/main/content"
   Text: "پیشنهاد اصلاح متن"
   appendFilePath: true
 
