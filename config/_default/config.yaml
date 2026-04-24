@@ -46,7 +46,7 @@ params:
   env: production
   analytics:
     google:
-      SiteVerificationTag: "---"
+      SiteVerificationTag: "G-S4VSWFHDJY"
     bing:
       SiteVerificationTag: "---"
     yandex:
