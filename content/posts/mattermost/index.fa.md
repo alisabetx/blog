@@ -2,7 +2,7 @@
 title: "راه‌اندازی پیام‌رسان Mattermost"
 slug: "mattermost"
 date: 2026-02-13T14:00:00+03:30
-lastmod: 2026-02-13T14:00:00+03:30
+lastmod: 2026-04-24T14:00:00+03:30
 tags: ["mattermost", "مترموست"]
 description: "راه‌اندازی پیام‌رسان Mattermost برای استفاده خانوادگی، دوستانه و کاری در روزهای قطعی اینترنت"
 ---
@@ -67,13 +67,23 @@ ls -1 /opt/mattermost-offline-bundle/apt-repo/*.deb 2>/dev/null | wc -l
 
 ## ساخت APT repo آفلاین
 
+`apt-ftparchive` اسم پکیج نیست؛ یک دستور است که با نصب `apt-utils` در دسترس قرار می‌گیرد. بنابراین نباید `apt-ftparchive` را جداگانه install کنی.
+
 ```bash
 cd /opt/mattermost-offline-bundle/apt-repo
 apt-get update
 apt-get install -y apt-utils
 
+command -v apt-ftparchive
 apt-ftparchive packages . > Packages
 gzip -kf Packages
+```
+
+اگر `command -v apt-ftparchive` چیزی برنگرداند، اول وضعیت نصب را چک کن:
+
+```bash
+dpkg -L apt-utils | grep apt-ftparchive || true
+apt-get install --reinstall -y apt-utils
 ```
 
 بررسی:
@@ -152,6 +162,58 @@ docker save -o /opt/mattermost-offline-bundle/docker-images.tar \
 ls -lh /opt/mattermost-offline-bundle/docker-images.tar
 ```
 
+## ساخت فایل compose
+
+قبل از ساخت اسکریپت نصب، باید `compose.yaml` داخل باندل وجود داشته باشد. اگر این فایل ساخته نشود، مرحله‌ی `test -f "$COMPOSE_FILE"` در اسکریپت نصب خطا می‌دهد و در پایان هم کانتینرهای `mm-db` و `mm-app` ساخته نمی‌شوند.
+
+```bash
+cat > /opt/mattermost-offline-bundle/compose.yaml <<'EOF'
+services:
+  mm-db:
+    image: postgres:16-alpine
+    container_name: mm-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: mmuser
+      POSTGRES_PASSWORD: mmuser_password_change_me
+      POSTGRES_DB: mattermost
+    volumes:
+      - mm-db-data:/var/lib/postgresql/data
+
+  mm-app:
+    image: mattermost/mattermost-team-edition:latest
+    container_name: mm-app
+    restart: unless-stopped
+    depends_on:
+      - mm-db
+    ports:
+      - "8065:8065"
+    environment:
+      MM_SQLSETTINGS_DRIVERNAME: postgres
+      MM_SQLSETTINGS_DATASOURCE: postgres://mmuser:mmuser_password_change_me@mm-db:5432/mattermost?sslmode=disable&connect_timeout=10
+    volumes:
+      - mm-app-config:/mattermost/config
+      - mm-app-data:/mattermost/data
+      - mm-app-logs:/mattermost/logs
+      - mm-app-plugins:/mattermost/plugins
+      - mm-app-client-plugins:/mattermost/client/plugins
+
+volumes:
+  mm-db-data:
+  mm-app-config:
+  mm-app-data:
+  mm-app-logs:
+  mm-app-plugins:
+  mm-app-client-plugins:
+EOF
+```
+
+بررسی:
+
+```bash
+ls -lh /opt/mattermost-offline-bundle/compose.yaml
+```
+
 ## ساخت اسکریپت نصب
 
 این نسخه هم `.list` و هم `.sources` را غیرفعال می‌کند، و repo را درست می‌شناسد.
@@ -219,10 +281,12 @@ cd /opt/mattermost-offline-bundle
 ls -1 apt-repo/*.deb 2>/dev/null | wc -l
 ls -lh apt-repo/Packages.gz
 ls -lh docker-images.tar
+ls -lh compose.yaml
 ```
 
 اگر `docker-images.tar` وجود نداشت، یعنی دانلود ایمیج های داکر به درستی انجام نشده.
 اگر `.deb` کم بود، یعنی دانلود پکیج ها به درستی انجام نشده.
+اگر `compose.yaml` وجود نداشت، کانتینرهای `mm-db` و `mm-app` ساخته نمی‌شوند.
 
 ## خروجی گرفتن tar نهایی
 
@@ -292,11 +356,19 @@ zcat Packages.gz > Packages
 
 ### اگر هیچ Packages نداری:
 
+در حالت آفلاین معمولاً نباید به این مرحله برسی. چون برای ساختن `Packages` به دستور `apt-ftparchive` نیاز است و این دستور باید از قبل روی سرور سازنده‌ی باندل نصب شده باشد. `apt-ftparchive` پکیج جداگانه نیست؛ داخل `apt-utils` می‌آید.
+
+اگر هنوز اینترنت و repo آنلاین داری:
+
 ```bash
-apt-get install -y apt-utils apt-ftparchive
+apt-get update
+apt-get install -y apt-utils
+command -v apt-ftparchive
 apt-ftparchive packages . > Packages
 gzip -kf Packages
 ```
+
+اگر روی سرور آفلاین هستی و `Packages.gz` نداری، بهتر است برگردی به سرور سازنده‌ی باندل، بخش «ساخت APT repo آفلاین» را دوباره اجرا کنی و tar را دوباره بسازی.
 
 ## غیرفعال کردن همه سورس‌های اینترنتی
 
@@ -359,6 +431,21 @@ docker ps
 mm-db
 mm-app
 ```
+
+اگر ندیدی، اول کانتینرهای متوقف‌شده را هم ببین:
+
+```bash
+docker ps -a
+```
+
+بعد لاگ‌ها را چک کن:
+
+```bash
+cd /opt/mattermost-offline-bundle
+docker compose logs --tail=100
+```
+
+اگر اصلاً `mm-db` و `mm-app` ساخته نشده‌اند، یعنی `compose.yaml` داخل باندل نبوده یا `docker compose -f compose.yaml up -d` اجرا نشده است.
 
 تست HTTP:
 
