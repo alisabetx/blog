@@ -2,186 +2,216 @@
 title: "راه‌اندازی پیام‌رسان Mattermost"
 slug: "mattermost"
 date: 2026-02-13T14:00:00+03:30
-lastmod: 2026-04-24T14:00:00+03:30
+lastmod: 2026-04-24T14:30:00+03:30
 tags: ["mattermost", "مترموست"]
 description: "راه‌اندازی پیام‌رسان Mattermost برای استفاده خانوادگی، دوستانه و کاری در روزهای قطعی اینترنت"
 ---
 
-## خرید سرور!
-## ورود به سرور
+## ماجرا چیه؟
+
+می‌خواهیم Mattermost را طوری آماده کنیم که اگر سرور داخل ایران به اینترنت بین‌المللی وصل نبود، باز هم بتوانیم آن را راه بیندازیم.
+
+ایده ساده است:
+
+1. روی لپتاپ، داخل WSL، یک باندل کامل می‌سازیم.
+2. داخل باندل، پکیج‌های deb لازم، ایمیج‌های Docker، فایل compose و اسکریپت نصب را می‌گذاریم.
+3. باندل را با `scp` می‌بریم روی سرور ایران.
+4. روی سرور ایران، بدون نیاز به Docker Hub و بدون نیاز به repoهای اینترنتی، Mattermost را اجرا می‌کنیم.
+
+در این آموزش فرض می‌کنیم لپتاپ به اینترنت بین‌المللی دسترسی دارد، ولی سرور ایران ممکن است نداشته باشد.
+
+## یک نکته خیلی مهم قبل از شروع
+
+نسخه Ubuntu داخل WSL باید با نسخه Ubuntu روی سرور یکی باشد. معماری هم باید یکی باشد. مثلا اگر سرور `Ubuntu 22.04 amd64` است، بهتر است WSL هم `Ubuntu 22.04 amd64` باشد.
+
+روی WSL بزن:
 
 ```bash
-ssh -p PORT root@SERVER_IP
+lsb_release -a
+dpkg --print-architecture
 ```
 
-## آپدیت کامل سیستم
-
-این مرحله باعث می‌شود باندلِ apt-repo جدیدترین نسخه‌های پکیج‌ها را داشته باشد.
+روی سرور هم بزن:
 
 ```bash
-apt-get update
-DEBIAN_FRONTEND=noninteractive apt-get -y full-upgrade
-DEBIAN_FRONTEND=noninteractive apt-get -y autoremove --purge
+lsb_release -a
+dpkg --print-architecture
 ```
 
-## ساخت ساختار باندل
+اگر نسخه Ubuntu یا architecture یکی نبود، باندل apt ممکن است درست کار نکند.
+
+## پیش‌نیاز روی WSL
+
+اول وارد WSL شو. اگر Docker داخل WSL کار نمی‌کند، ساده‌ترین راه این است که Docker Desktop را روی ویندوز نصب کنی و integration مربوط به همان distro را فعال کنی.
+
+بررسی:
 
 ```bash
-mkdir -p /opt/mattermost-offline-bundle/apt-repo/partial
-cd /opt/mattermost-offline-bundle
-chmod 755 /opt /opt/mattermost-offline-bundle /opt/mattermost-offline-bundle/apt-repo
-chmod 755 /opt/mattermost-offline-bundle/apt-repo/partial
+docker version
+docker compose version
 ```
 
-## گرفتن لیست پکیج‌ها
+اگر `docker` کار نکرد، اول Docker را برای WSL درست کن. بدون Docker نمی‌توانیم ایمیج‌ها را pull و save کنیم.
 
-### لیست کل پکیج‌های نصب‌شده
+چند ابزار پایه را هم نصب می‌کنیم:
 
 ```bash
-cd /opt/mattermost-offline-bundle
-dpkg-query -W -f='${binary:Package}\n' > pkglist.installed.txt
+sudo apt-get update
+sudo apt-get install -y apt-utils ca-certificates curl rsync tar gzip openssl
 ```
 
-### دانلود deb ها داخل apt-repo
+`apt-ftparchive` اسم پکیج نیست. با نصب `apt-utils` در دسترس قرار می‌گیرد.
+
+بررسی:
 
 ```bash
-cd /opt/mattermost-offline-bundle
-mkdir -p apt-repo/partial
-chmod 755 /opt /opt/mattermost-offline-bundle /opt/mattermost-offline-bundle/apt-repo apt-repo/partial
+command -v apt-ftparchive
+```
 
-apt-get update
+اگر خروجی نداشت:
 
-DEBIAN_FRONTEND=noninteractive apt-get -y --download-only install \
-  --reinstall \
-  -o Dir::Cache::archives="$(pwd)/apt-repo" \
-  $(cat pkglist.installed.txt)
+```bash
+sudo apt-get install --reinstall -y apt-utils
+dpkg -L apt-utils | grep apt-ftparchive
+```
+
+## تنظیم نسخه‌ها
+
+برای نصب آفلاین، بهتر است از `latest` استفاده نکنیم. نسخه‌ها را مشخص می‌کنیم تا بعدا هم بدانیم دقیقا چه چیزی نصب شده.
+
+```bash
+export MATTERMOST_IMAGE="mattermost/mattermost-team-edition:10.5"
+export POSTGRES_IMAGE="postgres:16-alpine"
+export BUNDLE_DIR="$HOME/mattermost-offline-bundle"
+```
+
+اگر خواستی نسخه Mattermost را عوض کنی، همینجا عوضش کن.
+
+## ساخت ساختار باندل روی WSL
+
+```bash
+rm -rf "$BUNDLE_DIR"
+mkdir -p "$BUNDLE_DIR/apt-repo/partial"
+cd "$BUNDLE_DIR"
+chmod 755 "$BUNDLE_DIR" "$BUNDLE_DIR/apt-repo" "$BUNDLE_DIR/apt-repo/partial"
+```
+
+## دانلود پکیج‌های deb لازم
+
+اینجا فقط چیزهایی را می‌گیریم که برای نصب و اجرا لازم داریم، نه کل پکیج‌های نصب‌شده روی سیستم را.
+
+```bash
+cd "$BUNDLE_DIR"
+sudo apt-get clean
+rm -f apt-repo/*.deb
+
+sudo apt-get update
+
+sudo DEBIAN_FRONTEND=noninteractive apt-get -y --download-only install \
+  -o Dir::Cache::archives="$BUNDLE_DIR/apt-repo" \
+  docker.io \
+  docker-compose-v2 \
+  ca-certificates \
+  curl \
+  ufw \
+  rsync \
+  apt-utils
 ```
 
 بررسی:
 
 ```bash
-ls -1 /opt/mattermost-offline-bundle/apt-repo/*.deb 2>/dev/null | wc -l
+ls -1 "$BUNDLE_DIR"/apt-repo/*.deb 2>/dev/null | wc -l
 ```
 
-اگر 0 بود، یعنی download واقعاً انجام نشده (یا شبکه/ریپو مشکل دارد).
+اگر عدد 0 بود، یعنی debها دانلود نشده‌اند. در این حالت معمولا مشکل از repo، شبکه یا یکی نبودن نسخه Ubuntu است.
 
 ## ساخت APT repo آفلاین
 
-`apt-ftparchive` اسم پکیج نیست؛ یک دستور است که با نصب `apt-utils` در دسترس قرار می‌گیرد. بنابراین نباید `apt-ftparchive` را جداگانه install کنی.
-
 ```bash
-cd /opt/mattermost-offline-bundle/apt-repo
-apt-get update
-apt-get install -y apt-utils
-
-command -v apt-ftparchive
+cd "$BUNDLE_DIR/apt-repo"
 apt-ftparchive packages . > Packages
 gzip -kf Packages
 ```
 
-اگر `command -v apt-ftparchive` چیزی برنگرداند، اول وضعیت نصب را چک کن:
-
-```bash
-dpkg -L apt-utils | grep apt-ftparchive || true
-apt-get install --reinstall -y apt-utils
-```
-
 بررسی:
 
 ```bash
-ls -lh /opt/mattermost-offline-bundle/apt-repo/Packages*
+ls -lh "$BUNDLE_DIR"/apt-repo/Packages*
 ```
 
-## نصب Docker/Compose روی سرور
+باید حداقل `Packages` و `Packages.gz` را ببینی.
+
+## pull کردن ایمیج‌های Docker
+
+اینجا هنوز روی WSL هستیم و اینترنت بین‌المللی داریم.
 
 ```bash
-apt-get update
-apt-get install -y docker.io docker-compose-v2 ca-certificates curl
-systemctl enable --now docker
+docker pull "$POSTGRES_IMAGE"
+docker pull "$MATTERMOST_IMAGE"
 ```
 
-## تنظیم Docker registry mirror
-
-```bash
-mkdir -p /etc/docker
-cat > /etc/docker/daemon.json <<EOF
-{
-  "registry-mirrors": [
-    "https://docker.arvancloud.ir",
-    "https://mirror-docker.runflare.com",
-    "https://docker.iranserver.com",
-    "https://registry.docker.ir"
-  ]
-}
-EOF
-
-systemctl restart docker
-```
-
-### افزایش تایم اوت
-
-```bash
-export DOCKER_CLIENT_TIMEOUT=600
-export COMPOSE_HTTP_TIMEOUT=600
-```
-
-اگر باز هم timeout داد، IPv6 را موقتاً خاموش کن
-
-```bash
-sysctl -w net.ipv6.conf.all.disable_ipv6=1
-sysctl -w net.ipv6.conf.default.disable_ipv6=1
-systemctl restart docker
-```
-
-### pull کردن ایمیج‌های داکر
-
-```bash
-docker pull postgres:16-alpine
-docker pull mattermost/mattermost-team-edition:latest
-```
-
-## ذخیره ایمیج‌ها داخل باندل
-
-اول مطمئن بشیم ایمیج‌ها موجودند:
+بررسی:
 
 ```bash
 docker images --format "table {{.Repository}}\t{{.Tag}}\t{{.Size}}"
 ```
 
-بعد save:
+## ذخیره ایمیج‌ها داخل باندل
 
 ```bash
-docker save -o /opt/mattermost-offline-bundle/docker-images.tar \
-  postgres:16-alpine \
-  mattermost/mattermost-team-edition:latest
+docker save -o "$BUNDLE_DIR/docker-images.tar" \
+  "$POSTGRES_IMAGE" \
+  "$MATTERMOST_IMAGE"
 ```
 
 بررسی:
 
 ```bash
-ls -lh /opt/mattermost-offline-bundle/docker-images.tar
+ls -lh "$BUNDLE_DIR/docker-images.tar"
+```
+
+## ساخت پسورد دیتابیس
+
+یک پسورد برای PostgreSQL می‌سازیم و داخل فایل `.env` می‌گذاریم. این فایل همراه باندل به سرور منتقل می‌شود.
+
+```bash
+cd "$BUNDLE_DIR"
+POSTGRES_PASSWORD_VALUE="$(openssl rand -base64 32 | tr -d '\n')"
+cat > .env <<EOF
+POSTGRES_USER=mmuser
+POSTGRES_PASSWORD=$POSTGRES_PASSWORD_VALUE
+POSTGRES_DB=mattermost
+MATTERMOST_IMAGE=$MATTERMOST_IMAGE
+POSTGRES_IMAGE=$POSTGRES_IMAGE
+EOF
+chmod 600 .env
+```
+
+بررسی:
+
+```bash
+ls -lh "$BUNDLE_DIR/.env"
 ```
 
 ## ساخت فایل compose
 
-قبل از ساخت اسکریپت نصب، باید `compose.yaml` داخل باندل وجود داشته باشد. اگر این فایل ساخته نشود، مرحله‌ی `test -f "$COMPOSE_FILE"` در اسکریپت نصب خطا می‌دهد و در پایان هم کانتینرهای `mm-db` و `mm-app` ساخته نمی‌شوند.
-
 ```bash
-cat > /opt/mattermost-offline-bundle/compose.yaml <<'EOF'
+cat > "$BUNDLE_DIR/compose.yaml" <<'EOF'
 services:
   mm-db:
-    image: postgres:16-alpine
+    image: ${POSTGRES_IMAGE}
     container_name: mm-db
     restart: unless-stopped
     environment:
-      POSTGRES_USER: mmuser
-      POSTGRES_PASSWORD: mmuser_password_change_me
-      POSTGRES_DB: mattermost
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
     volumes:
       - mm-db-data:/var/lib/postgresql/data
 
   mm-app:
-    image: mattermost/mattermost-team-edition:latest
+    image: ${MATTERMOST_IMAGE}
     container_name: mm-app
     restart: unless-stopped
     depends_on:
@@ -190,7 +220,7 @@ services:
       - "8065:8065"
     environment:
       MM_SQLSETTINGS_DRIVERNAME: postgres
-      MM_SQLSETTINGS_DATASOURCE: postgres://mmuser:mmuser_password_change_me@mm-db:5432/mattermost?sslmode=disable&connect_timeout=10
+      MM_SQLSETTINGS_DATASOURCE: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@mm-db:5432/${POSTGRES_DB}?sslmode=disable&connect_timeout=10
     volumes:
       - mm-app-config:/mattermost/config
       - mm-app-data:/mattermost/data
@@ -211,15 +241,15 @@ EOF
 بررسی:
 
 ```bash
-ls -lh /opt/mattermost-offline-bundle/compose.yaml
+ls -lh "$BUNDLE_DIR/compose.yaml"
 ```
 
-## ساخت اسکریپت نصب
+## ساخت اسکریپت نصب آفلاین
 
-این نسخه هم `.list` و هم `.sources` را غیرفعال می‌کند، و repo را درست می‌شناسد.
+این اسکریپت روی سرور ایران اجرا می‌شود. سورس‌های اینترنتی apt را موقتاً کنار می‌گذارد، repo آفلاین داخل باندل را فعال می‌کند، Docker را از همان debها نصب می‌کند، ایمیج‌ها را load می‌کند و Mattermost را بالا می‌آورد.
 
 ```bash
-cat > /opt/mattermost-offline-bundle/install-offline.sh <<'EOF'
+cat > "$BUNDLE_DIR/install-offline.sh" <<'EOF'
 #!/usr/bin/env bash
 set -euo pipefail
 
@@ -227,92 +257,125 @@ BUNDLE_DIR="$(cd "$(dirname "$0")" && pwd)"
 APT_REPO_DIR="$BUNDLE_DIR/apt-repo"
 DOCKER_TAR="$BUNDLE_DIR/docker-images.tar"
 COMPOSE_FILE="$BUNDLE_DIR/compose.yaml"
+ENV_FILE="$BUNDLE_DIR/.env"
 
-echo "[1/8] Sanity checks..."
+echo "[1/9] Sanity checks..."
 test -d "$APT_REPO_DIR"
-test -f "$COMPOSE_FILE"
+test -f "$APT_REPO_DIR/Packages.gz"
 test -f "$DOCKER_TAR"
+test -f "$COMPOSE_FILE"
+test -f "$ENV_FILE"
 
-echo "[2/8] Fix permissions for _apt sandbox..."
-chmod 755 /opt /opt/mattermost-offline-bundle /opt/mattermost-offline-bundle/apt-repo || true
+echo "[2/9] Fix permissions for _apt sandbox..."
+chmod 755 /opt || true
+chmod 755 "$BUNDLE_DIR" "$APT_REPO_DIR" || true
 mkdir -p "$APT_REPO_DIR/partial"
 chmod 755 "$APT_REPO_DIR/partial" || true
 
-echo "[3/8] Configure APT to use offline repo (file:)..."
-mkdir -p /etc/apt/sources.list.d
+echo "[3/9] Configure APT to use offline repo..."
+mkdir -p /etc/apt/sources.list.d /etc/apt/disabled-sources
 cat > /etc/apt/sources.list.d/offline-bundle.list <<EOL
 deb [trusted=yes] file:$APT_REPO_DIR ./
 EOL
 
-echo "[4/8] Disable ALL online APT sources (.list and .sources)..."
-mkdir -p /etc/apt/disabled-sources
+echo "[4/9] Disable online APT sources..."
 find /etc/apt/sources.list.d -maxdepth 1 -type f \
   ! -name "offline-bundle.list" \
   -exec mv -v {} /etc/apt/disabled-sources/ \; 2>/dev/null || true
 
 test -f /etc/apt/sources.list && mv -v /etc/apt/sources.list /etc/apt/disabled-sources/sources.list.bak 2>/dev/null || true
 
-echo "[5/8] APT update from offline repo..."
+echo "[5/9] APT update from offline repo..."
+apt-get clean
+rm -rf /var/lib/apt/lists/*
 apt-get update
 
-echo "[6/8] Reinstall required packages from offline repo..."
-DEBIAN_FRONTEND=noninteractive apt-get -y install --reinstall \
-  docker.io docker-compose-v2 ca-certificates curl
+echo "[6/9] Install required packages from offline repo..."
+DEBIAN_FRONTEND=noninteractive apt-get -y install \
+  docker.io \
+  docker-compose-v2 \
+  ca-certificates \
+  curl \
+  ufw \
+  rsync \
+  apt-utils
 
 systemctl enable --now docker
 
-echo "[7/8] Load Docker images..."
+echo "[7/9] Load Docker images..."
 docker load -i "$DOCKER_TAR"
 
-echo "[8/8] Start Mattermost..."
+echo "[8/9] Start Mattermost..."
 cd "$BUNDLE_DIR"
-docker compose -f "$COMPOSE_FILE" up -d
+docker compose --env-file "$ENV_FILE" -f "$COMPOSE_FILE" up -d
+
+echo "[9/9] Open firewall port if ufw is active..."
+if command -v ufw >/dev/null 2>&1; then
+  ufw allow 8065 || true
+  ufw reload || true
+fi
 
 echo "Done."
 EOF
 
-chmod +x /opt/mattermost-offline-bundle/install-offline.sh
+chmod +x "$BUNDLE_DIR/install-offline.sh"
 ```
 
 ## تست کامل بودن باندل قبل از tar
 
 ```bash
-cd /opt/mattermost-offline-bundle
+cd "$BUNDLE_DIR"
+
+test -f apt-repo/Packages.gz
+test -f docker-images.tar
+test -f compose.yaml
+test -f install-offline.sh
+test -f .env
+
 ls -1 apt-repo/*.deb 2>/dev/null | wc -l
 ls -lh apt-repo/Packages.gz
 ls -lh docker-images.tar
 ls -lh compose.yaml
+ls -lh install-offline.sh
+ls -lh .env
 ```
 
-اگر `docker-images.tar` وجود نداشت، یعنی دانلود ایمیج های داکر به درستی انجام نشده.
-اگر `.deb` کم بود، یعنی دانلود پکیج ها به درستی انجام نشده.
-اگر `compose.yaml` وجود نداشت، کانتینرهای `mm-db` و `mm-app` ساخته نمی‌شوند.
+مطمئن شو ایمیج‌ها روی WSL وجود دارند:
+
+```bash
+docker image inspect "$POSTGRES_IMAGE" >/dev/null
+docker image inspect "$MATTERMOST_IMAGE" >/dev/null
+```
 
 ## خروجی گرفتن tar نهایی
 
 ```bash
-cd /opt
+cd "$HOME"
 tar -czf mattermost-offline-bundle.tar.gz mattermost-offline-bundle
-ls -lh /opt/mattermost-offline-bundle.tar.gz
+ls -lh "$HOME/mattermost-offline-bundle.tar.gz"
 ```
 
-## دانلود روی لپتاپ
+محتوای tar را هم چک کن:
 
 ```bash
-scp -P PORT root@SERVER_IP:/opt/mattermost-offline-bundle.tar.gz .
+tar -tzf "$HOME/mattermost-offline-bundle.tar.gz" | grep -E 'docker-images.tar|compose.yaml|install-offline.sh|apt-repo/Packages.gz|\.env'
 ```
 
-خب. حالا یه فایل داریم که میتونیم بعدا ازش استفاده کنیم.
+خب. حالا یک فایل داریم که می‌توانیم روی سرور ایران استفاده کنیم.
 
-## انتقال فایل به سرور جدید
+## انتقال فایل به سرور ایران
 
-روی لپتاپ:
+روی WSL:
 
 ```bash
-scp -P PORT mattermost-offline-bundle.tar.gz root@SERVER_IP:/root/
+scp -P PORT "$HOME/mattermost-offline-bundle.tar.gz" root@SERVER_IP:/root/
 ```
+
+به جای `PORT` پورت SSH و به جای `SERVER_IP` آی‌پی سرور را بگذار.
 
 ## بازکردن فایل روی سرور
+
+از اینجا به بعد روی سرور ایران هستیم.
 
 ```bash
 ssh -p PORT root@SERVER_IP
@@ -321,101 +384,29 @@ cd /root
 tar -xzf mattermost-offline-bundle.tar.gz
 ```
 
-## انتقال باندل
+## انتقال باندل به /opt
 
 ```bash
+rm -rf /opt/mattermost-offline-bundle
 mkdir -p /opt/mattermost-offline-bundle
 rsync -a /root/mattermost-offline-bundle/ /opt/mattermost-offline-bundle/
 
 chown -R root:root /opt/mattermost-offline-bundle
 chmod 755 /opt
 chmod -R a+rX /opt/mattermost-offline-bundle
+chmod 600 /opt/mattermost-offline-bundle/.env
 ```
 
 از اینجا به بعد با `/opt/mattermost-offline-bundle` کار می‌کنیم.
 
-## اصلاح apt-repo
-
-برو داخل repo:
-
-```bash
-cd /opt/mattermost-offline-bundle/apt-repo
-```
-
-بررسی:
-
-```bash
-ls | grep Packages
-```
-
-### اگر فقط `Packages.gz` داری:
-
-```bash
-zcat Packages.gz > Packages
-```
-
-### اگر هیچ Packages نداری:
-
-در حالت آفلاین معمولاً نباید به این مرحله برسی. چون برای ساختن `Packages` به دستور `apt-ftparchive` نیاز است و این دستور باید از قبل روی سرور سازنده‌ی باندل نصب شده باشد. `apt-ftparchive` پکیج جداگانه نیست؛ داخل `apt-utils` می‌آید.
-
-اگر هنوز اینترنت و repo آنلاین داری:
-
-```bash
-apt-get update
-apt-get install -y apt-utils
-command -v apt-ftparchive
-apt-ftparchive packages . > Packages
-gzip -kf Packages
-```
-
-اگر روی سرور آفلاین هستی و `Packages.gz` نداری، بهتر است برگردی به سرور سازنده‌ی باندل، بخش «ساخت APT repo آفلاین» را دوباره اجرا کنی و tar را دوباره بسازی.
-
-## غیرفعال کردن همه سورس‌های اینترنتی
-
-```bash
-mkdir -p /etc/apt/disabled-sources
-
-find /etc/apt/sources.list.d -maxdepth 1 -type f -name "*.sources" -exec mv {} /etc/apt/disabled-sources/ \;
-
-find /etc/apt/sources.list.d -maxdepth 1 -type f -name "*.list" ! -name "offline-bundle.list" -exec mv {} /etc/apt/disabled-sources/ \;
-
-test -f /etc/apt/sources.list && mv /etc/apt/sources.list /etc/apt/disabled-sources/
-```
-
-## تنظیم APT فقط روی file:
-
-```bash
-cat > /etc/apt/sources.list.d/offline-bundle.list <<EOF
-deb [trusted=yes] file:/opt/mattermost-offline-bundle/apt-repo ./
-EOF
-```
-
-پاکسازی کش:
-
-```bash
-apt-get clean
-rm -rf /var/lib/apt/lists/*
-```
-
-## تست APT آفلاین
-
-```bash
-apt-get update
-```
-
-اگر فقط `file:/opt/...` دیدی و هیچ `http://ubuntu...` ندیدی، یعنی همه چی اوکیه.
-
 ## اجرای نصب آفلاین
-
-برو به باندل:
 
 ```bash
 cd /opt/mattermost-offline-bundle
-chmod +x install-offline.sh
 ./install-offline.sh
-ufw allow 8065
-ufw reload
 ```
+
+اگر این مرحله درست انجام شود، نباید به Docker Hub یا repoهای آنلاین Ubuntu نیاز داشته باشی.
 
 ## تست نهایی
 
@@ -427,7 +418,7 @@ docker ps
 
 باید ببینی:
 
-```
+```text
 mm-db
 mm-app
 ```
@@ -442,10 +433,10 @@ docker ps -a
 
 ```bash
 cd /opt/mattermost-offline-bundle
-docker compose logs --tail=100
+docker compose --env-file .env -f compose.yaml logs --tail=100
 ```
 
-اگر اصلاً `mm-db` و `mm-app` ساخته نشده‌اند، یعنی `compose.yaml` داخل باندل نبوده یا `docker compose -f compose.yaml up -d` اجرا نشده است.
+اگر اصلاً `mm-db` و `mm-app` ساخته نشده‌اند، یعنی `compose.yaml` داخل باندل نبوده، ایمیج‌ها load نشده‌اند، یا `docker compose` درست اجرا نشده است.
 
 تست HTTP:
 
@@ -453,15 +444,83 @@ docker compose logs --tail=100
 curl -I http://127.0.0.1:8065
 ```
 
-اگر 200 گرفتی، یعنی همه چی اوکیه.
+اگر 200 یا 302 گرفتی، یعنی Mattermost جواب می‌دهد.
 
 ## دسترسی از بیرون
 
 در مرورگر:
 
-```
+```text
 http://SERVER_IP:8065
 ```
+
+اگر صفحه باز نشد، این‌ها را چک کن:
+
+```bash
+ss -lntp | grep 8065
+ufw status
+```
+
+همچنین در پنل VPS مطمئن شو پورت 8065 بسته نشده باشد.
+
+## خطاهای رایج
+
+### خطای Unable to locate package apt-ftparchive
+
+`apt-ftparchive` پکیج جدا نیست. این دستور با `apt-utils` نصب می‌شود.
+
+در WSL بزن:
+
+```bash
+sudo apt-get update
+sudo apt-get install -y apt-utils
+command -v apt-ftparchive
+```
+
+### Docker داخل WSL کار نمی‌کند
+
+بررسی:
+
+```bash
+docker version
+```
+
+اگر به Docker daemon وصل نشد، Docker Desktop را روی ویندوز نصب کن و WSL integration را برای همان distro فعال کن.
+
+### روی سرور، apt دنبال اینترنت می‌گردد
+
+یعنی سورس‌های آنلاین کامل غیرفعال نشده‌اند یا `offline-bundle.list` درست ساخته نشده است.
+
+بررسی:
+
+```bash
+cat /etc/apt/sources.list.d/offline-bundle.list
+ls /etc/apt/sources.list.d/
+apt-get update
+```
+
+در خروجی `apt-get update` باید فقط مسیر `file:/opt/mattermost-offline-bundle/apt-repo` را ببینی.
+
+### mm-db و mm-app را نمی‌بینم
+
+اول ببین کانتینرها اصلاً ساخته شده‌اند یا نه:
+
+```bash
+docker ps -a
+```
+
+بعد لاگ بگیر:
+
+```bash
+cd /opt/mattermost-offline-bundle
+docker compose --env-file .env -f compose.yaml logs --tail=100
+```
+
+اگر image پیدا نشد، یعنی `docker load -i docker-images.tar` درست انجام نشده است.
+
+### نسخه Ubuntu در WSL و سرور فرق دارد
+
+در این حالت ممکن است debها نصب نشوند. بهتر است WSL را با همان نسخه Ubuntu سرور بسازی و باندل را دوباره تولید کنی.
 
 {{< edit >}}
 
